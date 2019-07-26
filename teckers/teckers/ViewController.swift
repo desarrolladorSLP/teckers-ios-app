@@ -12,13 +12,26 @@ import GoogleSignIn
 
 class ViewController: UIViewController, GIDSignInUIDelegate {
 
+    @IBOutlet weak var yellowView: UIView!
+    
+    @IBOutlet weak var signInButton: GIDSignInButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signIn()
+        signUI()
     }
-
-
+    
+    func signUI(){
+        signInButton.layer.cornerRadius = 20
+        yellowView.layer.cornerRadius = 40
+    }
+    
+    func doSegue(){
+        self.performSegue(withIdentifier: "segueToSigIn", sender: self)
+    }
+    
 }
 

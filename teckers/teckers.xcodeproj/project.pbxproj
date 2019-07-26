@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		11C9EAE2844D44721F94F837 /* Pods_teckersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76485E88A007657CB8C2E05 /* Pods_teckersTests.framework */; };
 		1DA4050B22DF9EF700902A05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DA4050A22DF9EF700902A05 /* GoogleService-Info.plist */; };
+		4D1ADC9822E8ACBE0037352B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ADC9722E8ACBD0037352B /* User.swift */; };
+		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
 		9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33C22D7A6D500342CEE /* AppDelegate.swift */; };
 		9B90A33F22D7A6D500342CEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33E22D7A6D500342CEE /* ViewController.swift */; };
 		9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B90A34022D7A6D500342CEE /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		1F80D6907442780EDC465436 /* Pods-teckers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckers.debug.xcconfig"; path = "Target Support Files/Pods-teckers/Pods-teckers.debug.xcconfig"; sourceTree = "<group>"; };
 		25F776C77010B7913D3EFA22 /* Pods-teckers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckers.release.xcconfig"; path = "Target Support Files/Pods-teckers/Pods-teckers.release.xcconfig"; sourceTree = "<group>"; };
 		48D288AE27B5F105BA13DC05 /* Pods-teckersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.release.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.release.xcconfig"; sourceTree = "<group>"; };
+		4D1ADC9722E8ACBD0037352B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		8022EB269F83E80CEC773854 /* Pods_teckers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teckers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33922D7A6D500342CEE /* teckers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teckers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33C22D7A6D500342CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				1DA4050A22DF9EF700902A05 /* GoogleService-Info.plist */,
 				9B90A33C22D7A6D500342CEE /* AppDelegate.swift */,
 				9B90A33E22D7A6D500342CEE /* ViewController.swift */,
+				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
+				4D1ADC9722E8ACBD0037352B /* User.swift */,
 				9B90A34022D7A6D500342CEE /* Main.storyboard */,
 				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
 				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
@@ -320,6 +326,8 @@
 			files = (
 				9B90A33F22D7A6D500342CEE /* ViewController.swift in Sources */,
 				9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */,
+				4D1ADC9822E8ACBE0037352B /* User.swift in Sources */,
+				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,8 +12,10 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
 
     var window: UIWindow?
+    let userDefault = UserDefaults()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
@@ -22,26 +24,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        return true
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
+        if userDefault != UserDefaults(){
+            self.showViewSigned()
         }
         
+        return true
+    }
+   
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        if let Error = error {
+            print(Error.localizedDescription)
+            return
+        }
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        //...
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            self.userDefault.set(true, forKey: "usersignedin")
+            self.userDefault.synchronize()
+            
+            let fullName = user.profile.name
+            print("Name: \(fullName ?? "Nada")")
+            
+            self.showViewSigned()
+            
+        }
+    }
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+    
+    func showViewSigned(){
+        DispatchQueue.main.async { () -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "SignedInViewControllerID")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
     }
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
         -> Bool {
             return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
+                sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication]
+                as? String, annotation: [:])
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
