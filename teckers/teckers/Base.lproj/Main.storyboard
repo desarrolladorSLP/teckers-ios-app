@@ -62,7 +62,7 @@
                     <connections>
                         <outlet property="signInButton" destination="UPq-Tw-RLD" id="piH-br-2Tl"/>
                         <outlet property="yellowView" destination="Was-HK-eFX" id="Bq2-7M-Ttm"/>
-                        <segue destination="Vwy-cf-2wf" kind="show" identifier="segueToSigIn" id="psI-ad-9ST"/>
+                        <segue destination="Vwy-cf-2wf" kind="show" identifier="toHome" id="psI-ad-9ST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="didTapSignOut:" destination="Vwy-cf-2wf" eventType="touchUpInside" id="rQx-aV-5MV"/>
-                                    <action selector="pressSignOut:" destination="Vwy-cf-2wf" eventType="touchUpInside" id="fPv-ep-bSI"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backSigngIn" id="kTb-Y5-m0a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqZ-oi-lN6">
@@ -141,4 +141,7 @@
     <resources>
         <image name="Copia de teckers logo-4" width="1475" height="1325"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kTb-Y5-m0a"/>
+    </inferredMetricsTieBreakers>
 </document>

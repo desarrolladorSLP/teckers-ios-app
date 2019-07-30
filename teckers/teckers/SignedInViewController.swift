@@ -13,6 +13,7 @@ import GoogleSignIn
 class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +33,15 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-        //GIDSignIn.sharedInstance()?.signOut()
+        GIDSignIn.sharedInstance()?.signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            
+            userDefault.removeObject(forKey: "backSigngIn")
+            userDefault.synchronize()
+            self.dismiss(animated: true, completion: nil)
+            print("I'm out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }

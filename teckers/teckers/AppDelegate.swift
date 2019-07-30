@@ -24,9 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        if userDefault != UserDefaults(){
-            self.showViewSigned()
-        }
         
         return true
     }
@@ -43,28 +40,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            self.userDefault.set(true, forKey: "usersignedin")
-            self.userDefault.synchronize()
             
             let fullName = user.profile.name
             print("Name: \(fullName ?? "Nada")")
             
-            self.showViewSigned()
-            
-        }
-    }
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
-    
-    func showViewSigned(){
-        DispatchQueue.main.async { () -> Void in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "SignedInViewControllerID")
+            
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
     }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+    //SignedInViewControllerID es el identificador
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
