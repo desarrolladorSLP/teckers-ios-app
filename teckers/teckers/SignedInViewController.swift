@@ -13,7 +13,6 @@ import GoogleSignIn
 class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
-    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +20,14 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     func setUpUI(){
         
-        guard let email = Auth.auth().currentUser?.email else { return }
+        guard let email = Auth.auth().currentUser?.email else{
+            return
+        }
+        print(email)
         emailLabel.text = email
-        emailLabel.textAlignment = .center
         
+        emailLabel.textAlignment = .center
+
         signOutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         signOutButton.setTitle("Sign Out", for: UIControl.State.normal)
         signOutButton.backgroundColor = .red
@@ -38,9 +41,7 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
         do {
             try firebaseAuth.signOut()
             
-            userDefault.removeObject(forKey: "backSigngIn")
-            userDefault.synchronize()
-            self.dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
             print("I'm out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)

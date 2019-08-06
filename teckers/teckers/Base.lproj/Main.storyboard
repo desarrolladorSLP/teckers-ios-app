@@ -85,7 +85,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="didTapSignOut:" destination="Vwy-cf-2wf" eventType="touchUpInside" id="rQx-aV-5MV"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backSigngIn" id="kTb-Y5-m0a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqZ-oi-lN6">
@@ -141,7 +140,4 @@
     <resources>
         <image name="Copia de teckers logo-4" width="1475" height="1325"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kTb-Y5-m0a"/>
-    </inferredMetricsTieBreakers>
 </document>
