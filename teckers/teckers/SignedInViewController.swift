@@ -23,9 +23,7 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
         guard let email = Auth.auth().currentUser?.email else{
             return
         }
-        print(email)
         emailLabel.text = email
-        
         emailLabel.textAlignment = .center
 
         signOutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
@@ -36,16 +34,13 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-        GIDSignIn.sharedInstance()?.signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            
+            GIDSignIn.sharedInstance()?.signOut()
             navigationController?.popViewController(animated: true)
-            print("I'm out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-    }
-    
+    }    
 }

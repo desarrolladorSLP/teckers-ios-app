@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import Alamofire
 
 class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
@@ -29,24 +30,32 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("Google Sign In \n\n\n")
         if let Error = error {
             print("Error: \(Error.localizedDescription)")
             return
         }
-        print("Sign in \n")
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
-            let fullName = user.profile.name
-            print("Name: \(fullName ?? "Nada")")
-            self.performSegue(withIdentifier: "toHome", sender: nil)
-            
+            Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+                if let error = error {
+                    print(error)
+                    return;
+                }
+                AF.request(AuthRouter.auth(token: idToken!)).responseJSON { response in
+                    if let error = response.error {
+                        print("Error: \(error)")
+                    } else if let jsonResponseBackend = response.value as? [String:Any] {
+                        let authFromBackend = AuthentificationInfo(JSON: jsonResponseBackend)
+                    }
+                }
+            }
         }
+        self.performSegue(withIdentifier: "toHome", sender: nil)
     }
 }
-
