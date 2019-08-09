@@ -12,8 +12,7 @@ import GoogleSignIn
 import Alamofire
 
 class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
-
-    @IBOutlet weak var yellowView: UIView!
+  @IBOutlet weak var yellowView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton! //Google Button
     
     override func viewDidLoad() {
