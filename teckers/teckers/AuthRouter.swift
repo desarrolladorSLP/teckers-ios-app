@@ -12,8 +12,6 @@ import Alamofire
 enum AuthRouter: URLRequestConvertible {
     case auth(token: String)
     
-    static let baseURLString = "https://teckers-backend.herokuapp.com"
-    
     var method: HTTPMethod {
         switch self {
         case .auth:
@@ -39,11 +37,16 @@ enum AuthRouter: URLRequestConvertible {
     }
      
     func asURLRequest() throws -> URLRequest {
-        let url = try AuthRouter.baseURLString.asURL()
+        let url = try Road.baseURL.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        urlRequest.httpMethod = method.rawValue
+        let username = "technovationslp-app"
+        let password = "12345"
+        let loginString = String(format: "%@:%@", username, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
         
-        urlRequest.setValue("Basic dGVjaG5vdmF0aW9uc2xwLWFwcDoxMjM0NQ==", forHTTPHeaderField: "Authorization")
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         
         return try URLEncoding.default.encode(urlRequest, with: parameters)

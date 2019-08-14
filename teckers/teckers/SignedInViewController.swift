@@ -34,13 +34,14 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            GIDSignIn.sharedInstance()?.signOut()
-            navigationController?.popViewController(animated: true)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        let result = Authentification.singOut()
+        
+        if result.flag {
+            let alertAction = Alert(title: "Error", massage: result.error, type: 0)
+        
+            self.present(alertAction.show(), animated: true, completion: nil)
+            return
         }
+        self.navigationController?.popViewController(animated: true)
     }    
 }

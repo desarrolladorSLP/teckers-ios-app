@@ -1,14 +1,15 @@
 //
-//  Auth.swift
+//  AuthentificationInfo.swift
 //  teckers
 //
-//  Created by Ricardo Granja on 8/8/19.
+//  Created by Ricardo Granja on 8/13/19.
 //  Copyright © 2019 Teckers. All rights reserved.
 //
 
 import Foundation
 
-struct AuthentificationInfo: Codable {
+struct AuthenticationInfo: Codable {
+    
     var email: String = ""
     var access_token: String = ""
     var name: String = ""
