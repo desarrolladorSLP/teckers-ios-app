@@ -37,17 +37,25 @@ enum AuthRouter: URLRequestConvertible {
     }
      
     func asURLRequest() throws -> URLRequest {
-        let url = try Road.baseURL.asURL()
+        let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        let username = "technovationslp-app"
-        let password = "12345"
-        let loginString = String(format: "%@:%@", username, password)
-        let loginData = loginString.data(using: String.Encoding.utf8)!
-        let base64LoginString = loginData.base64EncodedString()
         
-        urlRequest.httpMethod = method.rawValue
-        urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        if let path = Bundle.main.url(forResource: "InfoApplication", withExtension: "plist") {
+            do {
+                let dataPlist = try Data(contentsOf: path)
+                let pListData = try PropertyListSerialization.propertyList(from: dataPlist, options: [], format: nil) as! [String:Any]
+                let username = pListData["USER"] as! String
+                let password = pListData["PASSWORD"] as! String
+                let loginString = String(format: "%@:%@", username, password)
+                let loginData = loginString.data(using: String.Encoding.utf8)!
+                let base64LoginString = loginData.base64EncodedString()
+                urlRequest.httpMethod = method.rawValue
+                urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+            } catch {
+                print("Error leyendo plist: \(error)")
+            }
+        }
         
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }

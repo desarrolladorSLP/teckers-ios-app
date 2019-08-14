@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         authentification = Authentification()
         if(GIDSignIn.sharedInstance()?.currentUser != nil){
-            self.performSegue(withIdentifier: Road.toHome.rawValue, sender: nil)
+            self.performSegue(withIdentifier: RoadStoryboards.toHome.rawValue, sender: nil)
         }
         GIDSignIn.sharedInstance().uiDelegate = self
         signUI()

@@ -18,7 +18,7 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         setUpUI()
     }
-    func setUpUI(){
+    func setUpUI() {
         
         guard let email = Auth.auth().currentUser?.email else{
             return

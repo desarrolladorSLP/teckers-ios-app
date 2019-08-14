@@ -1,5 +1,5 @@
 //
-//  Auth.swift
+//  Authentification.swift
 //  teckers
 //
 //  Created by Ricardo Granja on 8/8/19.
@@ -34,8 +34,8 @@ class Authentification: NSObject, GIDSignInDelegate  {
         if let Error = error {
             let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
             
-            if topMostController() != nil {
-                topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
+            if self.topMostController() != nil {
+                self.topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
             }
             return
         }
@@ -55,7 +55,7 @@ class Authentification: NSObject, GIDSignInDelegate  {
         }
     }
     
-    func getTockenRefresh() {
+    private func getTockenRefresh() {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let Error = error {
                 let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
@@ -86,8 +86,8 @@ class Authentification: NSObject, GIDSignInDelegate  {
     }
     
     func segueToHome() {
-        let storyBoard = UIStoryboard(name: Road.baseStoryboard, bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: Road.SignedInViewController)
+        let storyBoard = UIStoryboard(name: RoadStoryboards.baseStoryboard.rawValue, bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: RoadStoryboards.SignedInViewController.rawValue)
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         appDelegate?.window?.rootViewController = controller
         
