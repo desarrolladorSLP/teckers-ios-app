@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RoadStoryboards: String {
+enum Storyboards: String {
     case toHome = "toHome"
     case baseURL = "https://teckers-backend.herokuapp.com"
     case baseStoryboard = "Main"
