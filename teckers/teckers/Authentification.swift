@@ -13,6 +13,8 @@ import Alamofire
 
 class Authentification: NSObject, GIDSignInDelegate  {
     
+    var delegate : InteractionScreenDelegate?
+    
     override init(){
         super.init()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -32,11 +34,7 @@ class Authentification: NSObject, GIDSignInDelegate  {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let Error = error {
-            let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-            
-            if self.topMostController() != nil {
-                self.topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
-            }
+            self.delegate?.error(message: Error.localizedDescription)
             return
         }
         guard let authentication = user.authentication else { return }
@@ -44,11 +42,7 @@ class Authentification: NSObject, GIDSignInDelegate  {
         
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let Error = error {
-                let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                
-                if self.topMostController() != nil {
-                    self.topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
-                }
+                self.delegate?.error(message: Error.localizedDescription)
                 return
             }
             self.getTockenRefresh()
@@ -58,11 +52,7 @@ class Authentification: NSObject, GIDSignInDelegate  {
     private func getTockenRefresh() {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let Error = error {
-                let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                
-                if self.topMostController() != nil {
-                    self.topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
-                }
+                self.delegate?.error(message: Error.localizedDescription)
                 return;
             }
             self.alamonfireRequest(with: idToken)
@@ -72,38 +62,12 @@ class Authentification: NSObject, GIDSignInDelegate  {
     func alamonfireRequest(with idToken: String?) {
         Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON { response in
             if let Error = response.error {
-                let alertNotification = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                
-                if self.topMostController() != nil {
-                    self.topMostController()!.present(alertNotification.show(), animated: true, completion: nil)
-                }
+                self.delegate?.error(message: Error.localizedDescription)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
-                self.segueToHome()
+                self.delegate?.goTo(with: RoadStoryboards.toHome.rawValue)
             }
         }
-    }
-    
-    func segueToHome() {
-        let storyBoard = UIStoryboard(name: RoadStoryboards.baseStoryboard.rawValue, bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: RoadStoryboards.SignedInViewController.rawValue)
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.window?.rootViewController = controller
-        
-    }
-    
-    func topMostController() -> UIViewController? {
-        guard let window = UIApplication.shared.keyWindow, let rootViewController = window.rootViewController else {
-            return nil
-        }
-        
-        var topController = rootViewController
-        
-        while let newTopController = topController.presentedViewController {
-            topController = newTopController
-        }
-        
-        return topController
     }
 }
