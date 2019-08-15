@@ -10,6 +10,5 @@ import Foundation
 
 protocol InteractionScreenDelegate {
     func goTo(with segueIdentifier : String )
-    func doLoading()
     func error(message: String)
 }

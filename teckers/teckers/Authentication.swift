@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 import Alamofire
 
-class Authentification: NSObject, GIDSignInDelegate  {
+class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     var delegate : InteractionScreenDelegate?
     
@@ -21,7 +21,7 @@ class Authentification: NSObject, GIDSignInDelegate  {
         GIDSignIn.sharedInstance().delegate = self
     }
     
-    static func singOut() -> (flag: Bool, error: String) {
+    func singOut() -> (flag: Bool, error: String) {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()

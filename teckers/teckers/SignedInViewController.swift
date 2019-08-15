@@ -34,8 +34,7 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-        let result = Authentification.singOut()
-        
+        let result = AuthManager.instance().singOut()
         if result.flag {
             let alertAction = Alert(title: "Error", massage: result.error, type: 0)
         
@@ -43,5 +42,5 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
             return
         }
         self.navigationController?.popViewController(animated: true)
-    }    
+    }
 }
