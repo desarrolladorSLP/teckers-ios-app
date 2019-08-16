@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum Segues: String {
+  case Home: "toHome"
+}
