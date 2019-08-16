@@ -9,8 +9,6 @@
 import Foundation
 
 enum Storyboards: String {
-    case toHome = "toHome"
-    case baseURL = "https://teckers-backend.herokuapp.com"
     case baseStoryboard = "Main"
     case SignedInViewController = "SignedInViewControllerID"
 }

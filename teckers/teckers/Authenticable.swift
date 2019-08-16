@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Authenticable {
-    func singOut() -> (flag: Bool, error: String) 
+    func signOut(onSuccess success: @escaping () -> Void,
+                 onFailure failure: @escaping (_ error: Error?) -> Void)
 }

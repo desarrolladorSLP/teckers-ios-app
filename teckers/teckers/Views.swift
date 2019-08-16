@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum Views: String {
+    case SignedInViewController = "SignedInViewControllerID"
+}

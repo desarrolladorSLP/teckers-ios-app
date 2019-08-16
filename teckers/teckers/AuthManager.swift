@@ -10,9 +10,7 @@ import Foundation
 
 class AuthManager {
     
-    private static var auth : Authenticable = Authentication()
-    
     static func instance() -> Authenticable {
-        return auth
+        return Authentication()
     }
 }

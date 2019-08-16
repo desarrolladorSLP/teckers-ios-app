@@ -34,13 +34,14 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-        let result = AuthManager.instance().singOut()
-        if result.flag {
-            let alertAction = Alert(title: "Error", massage: result.error, type: 0)
+        AuthManager.instance().signOut(onSuccess: {
+            self.navigationController?.popViewController(animated: true)
+        }, onFailure: { (error) in
+            if let signOutError = error{
+                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
+                self.present(alertAction.show(), animated: true, completion: nil)
+            }
+        })
         
-            self.present(alertAction.show(), animated: true, completion: nil)
-            return
-        }
-        self.navigationController?.popViewController(animated: true)
     }
 }

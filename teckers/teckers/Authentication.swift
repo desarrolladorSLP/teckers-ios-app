@@ -21,14 +21,15 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         GIDSignIn.sharedInstance().delegate = self
     }
     
-    func singOut() -> (flag: Bool, error: String) {
+    func signOut(onSuccess success: @escaping () -> Void,
+                 onFailure failure: @escaping (_ error: Error?) -> Void)  {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance()?.signOut()
-            return (false, "")
+            success()
         } catch let signOutError as NSError {
-            return (true, signOutError.localizedDescription)
+            failure (signOutError)
         }
     }
     
@@ -55,18 +56,19 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
                 self.delegate?.error(message: Error.localizedDescription)
                 return;
             }
-            self.alamonfireRequest(with: idToken)
+            self.backendAuthenticationRequest(with: idToken)
         }
     }
     
-    func alamonfireRequest(with idToken: String?) {
+    func backendAuthenticationRequest(with idToken: String?) {
         Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON { response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
-                self.delegate?.goTo(with: RoadStoryboards.toHome.rawValue)
+                
+                self.delegate?.goTo(with: Segues.toHome.rawValue)
             }
         }
     }

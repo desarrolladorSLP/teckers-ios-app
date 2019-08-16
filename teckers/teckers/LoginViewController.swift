@@ -13,13 +13,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var yellowView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton! //Google Button
     
-    var authentification: Authentication?
+    private var authentification: Authentication?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         authentification = Authentication()
         if(GIDSignIn.sharedInstance()?.currentUser != nil){
-            self.performSegue(withIdentifier: RoadStoryboards.toHome.rawValue, sender: nil)
+            self.performSegue(withIdentifier: Segues.toHome.rawValue, sender: nil)
         }
         authentification?.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -34,8 +34,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
 extension LoginViewController : InteractionScreenDelegate{
     
-    func goTo(with segueIdentifier: String) {
-        self.performSegue(withIdentifier: segueIdentifier, sender: nil)
+    func goTo(with segueIdentifier: Segues) {
+        self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
     }
     
     func error(message : String){
