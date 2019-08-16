@@ -10,5 +10,4 @@ import Foundation
 
 enum Storyboards: String {
     case baseStoryboard = "Main"
-    case SignedInViewController = "SignedInViewControllerID"
 }
