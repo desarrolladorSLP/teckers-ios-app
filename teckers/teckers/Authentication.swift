@@ -68,7 +68,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
                 
-                self.delegate?.goTo(with: Segues.toHome.rawValue)
+                self.delegate?.goTo(with: Segues.toHome)
             }
         }
     }

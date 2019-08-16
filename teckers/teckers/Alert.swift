@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class Alert {
-    var title = ""
-    var massage = ""
-    var type = -1
+    private var title = ""
+    private var massage = ""
+    private var type = -1
     
     init(title: String, massage: String, type: Int) {
         self.title = title
