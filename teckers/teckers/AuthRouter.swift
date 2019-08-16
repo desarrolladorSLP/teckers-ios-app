@@ -53,10 +53,9 @@ enum AuthRouter: URLRequestConvertible {
                 urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
             } catch {
-                print("Error leyendo plist: \(error)")
+                return error as! URLRequest
             }
         }
-        
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
