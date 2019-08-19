@@ -9,6 +9,9 @@ target 'teckers' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'Alamofire', '~> 4.8'
+  pod 'KeychainAccess'
+  
   target 'teckersTests' do
     inherit! :search_paths
     # Pods for testing
