@@ -17,8 +17,9 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     private var onFailure : ((_ error: Error?) -> Void)?
     private var TokenDiccionary = TokenKey()
     
-    override init(){
+    init( onFailure failure: @escaping (_ error: Error?) -> Void ){
         super.init()
+        self.onFailure = failure
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
     }
@@ -63,12 +64,14 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
                 self.delegate?.error(message: Error.localizedDescription)
                 return;
             }
-            self.backendAuthenticationRequest(with: idToken)
+            if let token = idToken {
+                self.backendAuthenticationRequest(with: token)
+            }
         }
     }
     
-    func backendAuthenticationRequest(with idToken: String?) {
-        Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON {
+    func backendAuthenticationRequest(with idToken: String) {
+        Alamofire.request(AuthRouter.auth(token: idToken)).responseJSON {
             response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
@@ -76,9 +79,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 do{
                     let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
-                    if let token = idToken{
-                        try self.saveToken(accessToken: authFromBackend.access_token, and: token)
-                    }
+                    try self.saveToken(accessToken: authFromBackend.access_token, and: idToken)
                     self.delegate?.goTo(with: Segues.toHome)
                 }
                 catch{
