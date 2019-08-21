@@ -27,6 +27,10 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         self.delegate = delegate
     }
     
+    func setDelegate(_ delegate : InteractionScreenDelegate){
+        self.delegate = delegate
+    }
+    
     func signOut(onSuccess success: @escaping () -> Void,
                  onFailure failure: @escaping (_ error: Error?) -> Void)  {
         onFailure = failure
@@ -95,6 +99,15 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         do{
             try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
             try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
+        }
+        catch{
+            throw error
+        }
+    }
+    func saveToken(accessToken: String, and refreshToken : String) throws{
+        do{
+            try self.TokenDiccionary.setToken(key: "Refresh Token", with : refreshToken)
+            try self.TokenDiccionary.setToken(key: "Access Token", with : accessToken)
         }
         catch{
             throw error

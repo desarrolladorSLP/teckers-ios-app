@@ -83,7 +83,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1034.1796875" y="70.278184480234259"/>
+=======
+            <point key="canvasLocation" x="1044.9275362318842" y="75"/>
+>>>>>>> Implementation of keychain
         </scene>
         <!--Signed In View Controller-->
         <scene sceneID="3YH-Bf-eA4">

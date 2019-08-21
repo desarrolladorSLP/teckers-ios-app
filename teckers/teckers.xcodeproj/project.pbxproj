@@ -51,7 +51,11 @@
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
 		4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD31534232B20BA00429B0A /* MessagesKeys.swift */; };
 		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
+<<<<<<< HEAD
 		4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF508AE230CE5E7000C2B95 /* Token.swift */; };
+=======
+		4DF508AF230CE5E7000C2B95 /* TokenKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF508AE230CE5E7000C2B95 /* TokenKey.swift */; };
+>>>>>>> Implementation of keychain
 		9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33C22D7A6D500342CEE /* AppDelegate.swift */; };
 		9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33E22D7A6D500342CEE /* LoginViewController.swift */; };
 		9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B90A34022D7A6D500342CEE /* Main.storyboard */; };
@@ -119,7 +123,11 @@
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		4DD31534232B20BA00429B0A /* MessagesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesKeys.swift; sourceTree = "<group>"; };
 		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		4DF508AE230CE5E7000C2B95 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+=======
+		4DF508AE230CE5E7000C2B95 /* TokenKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenKey.swift; sourceTree = "<group>"; };
+>>>>>>> Implementation of keychain
 		8022EB269F83E80CEC773854 /* Pods_teckers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teckers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33922D7A6D500342CEE /* teckers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teckers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33C22D7A6D500342CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +205,11 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				4DF508AE230CE5E7000C2B95 /* TokenKey.swift */,
+				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
+>>>>>>> Implementation of keychain
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
 				9B90A34822D7A6D600342CEE /* Info.plist */,
@@ -470,9 +483,14 @@
 				4DA6471D2305B23900376414 /* AuthManager.swift in Sources */,
 				4D3C2B142332DFFC00DEAA44 /* Views.swift in Sources */,
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
+<<<<<<< HEAD
 				4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */,
 				4D45AE29231D87CC003A02B4 /* MessageCell.swift in Sources */,
 				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
+=======
+				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
+				4DF508AF230CE5E7000C2B95 /* TokenKey.swift in Sources */,
+>>>>>>> Implementation of keychain
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
