@@ -18,7 +18,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         authentification = Authentication()
-        authentification?.setDelegate(self)
+        authentification?.setDelegate(self, onFailure: { (error) in
+            if let signOutError = error{
+                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
+                self.present(alertAction.show(), animated: true, completion: nil)
+            }
+        })
         
         if(GIDSignIn.sharedInstance()?.currentUser != nil){
             self.performSegue(withIdentifier: Segues.toHome.rawValue, sender: nil)

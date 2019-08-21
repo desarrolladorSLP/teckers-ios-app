@@ -17,14 +17,14 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     private var onFailure : ((_ error: Error?) -> Void)?
     private var TokenDiccionary = TokenKey()
     
-    init( onFailure failure: @escaping (_ error: Error?) -> Void ){
+    override init( ){
         super.init()
-        self.onFailure = failure
+        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
     }
-    
-    func setDelegate(_ delegate : InteractionScreenDelegate){
+    func setDelegate(_ delegate : InteractionScreenDelegate, onFailure failure: @escaping (_ error: Error?) -> Void){
+        self.onFailure = failure
         self.delegate = delegate
     }
     
