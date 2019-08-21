@@ -13,7 +13,9 @@ import Alamofire
 
 class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
-    var delegate : InteractionScreenDelegate?
+    private var delegate : InteractionScreenDelegate?
+    private var onFailure : ((_ error: Error?) -> Void)?
+    private var TokenDiccionary = TokenKey()
     
     override init(){
         super.init()
@@ -21,10 +23,15 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         GIDSignIn.sharedInstance().delegate = self
     }
     
+    func setDelegate(_ delegate : InteractionScreenDelegate){
+        self.delegate = delegate
+    }
+    
     func signOut(onSuccess success: @escaping () -> Void,
                  onFailure failure: @escaping (_ error: Error?) -> Void)  {
-        let firebaseAuth = Auth.auth()
+        onFailure = failure
         do {
+            let firebaseAuth = Auth.auth()
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance()?.signOut()
             success()
@@ -61,15 +68,32 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     
     func backendAuthenticationRequest(with idToken: String?) {
-        Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON { response in
+        Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON {
+            response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
-                let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
-                
-                self.delegate?.goTo(with: Segues.toHome)
+                do{
+                    let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
+                    if let token = idToken{
+                        try self.saveToken(accessToken: authFromBackend.access_token, and: token)
+                    }
+                    self.delegate?.goTo(with: Segues.toHome)
+                }
+                catch{
+                    self.onFailure!(error)
+                }
             }
+        }
+    }
+    func saveToken(accessToken: String, and refreshToken : String) throws{
+        do{
+            try self.TokenDiccionary.setToken(key: "Refresh Token", with : refreshToken)
+            try self.TokenDiccionary.setToken(key: "Access Token", with : accessToken)
+        }
+        catch{
+            throw error
         }
     }
 }
