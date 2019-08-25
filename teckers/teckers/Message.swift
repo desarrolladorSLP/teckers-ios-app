@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 
 class Message {
-    var message = String()
-    var image = UIImage()
-    var date = Date()
+    var text : String
+    var date : Date
     
-    init(message : String, image : UIImage, date: Date) {
-        self.message = message
-        self.image = image
+    init(message : String, user : User, date: Date) {
+        self.text = message
         self.date = date
     }
 }
