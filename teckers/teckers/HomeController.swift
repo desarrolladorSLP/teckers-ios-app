@@ -17,16 +17,9 @@ class HomeController: UIViewController {
         setupUI()
     }
     
-    func setupUI(){
+    func setupUI() {
         addMessageButton.backgroundColor = .purple
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.tintColor = .white
-    }
-    
-    func createArrayMessages(){
-        
-    }
-    @objc func tapButton(){
-        print("Tap Button")
     }
 }
