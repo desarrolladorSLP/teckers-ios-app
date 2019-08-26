@@ -63,7 +63,7 @@ class HomeController: UIViewController {
         setupSegmentedController()
     }
     func setupAddMessageButton(){
-        addMessageButton.backgroundColor = Color.purple
+        addMessageButton.backgroundColor = .purple
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.isHidden = true
         
