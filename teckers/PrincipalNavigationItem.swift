@@ -19,18 +19,12 @@ class PrincipalNavigationItem: UINavigationItem {
         self.setupUI()
     }
     
-    func setupUI(){
-        let icon = UIImage(named: "Logo-9")
+    func setupUI() {
+        let icon = UIImage(named: Image.LogoBar.rawValue)
         let imageView = UIImageView(image: icon)
         imageView.contentMode = .scaleAspectFit
         
-        let hamburgerButton =  UIBarButtonItem(image:UIImage(named: "menu-rounded"), style: .plain, target: self, action: #selector(tapButton))
-        
-        self.leftBarButtonItem = hamburgerButton
         self.titleView = imageView
     }
-    
-    @objc func tapButton(){
-        print("Tap Button")
-    }
+
 }
