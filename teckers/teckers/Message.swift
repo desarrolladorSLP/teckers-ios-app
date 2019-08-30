@@ -11,9 +11,9 @@ import UIKit
 
 class Message {
     var text : String
-    var date : Date
+    var date : String
     
-    init(message : String, user : User, date: Date) {
+    init(message : String, date: String) {
         self.text = message
         self.date = date
     }

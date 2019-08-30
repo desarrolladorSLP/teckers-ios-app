@@ -21,9 +21,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sy5-Jo-8M2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PXg-AT-kN3" id="pji-kX-5LF"/>
+                                    <outlet property="delegate" destination="PXg-AT-kN3" id="Ycv-78-doS"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmS-bP-sU7">
-                                <rect key="frame" x="354" y="753" width="50" height="50"/>
+                                <rect key="frame" x="335" y="744" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="L5J-gi-IYP"/>
@@ -37,12 +41,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JRz-Gl-5yo" firstAttribute="bottom" secondItem="PmS-bP-sU7" secondAttribute="bottom" constant="10" id="CHl-ql-Kb3"/>
+                            <constraint firstItem="JRz-Gl-5yo" firstAttribute="bottom" secondItem="PmS-bP-sU7" secondAttribute="bottom" constant="19" id="CHl-ql-Kb3"/>
                             <constraint firstItem="Sy5-Jo-8M2" firstAttribute="leading" secondItem="JRz-Gl-5yo" secondAttribute="leading" id="D8a-Cy-9AM"/>
                             <constraint firstItem="Sy5-Jo-8M2" firstAttribute="trailing" secondItem="JRz-Gl-5yo" secondAttribute="trailing" id="OFm-SL-dh1"/>
                             <constraint firstItem="Sy5-Jo-8M2" firstAttribute="bottom" secondItem="JRz-Gl-5yo" secondAttribute="bottom" id="cct-kB-0Mn"/>
                             <constraint firstItem="Sy5-Jo-8M2" firstAttribute="top" secondItem="JRz-Gl-5yo" secondAttribute="top" id="ldK-iL-Ld3"/>
-                            <constraint firstItem="JRz-Gl-5yo" firstAttribute="trailing" secondItem="PmS-bP-sU7" secondAttribute="trailing" constant="10" id="ymg-bS-O0D"/>
+                            <constraint firstItem="JRz-Gl-5yo" firstAttribute="trailing" secondItem="PmS-bP-sU7" secondAttribute="trailing" constant="29" id="ymg-bS-O0D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRz-Gl-5yo"/>
                     </view>
@@ -50,6 +54,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addMessageButton" destination="PmS-bP-sU7" id="lhS-Be-waH"/>
+                        <outlet property="messageTableView" destination="Sy5-Jo-8M2" id="WFT-MR-Mqp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSO-Bs-0m6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,7 +64,7 @@
         <!--Tekers-->
         <scene sceneID="omg-S9-kMP">
             <objects>
-                <viewController id="9aC-rO-frU" customClass="HomeController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9aC-rO-frU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rTr-o5-g2R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +82,9 @@
         <scene sceneID="4K1-3M-R5e">
             <objects>
                 <tabBarController id="cgR-kB-Ffe" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Tekers" id="tWw-do-Zvk" customClass="PrincipalNavigationItem" customModule="teckers" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="Tekers" id="tWw-do-Zvk" customClass="PrincipalNavigationItem" customModule="teckers" customModuleProvider="target">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Coh-TC-kVL"/>
+                    </navigationItem>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="center" semanticContentAttribute="forceLeftToRight" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="RhO-hB-G2A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,6 +154,7 @@
         <image name="add" width="16" height="16"/>
         <image name="calendar" width="24" height="24"/>
         <image name="copy" width="30" height="30"/>
+        <image name="menu" width="30" height="30"/>
         <image name="new-post" width="20" height="20"/>
         <image name="people-24" width="24" height="24"/>
     </resources>

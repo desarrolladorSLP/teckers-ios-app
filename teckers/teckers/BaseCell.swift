@@ -8,20 +8,25 @@
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class BaseCell: UITableViewCell {
     
-    private var messages : [Message]?
-    private var friend : User?
+    @IBOutlet weak var imageUser: UIImageView!
+    @IBOutlet weak var nameUserLabel: UILabel!
+    @IBOutlet weak var lastMessageLabel: UILabel!
+    @IBOutlet weak var hourLastMessageLabel: UILabel!
     
-    func setFriend(friend : User){
-        self.friend = friend
-    }
+    private var friendMessage : MessagesUser?
     
-    func setMessages(messages : [Message]) {
-        self.messages = messages
-    }
-    
-    func addMessage(message : Message) {
-        messages?.append(message)
+    func setFriendMessages(friend : MessagesUser){
+        friendMessage = friend
+        let userFriend = friend.getInformationFriend()
+        let image =  UIImage(named: userFriend.imageURL)
+        imageUser.image = image
+        imageUser.layer.cornerRadius = imageUser.frame.height / 2
+        nameUserLabel.text = userFriend.name
+        if let lastMessage = friendMessage?.getLastMessage(){
+            lastMessageLabel.text = lastMessage.text
+            hourLastMessageLabel.text = lastMessage.date
+        }
     }
 }
