@@ -18,26 +18,32 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        messagesList = createMessagesUsers()
         
-        messageTableView.delegate = self
-        messageTableView.dataSource = self
-        
-        let nibName = UINib(nibName: "BaseCell", bundle: nil)
-        messageTableView.register(nibName, forCellReuseIdentifier: "MessageCell")
+        for _ in 1...10{
+            messagesList.append(contentsOf: createMessagesUsers())
+        }
     }
     
     func setupUI() {
-        addMessageButton.backgroundColor = .purple
-        addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
-        addMessageButton.tintColor = .white
+        setupTableView()
+        setupButton()
         setupNavigateBar()
     }
-    
+    func setupTableView(){
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
+        let nibName = UINib(nibName: "BaseCell", bundle: nil)
+        messageTableView.register(nibName, forCellReuseIdentifier: "MessageCell")
+    }
     func setupNavigateBar(){
         let searchController = UISearchController(searchResultsController: nil)
         navigationController?.navigationItem.searchController = searchController
         messageTableView.tableHeaderView = searchController.searchBar
+    }
+    func setupButton(){
+        addMessageButton.backgroundColor = .purple
+        addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
+        addMessageButton.tintColor = .white
     }
     
     func createMessagesUsers() -> [MessagesUser]{
@@ -50,7 +56,6 @@ class HomeController: UIViewController {
         
         var dateComponents = DateComponents()
         dateComponents.setValue(-1, for: .day)
-        
         let user1 = MessagesUser(friend: User(name: "Chris Evans", imageURL: Image.Profile1.rawValue ))
         let messages = [Message(message: "Hola", date: formattedDate) ]
         user1.setMessages(messages: messages)
@@ -62,7 +67,8 @@ class HomeController: UIViewController {
     }
 }
 
-extension HomeController : UITableViewDataSource, UITableViewDelegate{
+extension HomeController : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesList.count
     }
@@ -70,11 +76,14 @@ extension HomeController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messagesList[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! BaseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
         let messageCell = cell
         messageCell.setFriendMessages(friend: message)
         return cell
-        
+
     }
+    
+}
+extension HomeController : UITableViewDelegate{
     
 }

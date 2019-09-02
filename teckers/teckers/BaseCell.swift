@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCell: UITableViewCell {
+class MessageCell: UITableViewCell {
     
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var nameUserLabel: UILabel!
