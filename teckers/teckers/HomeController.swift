@@ -31,8 +31,14 @@ class HomeController: UIViewController {
         addMessageButton.backgroundColor = .purple
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.tintColor = .white
+        setupNavigateBar()
     }
     
+    func setupNavigateBar(){
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationController?.navigationItem.searchController = searchController
+        messageTableView.tableHeaderView = searchController.searchBar
+    }
     
     func createMessagesUsers() -> [MessagesUser]{
         let now = Date()

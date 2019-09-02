@@ -55,9 +55,18 @@
                     <connections>
                         <outlet property="addMessageButton" destination="PmS-bP-sU7" id="lhS-Be-waH"/>
                         <outlet property="messageTableView" destination="Sy5-Jo-8M2" id="WFT-MR-Mqp"/>
+                        <outlet property="searchDisplayController" destination="LOj-Xa-LBK" id="xdk-3K-RuV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSO-Bs-0m6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="LOj-Xa-LBK">
+                    <connections>
+                        <outlet property="delegate" destination="PXg-AT-kN3" id="B1L-fd-6NM"/>
+                        <outlet property="searchContentsController" destination="PXg-AT-kN3" id="FaD-Rs-E0m"/>
+                        <outlet property="searchResultsDataSource" destination="PXg-AT-kN3" id="Gkg-Ll-r7m"/>
+                        <outlet property="searchResultsDelegate" destination="PXg-AT-kN3" id="iBg-tb-XDF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1842.0289855072465" y="2110.7142857142858"/>
         </scene>
@@ -78,11 +87,11 @@
             </objects>
             <point key="canvasLocation" x="-490" y="2111"/>
         </scene>
-        <!--Tekers-->
+        <!--Tab Bar Controller-->
         <scene sceneID="4K1-3M-R5e">
             <objects>
                 <tabBarController id="cgR-kB-Ffe" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Tekers" id="tWw-do-Zvk" customClass="PrincipalNavigationItem" customModule="teckers" customModuleProvider="target">
+                    <navigationItem key="navigationItem" id="tWw-do-Zvk" customClass="PrincipalNavigationItem" customModule="teckers" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Coh-TC-kVL"/>
                     </navigationItem>
                     <tabBar key="tabBar" clipsSubviews="YES" contentMode="center" semanticContentAttribute="forceLeftToRight" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="RhO-hB-G2A">
