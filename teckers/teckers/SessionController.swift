@@ -12,6 +12,7 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
 
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var Calendar: UICollectionView!
+    @IBOutlet weak var Sessions: UICollectionView!
     
     private var daysOfMonth: [Int] = [31,28,31,30,31,30,31,31,30,31,30,31]
     private var dayCurrent = -1
@@ -20,6 +21,8 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     private var weekdayCurrent = -1
     private var startOfMonth = -1
     private var endOfMonth = -1
+    private var daySession = -1
+    var sessionsValue = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,7 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         monthCurrent = NSCalendar.current.component(.month, from: Date())
         yearCurrent = NSCalendar.current.component(.year, from: Date())
         weekdayCurrent = NSCalendar.current.component(.weekday, from: Date())
+        daySession = dayCurrent
         daysOfMonth = daysOfMonthsByYear(yearCurrent)
         calculateSpecificDate(monthCurrent, yearCurrent)
     }
@@ -71,8 +75,10 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         } else {
             monthCurrent -= 1
         }
+        sessionsValue = 0
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         calculateSpecificDate(monthCurrent, yearCurrent)
+        Sessions.reloadData()
         Calendar.reloadData()
     }
     
@@ -85,9 +91,11 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         } else {
             monthCurrent += 1
         }
+        sessionsValue = 0
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         calculateSpecificDate(monthCurrent, yearCurrent)
         Calendar.reloadData()
+        Sessions.reloadData()
     }
     
     private func changeDateLabel(_ month: Int,_ year: Int) -> String {
@@ -126,26 +134,70 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (collectionView == Sessions) {
+            return sessionsValue
+        }
+
+
         return daysOfMonth[monthCurrent - 1] + startOfMonth - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! DayCell
-        
-        if ((indexPath.row + 1) > (startOfMonth - 1)) {
-            cell.labelDay.text = "\(indexPath.row + 1 - startOfMonth + 1)"
-            if ((indexPath.row + 1  - startOfMonth + 1) == dayCurrent && monthCurrent == NSCalendar.current.component(.month, from: Date()) && yearCurrent == NSCalendar.current.component(.year, from: Date())) {
-                cell.backgroundColor = UIColor.red
-                cell.labelDay.textColor = UIColor.white
-            } else {
-                cell.backgroundColor = UIColor.clear
-                cell.labelDay.textColor = UIColor.black
-            }
-        } else {
-            cell.backgroundColor = UIColor.clear
-            cell.labelDay.text = ""
+        if (collectionView == Sessions) {
+            let session = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionCurrent", for: indexPath) as! SessionCell
+            session.backgroundColor = UIColor(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+            return session
         }
-        
-        return cell
+        let day = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! DayCell
+
+        if ((indexPath.row + 1) > (startOfMonth - 1)) {
+            day.labelDay.text = "\(indexPath.row + 1 - startOfMonth + 1)"
+            if ((indexPath.row + 1  - startOfMonth + 1) == dayCurrent && monthCurrent == NSCalendar.current.component(.month, from: Date()) && yearCurrent == NSCalendar.current.component(.year, from: Date())) {
+                day.backgroundColor = UIColor.purple
+                day.labelDay.textColor = UIColor.white
+            }
+            else {
+                day.backgroundColor = UIColor.clear
+                day.labelDay.textColor = UIColor.black
+            }
+        }
+        else {
+            day.backgroundColor = UIColor.clear
+            day.labelDay.text = ""
+        }
+        day.layer.borderColor = UIColor.clear.cgColor
+
+        return day
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (collectionView == Sessions) {
+            
+        }
+        else if (collectionView == Calendar) {
+            let day = Calendar.cellForItem(at: indexPath)
+
+            if ((indexPath.row + 1) > (startOfMonth - 1)) {
+                if ((indexPath.row + 1  - startOfMonth + 1) == dayCurrent && monthCurrent == NSCalendar.current.component(.month, from: Date()) && yearCurrent == NSCalendar.current.component(.year, from: Date())) {
+                    day?.layer.borderColor = UIColor.black.cgColor
+                }
+                else {
+                    day?.layer.borderColor = UIColor.purple.cgColor
+                }
+                day?.layer.borderWidth = 2
+                day?.isSelected = true
+                daySession = indexPath.row + 1 - startOfMonth + 1
+                print("\(daySession)-\(monthCurrent)-\(yearCurrent)")
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if (collectionView == Sessions) {
+            
+        }
+        let day = Calendar.cellForItem(at: indexPath)
+        day?.layer.borderColor = UIColor.clear.cgColor
+        day?.isSelected = false
     }
 }
