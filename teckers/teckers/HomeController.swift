@@ -41,7 +41,7 @@ class HomeController: UIViewController {
         messageTableView.tableHeaderView = searchController.searchBar
     }
     func setupButton(){
-        addMessageButton.backgroundColor = .purple
+        addMessageButton.backgroundColor = Color.morado
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.tintColor = .white
     }
@@ -60,7 +60,7 @@ class HomeController: UIViewController {
         let messages = [Message(message: "Hola", date: formattedDate) ]
         user1.setMessages(messages: messages)
         let user2 = MessagesUser(friend: User(name: "Zac Efron", imageURL: Image.Profile2.rawValue ))
-        let messages2 = [Message(message: "Ya bye", date: formattedDate) ]
+        let messages2 = [Message(message:"bye", date: formattedDate) ]
         user2.setMessages(messages: messages2)
         
         return [user1, user2]

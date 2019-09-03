@@ -9,7 +9,7 @@
 import Foundation
 
 enum Image: String {
-    case LogoBar = "Logo-9"
+    case LogoBar = "Logo-8"
     case Profile1 = "profile1"
     case Profile2 = "profile2"
 }
