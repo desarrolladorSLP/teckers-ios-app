@@ -21,7 +21,7 @@ struct Session: Codable {
     init(JSON: [String: Any]) {
         self.date = JSON["date"] as? String ?? ""
         self.localization = JSON["localization"] as? String ?? ""
-        self.name = JSON["localization"] as? String ?? ""
+        self.name = JSON["name"] as? String ?? ""
         self.schedule = JSON["schedule"] as? String ?? ""
         self.subject = JSON["subject"] as? String ?? ""
         self.generalDirections = JSON["generalDirections"] as? String ?? ""

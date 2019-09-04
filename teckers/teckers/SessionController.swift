@@ -24,12 +24,13 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     private var daySession = -1
     var sessionsValue = 5
     
+    let dics = [["date":"2019-9-4", "localization":"Plaza Fundadores","schedule":"9:00 to 12:00","subject":"","generalDirections":"Ninguno"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         calculateCurrentDate()
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
-        
     }
     
     private func calculateCurrentDate() {
@@ -133,6 +134,16 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         return monthOut
     }
     
+    func compareDates() -> [String:String] {
+        for d in dics {
+            if (d["date"] == String("\(yearCurrent)-\(monthCurrent)-\(daySession)")) {
+                return d
+            }
+        }
+        
+        return [:]
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == Sessions) {
             return sessionsValue
@@ -146,6 +157,17 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         if (collectionView == Sessions) {
             let session = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionCurrent", for: indexPath) as! SessionCell
             session.backgroundColor = UIColor(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+            let d = compareDates()
+            if (d == [:]) {
+                sessionsValue = 0
+            }
+            else {
+                session.Date.text = d["date"]
+                session.Localization.text = d["localization"]
+                session.Schedule.text = d["schedule"]
+                session.Subject.text = d["subject"]
+                session.GeneralDirections.text = d["generalDirections"]
+            }
             return session
         }
         let day = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! DayCell
@@ -172,7 +194,8 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == Sessions) {
-            
+            let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?", type: 1)
+            present(alertNotification.show(), animated: true, completion: nil)
         }
         else if (collectionView == Calendar) {
             let day = Calendar.cellForItem(at: indexPath)
@@ -194,7 +217,9 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if (collectionView == Sessions) {
-            
+            let day = Sessions.cellForItem(at: indexPath)
+            day?.layer.borderColor = UIColor.clear.cgColor
+            day?.isSelected = false
         }
         let day = Calendar.cellForItem(at: indexPath)
         day?.layer.borderColor = UIColor.clear.cgColor

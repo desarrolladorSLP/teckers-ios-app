@@ -10,5 +10,4 @@ import UIKit
 
 class DayCell: UICollectionViewCell {
     @IBOutlet weak var labelDay: UILabel!
-    
 }
