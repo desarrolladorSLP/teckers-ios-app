@@ -9,5 +9,9 @@
 import UIKit
 
 class SessionCell: UICollectionViewCell {
-    
+    @IBOutlet weak var Date: UILabel!
+    @IBOutlet weak var Localization: UILabel!
+    @IBOutlet weak var Schedule: UILabel!
+    @IBOutlet weak var Subject: UILabel!
+    @IBOutlet weak var GeneralDirections: UILabel!
 }

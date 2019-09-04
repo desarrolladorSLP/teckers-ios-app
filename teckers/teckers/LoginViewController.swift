@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
-extension LoginViewController : InteractionScreenDelegate{
+extension LoginViewController : InteractionScreenDelegate {
     
     func goTo(with segueIdentifier: Segues) {
         self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
