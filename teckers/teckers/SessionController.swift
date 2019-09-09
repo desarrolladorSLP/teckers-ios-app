@@ -24,7 +24,7 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
     private var daySession = -1
     var sessionsValue = 5
     
-    let dics = [["date":"2019-9-4", "localization":"Plaza Fundadores","schedule":"9:00 to 12:00","subject":"","generalDirections":"Ninguno"]]
+    let dic = Session(JSON: ["type":"SESSION", "startDate":"2019-09-05","subject":"Programación Orientada a Objetos","location":"Sala de juntas Nearsoft","startTime":"09:00","endTime":"14:00","directions":"Traer computarora com Netbeans instalado"])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,16 +134,6 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         return monthOut
     }
     
-    func compareDates() -> [String:String] {
-        for d in dics {
-            if (d["date"] == String("\(yearCurrent)-\(monthCurrent)-\(daySession)")) {
-                return d
-            }
-        }
-        
-        return [:]
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == Sessions) {
             return sessionsValue
@@ -157,17 +147,12 @@ class SessionController: UIViewController, UICollectionViewDelegate, UICollectio
         if (collectionView == Sessions) {
             let session = collectionView.dequeueReusableCell(withReuseIdentifier: "SessionCurrent", for: indexPath) as! SessionCell
             session.backgroundColor = UIColor(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-            let d = compareDates()
-            if (d == [:]) {
-                sessionsValue = 0
-            }
-            else {
-                session.Date.text = d["date"]
-                session.Localization.text = d["localization"]
-                session.Schedule.text = d["schedule"]
-                session.Subject.text = d["subject"]
-                session.GeneralDirections.text = d["generalDirections"]
-            }
+            session.Date.text = "Sesión el día \(dic.startDate)"
+            session.Location.text = "Ubicación: \(dic.location)"
+            session.Schedule.text = "Horario de \(dic.startTime) a \(dic.endTime)"
+            session.Subject.text = "Temas a tratar: \(dic.subject)"
+            session.GeneralDirections.text = "Indicacíones generales: \(dic.directions)"
+            
             return session
         }
         let day = collectionView.dequeueReusableCell(withReuseIdentifier: "Day", for: indexPath) as! DayCell

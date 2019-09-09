@@ -10,20 +10,21 @@ import Foundation
 
 struct Session: Codable {
     
-    var date: String = ""
-    var localization: String = ""
-    var name: String = ""
-    var schedule: String = ""
+    var type: String = ""
+    var startDate: String = ""
     var subject: String = ""
-    var generalDirections: String = ""
-    //var status
+    var location: String = ""
+    var startTime: String = ""
+    var endTime: String = ""
+    var directions: String = ""
     
     init(JSON: [String: Any]) {
-        self.date = JSON["date"] as? String ?? ""
-        self.localization = JSON["localization"] as? String ?? ""
-        self.name = JSON["name"] as? String ?? ""
-        self.schedule = JSON["schedule"] as? String ?? ""
+        self.type = JSON["type"] as? String ?? ""
+        self.startDate = JSON["startDate"] as? String ?? ""
         self.subject = JSON["subject"] as? String ?? ""
-        self.generalDirections = JSON["generalDirections"] as? String ?? ""
+        self.location = JSON["location"] as? String ?? ""
+        self.startTime = JSON["startTime"] as? String ?? ""
+        self.endTime = JSON["endTime"] as? String ?? ""
+        self.directions = JSON["directions"] as? String ?? ""
     }
 }

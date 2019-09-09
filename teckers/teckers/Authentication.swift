@@ -66,7 +66,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
                 self.delegate?.error(message: Error.localizedDescription)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
-                let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
+                let _ = AuthenticationInfo(JSON: jsonResponseBackend)
                 
                 self.delegate?.goTo(with: Segues.toHome)
             }
