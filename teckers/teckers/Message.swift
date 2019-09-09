@@ -12,9 +12,11 @@ import UIKit
 class Message {
     var text : String
     var date : String
+    var priority : Bool
     
-    init(message : String, date: String) {
+    init(message : String, date: String, priority: Bool) {
         self.text = message
         self.date = date
+        self.priority = priority
     }
 }
