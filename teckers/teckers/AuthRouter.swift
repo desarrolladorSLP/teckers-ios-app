@@ -12,10 +12,14 @@ import Alamofire
 enum AuthRouter: URLRequestConvertible {
     case auth(token: String)
     
+    case getMessages(user: User)
+    
     var method: HTTPMethod {
         switch self {
         case .auth:
             return .post
+        case .getMessages(user: _):
+            return .get
         }
     }
     
@@ -24,8 +28,9 @@ enum AuthRouter: URLRequestConvertible {
         switch self {
         case .auth(let token):
             parameters = ["grant_type": "firebase", "firebase-token-id": token]
+        case .getMessages(user: _):
+            parameters = [:]
         }
-        
         return parameters
     }
     
@@ -33,6 +38,8 @@ enum AuthRouter: URLRequestConvertible {
         switch self {
         case .auth:
             return "/oauth/token"
+        case .getMessages(user: _):
+            return "/api/messages"
         }
     }
      
