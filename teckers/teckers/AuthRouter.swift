@@ -11,16 +11,18 @@ import Alamofire
 
 enum AuthRouter: URLRequestConvertible {
     case auth(token: String)
-    
+    case getSessions(year: Int, month: Int)
+
     var method: HTTPMethod {
         switch self {
         case .auth:
             return .post
+        case .getSessions:
+            return .get   
         }
     }
     
-    var parameters: [String: Any] {
-        var parameters: [String: Any] = [:]
+    var parameters: Parameters? {
         switch self {
         case .auth(let token):
             parameters = ["grant_type": "firebase", "firebase_token_id": token]
@@ -32,6 +34,8 @@ enum AuthRouter: URLRequestConvertible {
         switch self {
         case .auth:
             return "/oauth/token"
+        case .getSessions(let year, let month):
+            return "api/events/\(year)/\(month)"
         }
     }
      
@@ -54,6 +58,7 @@ enum AuthRouter: URLRequestConvertible {
                 return error as! URLRequest
             }
         }
+        
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
