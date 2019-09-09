@@ -15,7 +15,6 @@ class HomeController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private var messagesList : [MessagesUser] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
