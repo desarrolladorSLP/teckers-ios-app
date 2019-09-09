@@ -17,11 +17,20 @@ class MessageCell: UITableViewCell {
     
     private var friendMessage : MessagesUser?
     
+    static var nibName = UINib(nibName: "MessageCell", bundle: nil)
+    
     func setFriendMessages(friend : MessagesUser){
         friendMessage = friend
         let userFriend = friend.getInformationFriend()
-        let image =  UIImage(named: userFriend.imageURL)
-        imageUser.image = image
+        if let urlImage = URL(string: userFriend.imageURL){
+            do{
+                let data = try Data(contentsOf: urlImage )
+                imageUser.image = UIImage(data: data)
+            }
+            catch{
+                print("Error \(error.localizedDescription)")
+            }
+        }
         imageUser.layer.cornerRadius = imageUser.frame.height / 2
         nameUserLabel.text = userFriend.name
         if let lastMessage = friendMessage?.getLastMessage(){
