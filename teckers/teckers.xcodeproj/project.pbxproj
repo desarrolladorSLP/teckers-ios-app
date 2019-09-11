@@ -18,7 +18,6 @@
 		4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */; };
 		4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */; };
 		4D1899C12321965200E25D8F /* PrincipalNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */; };
-		4D1899C52322E5E400E25D8F /* PrincipalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */; };
 		4D1FF17522F8AD8500CB5D63 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D1FF17422F8AD8500CB5D63 /* .gitignore */; };
 		4D3DAB16232591450023FAA2 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3DAB15232591450023FAA2 /* MessageCell.xib */; };
 		4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DAB17232593550023FAA2 /* MessagesLists.swift */; };
@@ -71,7 +70,6 @@
 		4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewDelegate.swift; sourceTree = "<group>"; };
 		4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
 		4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalNavigationItem.swift; sourceTree = "<group>"; };
-		4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrincipalTabBarController.swift; path = ../Pods/PrincipalTabBarController.swift; sourceTree = "<group>"; };
 		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D3DAB15232591450023FAA2 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		4D3DAB17232593550023FAA2 /* MessagesLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesLists.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */,
-				4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
@@ -420,7 +417,6 @@
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
 				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
 				4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */,
-				4D1899C52322E5E400E25D8F /* PrincipalTabBarController.swift in Sources */,
 				4D45AE29231D87CC003A02B4 /* MessageCell.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,

@@ -52,7 +52,7 @@ class HomeController: UIViewController {
     func setupAddMessageButton(){
         addMessageButton.backgroundColor = Color.morado
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
-//        addMessageButton.isHidden = true
+        addMessageButton.isHidden = true
     }
     
     func setupTableView(){

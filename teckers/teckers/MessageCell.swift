@@ -34,7 +34,7 @@ class MessageCell: UITableViewCell {
         imageUser.layer.cornerRadius = imageUser.frame.height / 2
         nameUserLabel.text = userFriend.name
         if let lastMessage = friendMessage?.getLastMessage(){
-            lastMessageLabel.text = lastMessage.text
+            lastMessageLabel.text = lastMessage.subject
             hourLastMessageLabel.text = lastMessage.date
         }
     }

@@ -39,12 +39,12 @@ enum AuthRouter: URLRequestConvertible {
         case .auth:
             return "/oauth/token"
         case .getMessages:
-            return "/messages.json"
+            return "/api/messages"
         }
     }
      
     func asURLRequest() throws -> URLRequest {
-        var url = try RoadURL.baseURL.rawValue.asURL()
+        let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         switch self {
         case .auth(token: _):
@@ -65,7 +65,6 @@ enum AuthRouter: URLRequestConvertible {
                 }
             }
         case .getMessages:
-            url = try RoadURL.localhostMaggie.rawValue.asURL()
             urlRequest = URLRequest(url: url.appendingPathComponent(path))
         }
         return try URLEncoding.default.encode(urlRequest, with: parameters)
