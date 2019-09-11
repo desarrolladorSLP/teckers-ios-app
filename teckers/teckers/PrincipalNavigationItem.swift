@@ -30,9 +30,7 @@ class PrincipalNavigationItem: UINavigationItem {
         
         self.leftBarButtonItems = [hamburgerButton]
         self.titleView = imageView
-//        setupMessages()
-        
-        
+        setupMessages()
     }
     func setupMessages(){
         let addButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapButton))
