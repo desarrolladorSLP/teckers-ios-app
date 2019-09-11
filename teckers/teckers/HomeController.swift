@@ -53,6 +53,8 @@ class HomeController: UIViewController {
         addMessageButton.backgroundColor = Color.morado
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.isHidden = true
+        segmentedControl.setTitle("High Priority", forSegmentAt: 0)
+        segmentedControl.setTitle("Low Priority", forSegmentAt: 1)
     }
     
     func setupTableView(){
