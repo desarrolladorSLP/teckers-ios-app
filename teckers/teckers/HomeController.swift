@@ -15,24 +15,33 @@ class HomeController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private var messagesList : [MessagesUser] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        messagesList = []
+        getMessages(priorityHigh: true)
         
-        let messages = MessagesLists(JSON: ["HALO" : "L"])
-        messagesList = messages.HighPriorityMessages
+    }
+    func getMessages(priorityHigh : Bool) {
+        MessagesLists(success: { (backendMessages) in
+            if priorityHigh{
+                self.messagesList = backendMessages.HighPriorityMessages
+            }
+            else{
+                self.messagesList = backendMessages.LessPriorityMessages
+            }
+            self.messageTableView.reloadData()
+        })
     }
     
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
-            let messages = MessagesLists(JSON: ["HALO" : "L"])
-            messagesList = messages.HighPriorityMessages
+            getMessages(priorityHigh: true)
         }
         else {
-            let messages = MessagesLists(JSON: ["HALO" : "L"])
-            messagesList = messages.createLowMessagesUsers()
+            getMessages(priorityHigh: false)
         }
-        messageTableView.reloadData()
     }
     
     func setupUI() {

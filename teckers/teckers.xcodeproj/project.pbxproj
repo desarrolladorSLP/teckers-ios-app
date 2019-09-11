@@ -17,7 +17,6 @@
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */; };
 		4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */; };
-		4D1899BD232194FE00E25D8F /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899BC232194FE00E25D8F /* NavigationBar.swift */; };
 		4D1899C12321965200E25D8F /* PrincipalNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */; };
 		4D1899C52322E5E400E25D8F /* PrincipalTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */; };
 		4D1FF17522F8AD8500CB5D63 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D1FF17422F8AD8500CB5D63 /* .gitignore */; };
@@ -71,7 +70,6 @@
 		48D288AE27B5F105BA13DC05 /* Pods-teckersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.release.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewDelegate.swift; sourceTree = "<group>"; };
 		4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
-		4D1899BC232194FE00E25D8F /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalNavigationItem.swift; sourceTree = "<group>"; };
 		4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrincipalTabBarController.swift; path = ../Pods/PrincipalTabBarController.swift; sourceTree = "<group>"; };
 		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				4D3DAB17232593550023FAA2 /* MessagesLists.swift */,
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
-				4D1899BC232194FE00E25D8F /* NavigationBar.swift */,
 				4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */,
 				4D1899C42322E5E400E25D8F /* PrincipalTabBarController.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
@@ -430,7 +427,6 @@
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				4D6DB19C23064CFD009F23FA /* Views.swift in Sources */,
-				4D1899BD232194FE00E25D8F /* NavigationBar.swift in Sources */,
 				1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */,
 				9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */,
 				4D415238231EC5AA0065D901 /* Color.swift in Sources */,

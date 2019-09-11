@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 class Message {
+    var subject : String
     var text : String
     var date : String
     var priority : Bool
     
-    init(message : String, date: String, priority: Bool) {
+    init(subject : String, message : String, date: String, priority: Bool) {
+        self.subject = subject
         self.text = message
         self.date = date
         self.priority = priority

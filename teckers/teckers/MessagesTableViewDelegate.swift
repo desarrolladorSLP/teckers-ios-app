@@ -13,31 +13,6 @@ class MessagesTableViewDelegate: NSObject ,  UITableViewDelegate {
 //    var reload : () -> Void
     override init() {
         super.init()
-        messagesList = []
-//        reload = {}
-//        reload = success
-        for _ in 1...10{
-            messagesList?.append(contentsOf: createMessagesUsers())
-        }
-    }
-    func createMessagesUsers() -> [MessagesUser]{
-        let now = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yy/MM/dd"
-        let formattedDate = format.string(from: now)
-        
-        print(formattedDate)
-        
-        var dateComponents = DateComponents()
-        dateComponents.setValue(-1, for: .day)
-        let user1 = MessagesUser(friend: User(name: "Chris Evans", imageURL: Image.Profile1.rawValue ))
-        let messages = [Message(message: "Hola", date: formattedDate, priority: true) ]
-        user1.setMessages(messages: messages)
-        let user2 = MessagesUser(friend: User(name: "Zac Efron", imageURL: Image.Profile2.rawValue ))
-        let messages2 = [Message(message:"Bye", date: formattedDate, priority: true) ]
-        user2.setMessages(messages: messages2)
-        
-        return [user1, user2]
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
