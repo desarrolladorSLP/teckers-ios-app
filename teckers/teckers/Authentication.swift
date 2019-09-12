@@ -68,12 +68,13 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
                 self.delegate?.goTo(with: Segues.toHome)
+                print(response)
             }
         }
     }
     
     func backendMessagesRequest(success : @escaping (_ JSON : [String : Any]) -> Void){
-        Alamofire.request(AuthRouter.getMessages).responseJSON{ response in
+        Alamofire.request(MessagesRouter.getMessages).responseJSON{ response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
             }
