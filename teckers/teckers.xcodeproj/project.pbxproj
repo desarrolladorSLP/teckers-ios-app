@@ -200,8 +200,8 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
-				4DF508AE230CE5E7000C2B95 /* TokenKey.swift */,
-				4D8972EA2329CF4200959180 /* Constant.swift */,
+				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
+				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
@@ -478,6 +478,7 @@
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */,
 				4D45AE29231D87CC003A02B4 /* MessageCell.swift in Sources */,
 				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
@@ -488,6 +489,10 @@
 				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
 				4DF508AF230CE5E7000C2B95 /* TokenKey.swift in Sources */,
 >>>>>>> Implementation of keychain
+=======
+				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
+				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
+>>>>>>> Change names to TokenKey to Token and Constant to TokenKeys for Dictionary of keychain
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
