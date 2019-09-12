@@ -31,13 +31,14 @@ enum MessagesRouter: URLRequestConvertible {
     var path: String {
         switch self {
         case .getMessages:
-            return "/api/messages"
+            return "/api/message"
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
