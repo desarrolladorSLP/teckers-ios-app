@@ -1,5 +1,5 @@
 //
-//  TokenKey.swift
+//  Token.swift
 //  teckers
 //
 //  Created by Maggie Mendez on 8/16/19.
@@ -9,7 +9,7 @@
 import Foundation
 import KeychainAccess
 
-public class TokenKey{
+public class Token{
     
     private let keychain : Keychain
     

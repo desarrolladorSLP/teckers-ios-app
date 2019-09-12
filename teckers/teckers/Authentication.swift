@@ -15,7 +15,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     private var delegate : InteractionScreenDelegate?
     private var onFailure : ((_ error: Error?) -> Void)?
-    private var TokenDiccionary = TokenKey()
+    private var TokenDiccionary = Token()
     
     override init( ){
         super.init()

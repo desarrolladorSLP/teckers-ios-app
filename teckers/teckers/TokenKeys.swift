@@ -8,9 +8,7 @@
 
 import Foundation
 
-enum Constant : String{
-
+enum TokenKeys : String{
     case  RefreshToken
     case  AccessToken
-    
 }
