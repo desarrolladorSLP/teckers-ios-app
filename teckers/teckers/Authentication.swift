@@ -106,8 +106,8 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     func saveToken(accessToken: String, and refreshToken : String) throws{
         do{
-            try self.TokenDiccionary.setToken(key: "Refresh Token", with : refreshToken)
-            try self.TokenDiccionary.setToken(key: "Access Token", with : accessToken)
+            try self.TokenDiccionary.setToken(key: Constant.refreshToken.rawValue , with : refreshToken)
+            try self.TokenDiccionary.setToken(key: Constant.refreshToken.rawValue, with : accessToken)
         }
         catch{
             throw error

@@ -14,7 +14,7 @@ public class TokenKey{
     private let keychain : Keychain
     
     internal init() {
-        let serverURL = RoadURL.baseURL.rawValue//"https://teckers-backend.herokuapp.com"
+        let serverURL = RoadURL.baseURL.rawValue
         self.keychain = Keychain(server : serverURL, protocolType: .https)
     }
     func setToken(key: String, with token : String) throws {
