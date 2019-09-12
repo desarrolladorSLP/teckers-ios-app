@@ -10,7 +10,7 @@ import Foundation
 
 enum Constant : String{
 
-    case refreshToken = "Refresh Token"
-    case accessToken = "Access Token"
+    case  RefreshToken
+    case  AccessToken
     
 }
