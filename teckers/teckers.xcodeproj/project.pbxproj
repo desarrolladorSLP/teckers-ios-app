@@ -18,11 +18,13 @@
 		4D6DB19C23064CFD009F23FA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DB19923064CFD009F23FA /* Views.swift */; };
 		4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DB19A23064CFD009F23FA /* Segues.swift */; };
 		4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DB19F230704E4009F23FA /* InfoApplication.plist */; };
+		4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F194B232AC408001E0645 /* TokenKeys.swift */; };
 		4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */; };
 		4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A9A152304BA69003483EC /* GoogleService-Info.plist */; };
 		4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471A2305B1F500376414 /* Authenticable.swift */; };
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
+		4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF508AE230CE5E7000C2B95 /* Token.swift */; };
 		9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33C22D7A6D500342CEE /* AppDelegate.swift */; };
 		9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33E22D7A6D500342CEE /* LoginViewController.swift */; };
 		9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B90A34022D7A6D500342CEE /* Main.storyboard */; };
@@ -57,11 +59,13 @@
 		4D6DB19923064CFD009F23FA /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		4D6DB19A23064CFD009F23FA /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		4D6DB19F230704E4009F23FA /* InfoApplication.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoApplication.plist; sourceTree = "<group>"; };
+		4D6F194B232AC408001E0645 /* TokenKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenKeys.swift; sourceTree = "<group>"; };
 		4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionScreenDelegate.swift; sourceTree = "<group>"; };
 		4D8A9A152304BA69003483EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DA6471A2305B1F500376414 /* Authenticable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticable.swift; sourceTree = "<group>"; };
 		4DA6471C2305B23900376414 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
+		4DF508AE230CE5E7000C2B95 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		8022EB269F83E80CEC773854 /* Pods_teckers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teckers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33922D7A6D500342CEE /* teckers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teckers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33C22D7A6D500342CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
+				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
+				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
@@ -366,8 +372,10 @@
 				4DA6471D2305B23900376414 /* AuthManager.swift in Sources */,
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
 				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
+				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
+				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				4D6DB19C23064CFD009F23FA /* Views.swift in Sources */,
 				9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */,
