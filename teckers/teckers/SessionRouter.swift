@@ -9,41 +9,41 @@
 import Foundation
 import Alamofire
 
-//enum SessionRouter: URLRequestConvertible {
-//    case getSessions(year: Int, month: Int)
-//
-//    var method: HTTPMethod {
-//        switch self {
-//        case .getSessions:
-//            return .get
-//        }
-//    }
-//
-//    var parameters: Parameters? {
-//        switch self {
-//        case .getSessions(_, _):
-//            return nil
-//        }
-//    }
-//
-//    var path: String {
-//        switch self {
-//        case .getSessions(let year, let month):
-//            return "api/events/\(year)/\(month)"
-//        }
-//    }
-//
-////    func asURLRequest() throws -> URLRequest {
-////        let url = try RoadURL.baseURL.rawValue.asURL()
-////        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-////        let tokendictionary = Token()
-////
-////        urlRequest.httpMethod = method.rawValue
-////        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue) { urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-////
-////        }
-////
-////        return try URLEncoding.default.encode(urlRequest, with: parameters)
-////    }
-//}
+enum SessionRouter: URLRequestConvertible {
+    case getSessions(year: Int, month: Int)
+
+    var method: HTTPMethod {
+        switch self {
+        case .getSessions:
+            return .get
+        }
+    }
+
+    var parameters: Parameters? {
+        switch self {
+        case .getSessions(_, _):
+            return nil
+        }
+    }
+
+    var path: String {
+        switch self {
+        case .getSessions(let year, let month):
+            return "api/events/\(year)/\(month)"
+        }
+    }
+
+    func asURLRequest() throws -> URLRequest {
+        let url = try RoadURL.baseURL.rawValue.asURL()
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        let tokendictionary = Token()
+
+        urlRequest.httpMethod = method.rawValue
+        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue) {
+            urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        }
+
+        return try URLEncoding.default.encode(urlRequest, with: parameters)
+    }
+}
 

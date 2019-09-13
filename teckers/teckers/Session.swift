@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import Alamofire
 
 struct Session: Codable {
     
     var type: String = ""
-    var startDate: String = ""
+    var date: String = ""
     var subject: String = ""
     var location: String = ""
     var startTime: String = ""
@@ -20,11 +21,22 @@ struct Session: Codable {
     
     init(JSON: [String: Any]) {
         self.type = JSON["type"] as? String ?? ""
-        self.startDate = JSON["startDate"] as? String ?? ""
+        self.date = JSON["date"] as? String ?? ""
         self.subject = JSON["subject"] as? String ?? ""
         self.location = JSON["location"] as? String ?? ""
         self.startTime = JSON["startTime"] as? String ?? ""
         self.endTime = JSON["endTime"] as? String ?? ""
         self.directions = JSON["directions"] as? String ?? ""
+    }
+    
+    static func backendSessionsRequest(year: Int, month: Int, success : @escaping (_ JSON : [[String : Any]]) -> Void) {
+        Alamofire.request(SessionRouter.getSessions(year: year, month: month)).responseJSON{ response in
+            if let _ = response.error {
+                //self.delegate?.error(message: Error.localizedDescription)
+            }
+            else if let jsonResponseBackend = response.value as? [[String:Any]] {
+                success(jsonResponseBackend)
+            }
+        }
     }
 }

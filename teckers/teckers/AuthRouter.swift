@@ -18,14 +18,14 @@ enum AuthRouter: URLRequestConvertible {
         case .auth:
             return .post
         case .getSessions:
-            return .get   
+            return .get
         }
     }
     
     var parameters: Parameters? {
         switch self {
         case .auth(let token):
-            return ["grant_type": "firebase", "firebase-token-id": token]
+            return ["grant_type": "firebase", "firebase_token_id": token]
         case .getSessions(_, _):
             return nil
         }
