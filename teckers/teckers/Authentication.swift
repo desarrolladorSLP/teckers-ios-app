@@ -93,16 +93,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         }
     }
     
-    func backendMessagesRequest(success : @escaping (_ JSON : [String : Any]) -> Void){
-        Alamofire.request(MessagesRouter.getMessages).responseJSON{ response in
-            if let Error = response.error {
-                self.delegate?.error(message: Error.localizedDescription)
-            }
-            else if let jsonResponseBackend = response.value as? [String:Any] {
-                success(jsonResponseBackend)
-            }
-        }
-    }
+    
     func saveToken(accessToken: String, and refreshToken : String) throws{
         do{
             try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)

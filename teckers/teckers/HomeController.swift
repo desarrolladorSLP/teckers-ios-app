@@ -27,7 +27,10 @@ class HomeController: UIViewController {
         MessagesLists(success: { (backendMessages) in
             self.messagesList = backendMessages
             self.messageTableView.reloadData()
-        }, priority: priorityHigh)
+        }, onFailure: { (error) in
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
+            self.present(alertAction.show(), animated: true, completion: nil)
+        }, priority: priorityHigh )
     }
     
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {
