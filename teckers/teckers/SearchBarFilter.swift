@@ -24,7 +24,7 @@ class SearchBarFilter: NSObject, UISearchBarDelegate{
         }
         searchList = messagesList?.filter({ (message) -> Bool in
             searching = true
-            if (message.containsInMessages(text: searchText).count != 0 ) || message.containsInFriend(text: searchText){
+            if (message.containsInMessages(text: searchText)?.count != 0 ) || message.containsInFriend(text: searchText){
                 return true
             }
             else{

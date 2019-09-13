@@ -16,28 +16,30 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var hourLastMessageLabel: UILabel!
     
     private var friendMessage : MessagesUser?
+    static var NameCell = "MessageCell"
+    static var nibName = UINib(nibName: NameCell, bundle: nil)
     
-    static var nibName = UINib(nibName: "MessageCell", bundle: nil)
     
     func setFriendMessages(friend : MessagesUser){
         friendMessage = friend
-        let userFriend = friend.getInformationFriend()
-        if let urlImage = URL(string: userFriend.imageURL){
-            do{
-                let data = try Data(contentsOf: urlImage )
-                imageUser.image = UIImage(data: data)
+        if let userFriend = friend.getInformationFriend(){
+            if let urlImage = URL(string: userFriend.imageURL){
+                do{
+                    let data = try Data(contentsOf: urlImage )
+                    imageUser.image = UIImage(data: data)
+                }
+                catch{
+                    print("Error \(error.localizedDescription)")
+                }
             }
-            catch{
-                print("Error \(error.localizedDescription)")
+            let format = DateFormatter()
+            format.dateFormat = "dd-MM-yy"
+            imageUser.layer.cornerRadius = imageUser.frame.height / 2
+            nameUserLabel.text = userFriend.name
+            if let lastMessage = friendMessage?.getLastMessage(){
+                lastMessageLabel.text = lastMessage.subject
+                hourLastMessageLabel.text = format.string(from: lastMessage.date)
             }
-        }
-        let format = DateFormatter()
-        format.dateFormat = "dd-MM-yy"
-        imageUser.layer.cornerRadius = imageUser.frame.height / 2
-        nameUserLabel.text = userFriend.name
-        if let lastMessage = friendMessage?.getLastMessage(){
-            lastMessageLabel.text = lastMessage.subject
-            hourLastMessageLabel.text = format.string(from: lastMessage.date)
         }
     }
 }

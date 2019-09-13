@@ -57,7 +57,7 @@ class HomeController: UIViewController {
         messageTableView.delegate = delegateHigh
         messageTableView.dataSource = self
         
-        messageTableView.register(MessageCell.nibName, forCellReuseIdentifier: "MessageCell")
+        messageTableView.register(MessageCell.nibName, forCellReuseIdentifier: MessageCell.NameCell)
     }
     
 }
@@ -69,7 +69,7 @@ extension HomeController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.NameCell, for: indexPath) as! MessageCell
         let message = messagesList[indexPath.row]
         cell.setFriendMessages(friend: message)
         return cell
