@@ -50,7 +50,7 @@ class HomeController: UIViewController {
         setupAddMessageButton()
     }
     func setupAddMessageButton(){
-        addMessageButton.backgroundColor = Color.morado
+        addMessageButton.backgroundColor = Color.purpure
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.isHidden = true
         segmentedControl.setTitle("High Priority", forSegmentAt: 0)

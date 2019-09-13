@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-        UITabBar.appearance().tintColor = Color.morado
-        UINavigationBar.appearance().tintColor = Color.morado
+        UITabBar.appearance().tintColor = Color.purpure
+        UINavigationBar.appearance().tintColor = Color.purpure
         return true
     }
 
