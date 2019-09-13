@@ -23,15 +23,6 @@ class MessagesLists {
             success(self)
         }
     }
-    
-    func today() -> String{
-        let now = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yy/MM/dd"
-        let formattedDate = format.string(from: now)
-        return formattedDate
-    }
-    
     func readMessages(JSON : [String: Any], priority : Bool){
         let listJSON :  [Any]?
         if priority{
@@ -61,14 +52,15 @@ class MessagesLists {
         }
     }
     func createMessage(item : [String : Any] , priority : Bool) -> MessagesUser?{
-        let userName  = item["sender"] as? String ?? "nil"
-        let imageUrl = item["senderImage"] as? String ?? "nil"
-        let subject = item["subject"] as? String ?? "nil"
-        let body = item["body"] as? String ?? "nil"
-        let time = item["timestamp"] as? String ?? "1999-10-19 10:23:54"
+        guard let userName  = item[ MessagesKeys.sender.rawValue ] as? String,
+        let imageUrl = item[ MessagesKeys.senderImage.rawValue ] as? String,
+        let subject = item[ MessagesKeys.subject.rawValue ] as? String,
+        let time = item[ MessagesKeys.timestamp.rawValue ] as? String else{
+            return nil
+        }
         
         let user = User(name: userName, imageURL: imageUrl)
-        let message = Message(subject: subject, message: body, date: time, priority: priority)
+        let message = Message(subject: subject, message: "", date: time, priority: priority)
         let userMessage : MessagesUser =  MessagesUser(friend: user)
         userMessage.setMessages(messages: [message])
         

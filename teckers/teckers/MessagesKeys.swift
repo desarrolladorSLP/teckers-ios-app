@@ -12,4 +12,12 @@ enum MessagesKeys : String {
     case highPriority
     case lowPriority
     
+    case sender
+    case senderImage
+    case subject
+    case body
+    case timestamp
+    
+    case null
+    case dateNull = "1999-10-19 10:23:54"
 }
