@@ -35,10 +35,10 @@ class MessagesLists {
     func readMessages(JSON : [String: Any], priority : Bool){
         let listJSON :  [Any]?
         if priority{
-            listJSON = JSON["highPriority"] as? [ Any]
+            listJSON = JSON[MessagesKeys.highPriority.rawValue] as? [ Any]
         }
         else {
-            listJSON = JSON["lowPriority"] as? [Any]
+            listJSON = JSON[MessagesKeys.lowPriority.rawValue] as? [Any]
         }
         guard let List = listJSON else{
            return
