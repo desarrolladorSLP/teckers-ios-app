@@ -19,6 +19,7 @@ class MessagesLists {
         self.backendInteraction.backendMessagesRequest  { (response) in
             self.readMessages(JSON: response, priority: true)
             self.readMessages(JSON: response, priority: false)
+            print(response)
             success(self)
         }
     }
@@ -34,10 +35,10 @@ class MessagesLists {
     func readMessages(JSON : [String: Any], priority : Bool){
         let listJSON :  [Any]?
         if priority{
-            listJSON = JSON["highPriorityMessages"] as? [ Any]
+            listJSON = JSON["highPriority"] as? [ Any]
         }
         else {
-            listJSON = JSON["lowPriorityMessages"] as? [Any]
+            listJSON = JSON["lowPriority"] as? [Any]
         }
         guard let List = listJSON else{
            return

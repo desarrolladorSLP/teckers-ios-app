@@ -28,6 +28,7 @@
 		4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DB19A23064CFD009F23FA /* Segues.swift */; };
 		4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DB19F230704E4009F23FA /* InfoApplication.plist */; };
 		4D6F1948232AB152001E0645 /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F1947232AB152001E0645 /* MessagesRouter.swift */; };
+		4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F194B232AC408001E0645 /* TokenKeys.swift */; };
 		4D74A52623122A85008DC93B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A52523122A85008DC93B /* User.swift */; };
 		4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */; };
 		4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A9A152304BA69003483EC /* GoogleService-Info.plist */; };
@@ -37,6 +38,7 @@
 		4DBBF66E231092DD00F722FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66D231092DD00F722FC /* Message.swift */; };
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
 		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
+		4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF508AE230CE5E7000C2B95 /* Token.swift */; };
 		9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33C22D7A6D500342CEE /* AppDelegate.swift */; };
 		9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90A33E22D7A6D500342CEE /* LoginViewController.swift */; };
 		9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B90A34022D7A6D500342CEE /* Main.storyboard */; };
@@ -81,6 +83,7 @@
 		4D6DB19A23064CFD009F23FA /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segues.swift; path = ../Segues.swift; sourceTree = "<group>"; };
 		4D6DB19F230704E4009F23FA /* InfoApplication.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoApplication.plist; sourceTree = "<group>"; };
 		4D6F1947232AB152001E0645 /* MessagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagesRouter.swift; path = "/Users/maggiemendez/Nearsoft/teckers-ios-app/teckers/teckers/MessagesRouter.swift"; sourceTree = "<absolute>"; };
+		4D6F194B232AC408001E0645 /* TokenKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenKeys.swift; sourceTree = "<group>"; };
 		4D74A52523122A85008DC93B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionScreenDelegate.swift; sourceTree = "<group>"; };
 		4D8A9A152304BA69003483EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		4DBBF66D231092DD00F722FC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
+		4DF508AE230CE5E7000C2B95 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		8022EB269F83E80CEC773854 /* Pods_teckers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teckers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33922D7A6D500342CEE /* teckers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teckers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B90A33C22D7A6D500342CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,18 +196,20 @@
 				1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */,
 				4D415237231EC5AA0065D901 /* Color.swift */,
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
-				4D6F1947232AB152001E0645 /* MessagesRouter.swift */,
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
 				9B90A33E22D7A6D500342CEE /* LoginViewController.swift */,
 				4DBBF66D231092DD00F722FC /* Message.swift */,
 				4D45AE28231D87CB003A02B4 /* MessageCell.swift */,
 				4D3DAB17232593550023FAA2 /* MessagesLists.swift */,
+				4D6F1947232AB152001E0645 /* MessagesRouter.swift */,
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
+				4DF508AE230CE5E7000C2B95 /* Token.swift */,
+				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
 				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
@@ -422,9 +428,11 @@
 				4D6DB19D23064CFD009F23FA /* Segues.swift in Sources */,
 				4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */,
 				4D45AE29231D87CC003A02B4 /* MessageCell.swift in Sources */,
+				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
+				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				4D6DB19C23064CFD009F23FA /* Views.swift in Sources */,
 				1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */,

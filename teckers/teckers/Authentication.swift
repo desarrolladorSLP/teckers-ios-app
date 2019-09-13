@@ -13,18 +13,26 @@ import Alamofire
 
 class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
-    var delegate : InteractionScreenDelegate?
+    private var delegate : InteractionScreenDelegate?
+    private var onFailure : ((_ error: Error?) -> Void)?
+    private var TokenDiccionary = Token()
     
-    override init(){
+    override init( ){
         super.init()
+        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+    }
+    func setDelegate(_ delegate : InteractionScreenDelegate, onFailure failure: @escaping (_ error: Error?) -> Void){
+        self.onFailure = failure
+        self.delegate = delegate
     }
     
     func signOut(onSuccess success: @escaping () -> Void,
                  onFailure failure: @escaping (_ error: Error?) -> Void)  {
-        let firebaseAuth = Auth.auth()
+        onFailure = failure
         do {
+            let firebaseAuth = Auth.auth()
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance()?.signOut()
             success()
@@ -56,21 +64,33 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
                 self.delegate?.error(message: Error.localizedDescription)
                 return;
             }
-            self.backendAuthenticationRequest(with: idToken)
+            if let token = idToken {
+                self.backendAuthenticationRequest(with: token)
+            }
         }
     }
     
-    func backendAuthenticationRequest(with idToken: String?) {
-        Alamofire.request(AuthRouter.auth(token: idToken!)).responseJSON { response in
+    func backendAuthenticationRequest(with idToken: String) {
+        Alamofire.request(AuthRouter.auth(token: idToken)).validate(statusCode: 200..<300).responseJSON {
+            response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
-                let authFromBackend = AuthenticationInfo(JSON: jsonResponseBackend)
+                self.parseJSONfromBackend(jsonResponse: jsonResponseBackend, with: idToken)
                 self.delegate?.goTo(with: Segues.toHome)
-                print(response)
                 print(idToken)
             }
+        }
+    }
+    func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
+        do{
+            let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
+            try self.saveToken(accessToken: authFromBackend.access_token, and: token)
+            self.delegate?.goTo(with: Segues.toHome)
+        }
+        catch{
+            self.onFailure!(error)
         }
     }
     
@@ -82,6 +102,15 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 success(jsonResponseBackend)
             }
+        }
+    }
+    func saveToken(accessToken: String, and refreshToken : String) throws{
+        do{
+            try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
+            try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
+        }
+        catch{
+            throw error
         }
     }
 }

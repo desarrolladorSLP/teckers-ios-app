@@ -28,3 +28,5 @@ Once you have created project in firebase. You need to add an app in iOS. This a
 The file *GoogleService-Info.plist* has a field called *REVERSED_CLIENT_ID* this value is needed to be added in **URL Types**
 
 ![UrlTypes](URLTypes.png)
+
+Add file called **"InfoApplication.plist"** with the fields **"USER"** and **"PASSWORD"**. After we had this put the credentials of their app 
