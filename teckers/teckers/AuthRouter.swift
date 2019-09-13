@@ -18,7 +18,7 @@ enum AuthRouter: URLRequestConvertible {
         case .auth:
             return .post
         case .getSessions:
-            return .get   
+            return .get
         }
     }
     

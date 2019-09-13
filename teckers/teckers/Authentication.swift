@@ -51,7 +51,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         }
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        
+ 
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let Error = error {
                 self.delegate?.error(message: Error.localizedDescription)
@@ -104,12 +104,24 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             throw error
         }
     }
+    
+    func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
+        do{
+            let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
+            try self.saveToken(accessToken: authFromBackend.access_token, and: token)
+            self.delegate?.goTo(with: Segues.toHome)
+        }
+        catch{
+            self.onFailure!(error)
+        }
+    }
+    
     func saveToken(accessToken: String, and refreshToken : String) throws{
         do{
             try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
             try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
         }
-        catch{
+        catch {
             throw error
         }
     }

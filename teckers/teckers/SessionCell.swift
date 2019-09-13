@@ -11,6 +11,7 @@ import UIKit
 class SessionCell: UICollectionViewCell {
 
     @IBOutlet weak var Date: UILabel!
+    @IBOutlet weak var Info: UILabel!
     @IBOutlet weak var Location: UILabel!
     @IBOutlet weak var Schedule: UILabel!
     @IBOutlet weak var Subject: UILabel!
