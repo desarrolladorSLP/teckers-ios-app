@@ -17,7 +17,6 @@
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */; };
 		4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */; };
-		4D1899C12321965200E25D8F /* PrincipalNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */; };
 		4D1FF17522F8AD8500CB5D63 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D1FF17422F8AD8500CB5D63 /* .gitignore */; };
 		4D3DAB16232591450023FAA2 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3DAB15232591450023FAA2 /* MessageCell.xib */; };
 		4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DAB17232593550023FAA2 /* MessagesLists.swift */; };
@@ -32,6 +31,7 @@
 		4D74A52623122A85008DC93B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A52523122A85008DC93B /* User.swift */; };
 		4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */; };
 		4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A9A152304BA69003483EC /* GoogleService-Info.plist */; };
+		4D9552B1232B581D0008E86E /* MainNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9552B0232B581C0008E86E /* MainNavigationItem.swift */; };
 		4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471A2305B1F500376414 /* Authenticable.swift */; };
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DBBF66C231090B300F722FC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66B231090B300F722FC /* HomeController.swift */; };
@@ -73,7 +73,6 @@
 		48D288AE27B5F105BA13DC05 /* Pods-teckersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.release.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewDelegate.swift; sourceTree = "<group>"; };
 		4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
-		4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalNavigationItem.swift; sourceTree = "<group>"; };
 		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D3DAB15232591450023FAA2 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		4D3DAB17232593550023FAA2 /* MessagesLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesLists.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		4D74A52523122A85008DC93B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionScreenDelegate.swift; sourceTree = "<group>"; };
 		4D8A9A152304BA69003483EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4D9552B0232B581C0008E86E /* MainNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationItem.swift; sourceTree = "<group>"; };
 		4DA6471A2305B1F500376414 /* Authenticable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticable.swift; sourceTree = "<group>"; };
 		4DA6471C2305B23900376414 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4DBBF66B231090B300F722FC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -200,6 +200,7 @@
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
+				4D9552B0232B581C0008E86E /* MainNavigationItem.swift */,
 				9B90A33E22D7A6D500342CEE /* LoginViewController.swift */,
 				4DBBF66D231092DD00F722FC /* Message.swift */,
 				4D45AE28231D87CB003A02B4 /* MessageCell.swift */,
@@ -208,7 +209,6 @@
 				4D6F1947232AB152001E0645 /* MessagesRouter.swift */,
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
-				4D1899C02321965200E25D8F /* PrincipalNavigationItem.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
@@ -424,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6F1948232AB152001E0645 /* MessagesRouter.swift in Sources */,
+				4D9552B1232B581D0008E86E /* MainNavigationItem.swift in Sources */,
 				4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */,
 				4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */,
 				4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */,
@@ -447,7 +448,6 @@
 				1D0366DC2304878200D72520 /* RoadURL.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
-				4D1899C12321965200E25D8F /* PrincipalNavigationItem.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
 				4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */,
 				4DBBF66C231090B300F722FC /* HomeController.swift in Sources */,

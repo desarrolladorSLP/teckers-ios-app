@@ -16,6 +16,7 @@ class MessagesUser{
         self.infoFriend = friend
         messages = []
     }
+    
     init(item : [String : Any] , priority : Bool){
         let format = DateFormatter()
         format.dateFormat = MessagesKeys.formatDay.rawValue

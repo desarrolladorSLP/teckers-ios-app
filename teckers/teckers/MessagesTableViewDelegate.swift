@@ -10,12 +10,8 @@ import UIKit
 class MessagesTableViewDelegate: NSObject ,  UITableViewDelegate {
 
     private var messagesList : [MessagesUser]?
-//    var reload : () -> Void
     override init() {
         super.init()
-    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
     }
 }
 extension MessagesTableViewDelegate : UITableViewDataSource{
@@ -24,7 +20,7 @@ extension MessagesTableViewDelegate : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.NameCell, for: indexPath) as! MessageCell
         
         if let message = messagesList?[indexPath.row]{
             cell.setFriendMessages(friend: message)
