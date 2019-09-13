@@ -36,7 +36,10 @@ class MessagesUser{
     
     func containsInMessages(text : String) -> [Message]{
         return messages.filter { (Message) -> Bool in
-            return Message.text.lowercased().contains(text.lowercased())
+            guard let messageContent = Message.text else {
+                return false
+            }
+            return messageContent.lowercased().contains(text.lowercased()) 
         }
     }
     func containsInFriend(text : String) -> Bool{

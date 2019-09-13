@@ -31,11 +31,13 @@ class MessageCell: UITableViewCell {
                 print("Error \(error.localizedDescription)")
             }
         }
+        let format = DateFormatter()
+        format.dateFormat = "dd-MM-yy"
         imageUser.layer.cornerRadius = imageUser.frame.height / 2
         nameUserLabel.text = userFriend.name
         if let lastMessage = friendMessage?.getLastMessage(){
             lastMessageLabel.text = lastMessage.subject
-            hourLastMessageLabel.text = lastMessage.date
+            hourLastMessageLabel.text = format.string(from: lastMessage.date)
         }
     }
 }

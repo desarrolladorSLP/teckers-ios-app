@@ -20,4 +20,5 @@ enum MessagesKeys : String {
     
     case null
     case dateNull = "1999-10-19 10:23:54"
+    case formatDay = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"
 }

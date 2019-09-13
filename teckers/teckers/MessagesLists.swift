@@ -11,16 +11,19 @@ import Foundation
 class MessagesLists {
     var HighPriorityMessages : [MessagesUser]
     var LessPriorityMessages : [MessagesUser]
+    
+    var ListMessages : [MessagesUser]
     private let backendInteraction : Authentication
-    init(success : @escaping (_ list : MessagesLists) -> Void ) {
+    init(success : @escaping (_ list : [MessagesUser]) -> Void, priority : Bool ) {
+        ListMessages = []
         HighPriorityMessages = []
         LessPriorityMessages = []
         backendInteraction = Authentication()
+        
         self.backendInteraction.backendMessagesRequest  { (response) in
-            self.readMessages(JSON: response, priority: true)
-            self.readMessages(JSON: response, priority: false)
-            print(response)
-            success(self)
+            self.readMessages(JSON: response, priority: priority)
+//            self.readMessages(JSON: response, priority: false)
+            success(self.ListMessages)
         }
     }
     func readMessages(JSON : [String: Any], priority : Bool){
@@ -41,26 +44,25 @@ class MessagesLists {
         for listItem  in list {
             if let item = listItem as? [String : Any] {
                 if let userMessages = createMessage(item: item, priority: true){
-                    if priority{
-                        HighPriorityMessages.append(userMessages)
-                    }
-                    else{
-                        LessPriorityMessages.append(userMessages)
-                    }
+                    ListMessages.append(userMessages)
                 }
             }
         }
     }
     func createMessage(item : [String : Any] , priority : Bool) -> MessagesUser?{
+        let format = DateFormatter()
+        format.dateFormat = MessagesKeys.formatDay.rawValue
+        
         guard let userName  = item[ MessagesKeys.sender.rawValue ] as? String,
         let imageUrl = item[ MessagesKeys.senderImage.rawValue ] as? String,
         let subject = item[ MessagesKeys.subject.rawValue ] as? String,
-        let time = item[ MessagesKeys.timestamp.rawValue ] as? String else{
+        let time = item[ MessagesKeys.timestamp.rawValue ] as? String,
+        let date = format.date(from: time) else{
             return nil
         }
         
         let user = User(name: userName, imageURL: imageUrl)
-        let message = Message(subject: subject, message: "", date: time, priority: priority)
+        let message = Message(subject: subject, date: date, priority: priority)
         let userMessage : MessagesUser =  MessagesUser(friend: user)
         userMessage.setMessages(messages: [message])
         

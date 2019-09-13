@@ -25,14 +25,9 @@ class HomeController: UIViewController {
     }
     func getMessages(priorityHigh : Bool) {
         MessagesLists(success: { (backendMessages) in
-            if priorityHigh{
-                self.messagesList = backendMessages.HighPriorityMessages
-            }
-            else{
-                self.messagesList = backendMessages.LessPriorityMessages
-            }
+            self.messagesList = backendMessages
             self.messageTableView.reloadData()
-        })
+        }, priority: priorityHigh)
     }
     
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {
@@ -67,7 +62,7 @@ class HomeController: UIViewController {
     
 }
 
-extension HomeController : UITableViewDataSource, UITableViewDelegate{
+extension HomeController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messagesList.count
@@ -79,6 +74,8 @@ extension HomeController : UITableViewDataSource, UITableViewDelegate{
         cell.setFriendMessages(friend: message)
         return cell
     }
+}
+extension UITableViewDelegate{
 }
 
 extension HomeController : UISearchBarDelegate {
