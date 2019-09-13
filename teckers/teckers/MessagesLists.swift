@@ -43,29 +43,9 @@ class MessagesLists {
     func pullAllMessagesOf(priority: Bool, in list: [Any]){
         for listItem  in list {
             if let item = listItem as? [String : Any] {
-                if let userMessages = createMessage(item: item, priority: true){
-                    ListMessages.append(userMessages)
-                }
+                let userMessage = MessagesUser(item: item, priority: priority)
+                ListMessages.append(userMessage)
             }
         }
-    }
-    func createMessage(item : [String : Any] , priority : Bool) -> MessagesUser?{
-        let format = DateFormatter()
-        format.dateFormat = MessagesKeys.formatDay.rawValue
-        
-        guard let userName  = item[ MessagesKeys.sender.rawValue ] as? String,
-        let imageUrl = item[ MessagesKeys.senderImage.rawValue ] as? String,
-        let subject = item[ MessagesKeys.subject.rawValue ] as? String,
-        let time = item[ MessagesKeys.timestamp.rawValue ] as? String,
-        let date = format.date(from: time) else{
-            return nil
-        }
-        
-        let user = User(name: userName, imageURL: imageUrl)
-        let message = Message(subject: subject, date: date, priority: priority)
-        let userMessage : MessagesUser =  MessagesUser(friend: user)
-        userMessage.setMessages(messages: [message])
-        
-        return userMessage
     }
 }
