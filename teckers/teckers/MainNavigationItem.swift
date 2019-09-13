@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrincipalNavigationItem: UINavigationItem {
+class MainNavigationItem: UINavigationItem {
     
     override init(title: String) {
         super.init(title: title)
