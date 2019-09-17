@@ -50,13 +50,18 @@ class HomeController: UIViewController {
         setupTableView()
         setupNavigateBar()
         setupAddMessageButton()
+        setupSegmentedController()
     }
     func setupAddMessageButton(){
-        addMessageButton.backgroundColor = Color.purpure
+        addMessageButton.backgroundColor = Color.purple
         addMessageButton.layer.cornerRadius = addMessageButton.frame.height / 2
         addMessageButton.isHidden = true
+        
+    }
+    func setupSegmentedController(){
         segmentedControl.setTitle("High Priority", forSegmentAt: 0)
         segmentedControl.setTitle("Low Priority", forSegmentAt: 1)
+        segmentedControl.tintColor = Color.purple
     }
     
     func setupTableView(){

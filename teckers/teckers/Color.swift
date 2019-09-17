@@ -8,5 +8,5 @@
 
 import UIKit
 class Color{
-    static var purpure : UIColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1)
+    static var purple : UIColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1)
 }
