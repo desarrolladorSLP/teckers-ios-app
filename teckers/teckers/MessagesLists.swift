@@ -24,8 +24,6 @@ class MessagesLists {
             self.readMessages(JSON: response, priority: priority)
             success(self.ListMessages)
         }
-        
-        
     }
     func readMessages(JSON : [String: Any], priority : Bool){
         let listJSON :  [Any]?
@@ -35,10 +33,10 @@ class MessagesLists {
         else {
             listJSON = JSON[MessagesKeys.lowPriority.rawValue] as? [Any]
         }
-        guard let List = listJSON else{
+        guard let list = listJSON else{
            return
         }
-        pullAllMessagesOf(priority: priority, in: List)
+        pullAllMessagesOf(priority: priority, in: list)
     }
     
     func pullAllMessagesOf(priority: Bool, in list: [Any]){

@@ -68,10 +68,8 @@ class HomeController: UIViewController {
         let delegateHigh = MessagesTableViewDelegate()
         messageTableView.delegate = delegateHigh
         messageTableView.dataSource = self
-        
         messageTableView.register(MessageCell.nibName, forCellReuseIdentifier: MessageCell.NameCell)
     }
-    
 }
 
 extension HomeController : UITableViewDataSource{
