@@ -18,17 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-4" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-fc-DRo">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vam-fc-DRo">
+                                <rect key="frame" x="0.0" y="94" width="414" height="718"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.36470588240000001" green="0.36078431370000003" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vam-fc-DRo" secondAttribute="bottom" id="M5E-IN-ssy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vam-fc-DRo" secondAttribute="bottom" id="M5E-IN-ssy">
+                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vam-fc-DRo" secondAttribute="trailing" id="QJA-2K-LKO"/>
                             <constraint firstItem="Vam-fc-DRo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xlt-EJ-m85"/>
-                            <constraint firstItem="Vam-fc-DRo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yb2-u8-MDJ"/>
+                            <constraint firstItem="Vam-fc-DRo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yb2-u8-MDJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo-4" width="1475" height="1325"/>
+        <image name="Logo-1" width="1475" height="1325"/>
     </resources>
 </document>
