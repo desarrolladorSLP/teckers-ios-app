@@ -13,14 +13,13 @@ class MessagesLists {
     var LessPriorityMessages : [MessagesUser]
     
     var ListMessages : [MessagesUser]
-    private let backendInteraction : MessagesRequest
-    init(success : @escaping (_ list : [MessagesUser]) -> Void, onFailure failure: @escaping (_ error: Error) -> Void, priority : Bool) {
+//    private let backendInteraction : MessagesService
+    init(priority : Bool, onFailure failure: @escaping (_ error: Error) -> Void , success : @escaping (_ list : [MessagesUser]) -> Void) {
         ListMessages = []
         HighPriorityMessages = []
         LessPriorityMessages = []
-        backendInteraction = MessagesRequest(onFailure: failure)
         
-        self.backendInteraction.backendMessagesRequest  { (response) in
+        MessagesService.backendMessagesRequest(onFailure: failure) { (response) in
             self.readMessages(JSON: response, priority: priority)
             success(self.ListMessages)
         }

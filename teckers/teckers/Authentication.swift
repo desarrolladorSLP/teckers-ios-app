@@ -71,7 +71,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     
     func backendAuthenticationRequest(with idToken: String) {
-        Alamofire.request(AuthRouter.auth(token: idToken)).validate(statusCode: 200..<300).responseJSON {
+        Alamofire.request(AuthRouter.auth(token: idToken) ).validate(statusCode: 200..<300).responseJSON {
             response in
             if let Error = response.error {
                 self.delegate?.error(message: Error.localizedDescription)
