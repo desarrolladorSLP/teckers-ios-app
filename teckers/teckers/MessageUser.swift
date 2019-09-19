@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MessagesUser{
+class MessagesUser {
     
     private var messages : [Message]?
     private var infoFriend : User?

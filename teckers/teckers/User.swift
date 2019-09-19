@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class User {
+class User : Codable {
     
     let name : String
     let imageURL : String

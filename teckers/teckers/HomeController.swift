@@ -25,13 +25,13 @@ class HomeController: UIViewController {
     }
     
     func getMessages(priorityHigh : Bool) {
-        let _ = MessagesLists(priority: priorityHigh , onFailure: { (error) in
+        MessagesService.getMessages(priority: priorityHigh, onFailure: { (error) in
             let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
             self.present(alertAction.show(), animated: true, completion: nil)
-        }) { [weak self] (backendMessages) in
+        }) { [weak self] (response) in
             if let view = self{
-                view.messagesList = backendMessages
                 DispatchQueue.main.async {
+                    view.messagesList = response
                     view.messageTableView.reloadData()
                 }
             }

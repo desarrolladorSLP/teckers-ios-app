@@ -14,10 +14,10 @@ struct NetworkHandler {
     private init(){
     }
     
-    static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void, onFailure failure: @escaping (_ error: Error) -> Void){
+    static func request(url : URLRequestConvertible,  onFailure failure: @escaping (_ error: Error) -> Void, onSucess success : @escaping (_ JSON : [String : Any]) -> Void){
         Alamofire.request(url).responseJSON{ response in
             if let Error = response.error {
-                failure( Error)
+                failure(Error)
             }
             else if let jsonResponseBackend = response.value as? [String:Any] {
                 success(jsonResponseBackend)

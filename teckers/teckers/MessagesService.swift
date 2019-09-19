@@ -11,6 +11,14 @@ import Foundation
 struct MessagesService {
     
     static func backendMessagesRequest(onFailure failure: @escaping (_ error: Error) -> Void, success : @escaping (_ JSON : [String : Any]) -> Void){
-        NetworkHandler.request(url: MessagesRouter.getMessages , onSucess: success, onFailure: failure)
+        NetworkHandler.request(url: MessagesRouter.getMessages , onFailure: failure,  onSucess: success)
+    }
+    
+    static func getMessages(priority: Bool, onFailure failure: @escaping (_ error: Error) -> Void, success : @escaping (_ messages:[MessagesUser]) -> Void ){
+        NetworkHandler.request(url: MessagesRouter.getMessages, onFailure: failure) { (response) in
+            let list = MessagesLists()
+            list.readMessages(JSON: response, priority: priority)
+            success(list.getMessagesList())
+        }
     }
 }

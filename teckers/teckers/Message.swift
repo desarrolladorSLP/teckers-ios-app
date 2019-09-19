@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class Message {
+class Message : Codable{
     var subject : String
     var text : String?
     var date : Date
     var priority : Bool
-    
+        
     init(subject : String, date: Date, priority: Bool) {
         self.subject = subject
         self.date = date
