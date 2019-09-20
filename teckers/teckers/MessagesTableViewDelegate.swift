@@ -20,12 +20,14 @@ extension MessagesTableViewDelegate : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.NameCell, for: indexPath) as! MessageCell
+        let messageCell = MessageCell(style: .default, reuseIdentifier: "")
+        let cell = tableView.dequeueReusableCell(withIdentifier: messageCell.NameCell , for: indexPath) as! MessageCell
         
         if let message = messagesList?[indexPath.row]{
             cell.setFriendMessages(friend: message)
         }
         return cell
     }
+    
 }
 

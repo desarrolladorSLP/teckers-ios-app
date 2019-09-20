@@ -16,9 +16,8 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var hourLastMessageLabel: UILabel!
     
     private var friendMessage : MessagesUser?
-    static var NameCell = "MessageCell"
-    static var nibName = UINib(nibName: NameCell, bundle: nil)
-    
+    var NameCell : String { get { return "MessageCell" } }
+    var nibName : UINib { return UINib(nibName: self.NameCell, bundle: nil) }
     
     func setFriendMessages(friend : MessagesUser){
         friendMessage = friend
@@ -29,7 +28,7 @@ class MessageCell: UITableViewCell {
                     imageUser.image = UIImage(data: data)
                 }
                 catch{
-                    print("Error \(error.localizedDescription)")
+                    imageUser.image = UIImage(named: Image.perfilImageDefault.rawValue)
                 }
             }
             let format = DateFormatter()
