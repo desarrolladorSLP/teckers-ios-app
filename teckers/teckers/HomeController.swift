@@ -85,7 +85,10 @@ extension HomeController : UITableViewDataSource{
          let messageCell = MessageCell(style: .default, reuseIdentifier: "")
         let cell = tableView.dequeueReusableCell(withIdentifier: messageCell.NameCell, for: indexPath) as! MessageCell
         let message = messagesList[indexPath.row]
-        cell.setFriendMessages(friend: message)
+        cell.setFriendMessages(friend: message){error in 
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
+            self.present(alertAction.show(), animated: true, completion: nil)
+        }
         return cell
     }
 }

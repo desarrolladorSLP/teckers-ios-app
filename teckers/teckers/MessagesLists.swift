@@ -25,6 +25,7 @@ class MessagesLists {
             success(self.ListMessages)
         }
     }
+    
     func readMessages(JSON : [String: Any], priority : Bool){
         let listJSON :  [Any]?
         if priority{

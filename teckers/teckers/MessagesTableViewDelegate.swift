@@ -8,7 +8,7 @@
 import UIKit
 
 class MessagesTableViewDelegate: NSObject ,  UITableViewDelegate {
-
+    var fail : ((Error) -> Void)?
     private var messagesList : [MessagesUser]?
     override init() {
         super.init()
@@ -24,7 +24,11 @@ extension MessagesTableViewDelegate : UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: messageCell.NameCell , for: indexPath) as! MessageCell
         
         if let message = messagesList?[indexPath.row]{
-            cell.setFriendMessages(friend: message)
+            cell.setFriendMessages(friend: message){[weak self] error in
+                if let fail = self?.fail{
+                    fail(error)
+                }
+            }
         }
         return cell
     }
