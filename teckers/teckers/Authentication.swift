@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import GoogleSignIn
-import Alamofire
 
 class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
