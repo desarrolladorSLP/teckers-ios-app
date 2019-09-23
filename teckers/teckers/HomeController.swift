@@ -25,17 +25,17 @@ class HomeController: UIViewController {
     }
     
     func getMessages(priorityHigh : Bool) {
-        MessagesService.getMessages(priority: priorityHigh, onFailure: { (error) in
-            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
-            self.present(alertAction.show(), animated: true, completion: nil)
-        }) { [weak self] (response) in
+        MessagesService.getMessages(priority: priorityHigh, success: { [weak self] (response) in
             if let view = self{
                 DispatchQueue.main.async {
                     view.messagesList = response
                     view.messageTableView.reloadData()
                 }
             }
-        }
+        }, onFailure: { (error) in
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
+            self.present(alertAction.show(), animated: true, completion: nil)
+        })
     }
     
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {

@@ -71,13 +71,13 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     
     func backendAuthenticationRequest(with idToken: String) {
-        NetworkHandler.request(url: AuthRouter.auth(token: idToken), onFailure: { (error) in
-            self.delegate?.error(message: error.localizedDescription)
-        }) { [weak self] (jsonResponseBackend) in
+        NetworkHandler.request(url: AuthRouter.auth(token: idToken), onSucess: { [weak self] (jsonResponseBackend) in
             if let view = self{
                 view.parseJSONfromBackend(jsonResponse: jsonResponseBackend, with: idToken)
                 view.delegate?.goTo(with: Segues.toHome)
             }
+        }) { (error) in
+            self.delegate?.error(message: error.localizedDescription)
         }
     }
     func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
