@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ea8-tV-rz4">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,47 +14,49 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="he4-jc-dOg">
+                                <rect key="frame" x="0.0" y="20" width="414" height="578"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Was-HK-eFX">
-                                <rect key="frame" x="0.0" y="734" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="598" width="414" height="138"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
+                                        <rect key="frame" x="30" y="54" width="354" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="sWN-DG-YyR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.90980392156862744" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="6JH-7W-0ao"/>
-                                </constraints>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Copia de teckers logo-4" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="he4-jc-dOg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="682"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="682" id="o2o-fD-bes"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
-                                <rect key="frame" x="20" y="795" width="374" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="z0O-If-6DY"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UPq-Tw-RLD" secondAttribute="bottom" constant="200" id="AiP-Xm-EGA"/>
+                                    <constraint firstAttribute="trailing" secondItem="UPq-Tw-RLD" secondAttribute="trailing" constant="30" id="E7X-GE-sJ0"/>
+                                    <constraint firstAttribute="width" secondItem="Was-HK-eFX" secondAttribute="height" multiplier="6:2" id="J5u-tC-pg1"/>
+                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerX" secondItem="Was-HK-eFX" secondAttribute="centerX" id="Un3-sR-oGg"/>
+                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerY" secondItem="Was-HK-eFX" secondAttribute="centerY" id="WJK-0j-Stb"/>
+                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="leading" secondItem="Was-HK-eFX" secondAttribute="leading" constant="30" id="XLq-aV-Yyt"/>
+                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="lessThanOrEqual" secondItem="Was-HK-eFX" secondAttribute="top" constant="200" id="wn3-QQ-cqV"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6t2-Fg-dIp"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="top" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="8" symbolic="YES" id="7cI-c9-8sh"/>
-                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerY" secondItem="Was-HK-eFX" secondAttribute="centerY" id="BRR-rb-Stt"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="centerX" secondItem="Was-HK-eFX" secondAttribute="centerX" id="CXc-bF-DGt"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LZ3-xg-R3T"/>
-                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerX" secondItem="Was-HK-eFX" secondAttribute="centerX" id="TvK-2h-YIb"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VZX-vo-xle"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bpT-Jf-RXR"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cFc-CH-MyA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UPq-Tw-RLD" secondAttribute="trailing" constant="20" id="j4U-2p-jph"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="top" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="8" id="lv4-QC-nXz"/>
-                            <constraint firstAttribute="bottom" secondItem="Was-HK-eFX" secondAttribute="bottom" id="qL1-mj-RXv"/>
-                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zqR-hs-Jxm"/>
+                            <constraint firstItem="Was-HK-eFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2S6-PC-sFo"/>
+                            <constraint firstAttribute="bottom" secondItem="Was-HK-eFX" secondAttribute="bottom" id="5Y7-Ku-k4s"/>
+                            <constraint firstItem="Was-HK-eFX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6jO-qJ-zc6"/>
+                            <constraint firstItem="Was-HK-eFX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Ct3-SK-X8U"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Dxa-kb-zJb"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fv0-9I-iIt"/>
+                            <constraint firstItem="Was-HK-eFX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" id="Np0-dC-0U5"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="agO-0y-wxH"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nkW-Iq-CN7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -67,7 +69,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="75.669642857142847"/>
+            <point key="canvasLocation" x="1034.1796875" y="70.278184480234259"/>
+        </scene>
+        <!--Signed In View Controller-->
+        <scene sceneID="3YH-Bf-eA4">
+            <objects>
+                <viewController storyboardIdentifier="SignedInViewControllerID" id="Vwy-cf-2wf" customClass="SignedInViewController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t4c-rg-fVS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqZ-oi-lN6">
+                                <rect key="frame" x="186" y="429" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXU-lK-Hr0">
+                                <rect key="frame" x="184" y="472" width="46" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2GN-l9-EcV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="Vwy-cf-2wf" eventType="touchUpInside" id="rQx-aV-5MV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fsU-ez-Mqr" firstAttribute="bottom" secondItem="pXU-lK-Hr0" secondAttribute="bottom" constant="224" id="0wn-k7-gcA"/>
+                            <constraint firstItem="pXU-lK-Hr0" firstAttribute="centerX" secondItem="BqZ-oi-lN6" secondAttribute="centerX" id="8QH-9s-hVe"/>
+                            <constraint firstItem="pXU-lK-Hr0" firstAttribute="top" secondItem="BqZ-oi-lN6" secondAttribute="bottom" constant="22" id="BHy-LI-z6x"/>
+                            <constraint firstItem="pXU-lK-Hr0" firstAttribute="centerX" secondItem="t4c-rg-fVS" secondAttribute="centerX" id="cPa-es-54F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fsU-ez-Mqr"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="BqZ-oi-lN6" id="1Zw-d4-JCF"/>
+                        <outlet property="signOutButton" destination="pXU-lK-Hr0" id="kvu-Sr-nKK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwX-Zn-POf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902.8985507246377" y="69.642857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pM-vk-Vj1">
@@ -97,6 +142,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Copia de teckers logo-4" width="1475" height="1325"/>
+        <image name="Logo-1" width="1475" height="1325"/>
     </resources>
 </document>

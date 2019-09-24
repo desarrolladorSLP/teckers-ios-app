@@ -23,9 +23,8 @@ enum AuthRouter: URLRequestConvertible {
         var parameters: [String: Any] = [:]
         switch self {
         case .auth(let token):
-            parameters = ["grant_type": "firebase", "firebase-token-id": token]
+            parameters = ["grant_type": "firebase", "firebase_token_id": token]
         }
-        
         return parameters
     }
     
@@ -39,13 +38,12 @@ enum AuthRouter: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        
         if let path = Bundle.main.url(forResource: "InfoApplication", withExtension: "plist") {
             do {
                 let dataPlist = try Data(contentsOf: path)
                 let pListData = try PropertyListSerialization.propertyList(from: dataPlist, options: [], format: nil) as! [String:Any]
-                let username = pListData["USER"] as! String
-                let password = pListData["PASSWORD"] as! String
+                let username = pListData[InfoApplicationKeys.USER.rawValue] as! String
+                let password = pListData[InfoApplicationKeys.PASSWORD.rawValue] as! String
                 let loginString = String(format: "%@:%@", username, password)
                 let loginData = loginString.data(using: String.Encoding.utf8)!
                 let base64LoginString = loginData.base64EncodedString()
