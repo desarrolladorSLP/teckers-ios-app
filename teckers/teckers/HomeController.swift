@@ -14,12 +14,17 @@ class HomeController: UIViewController {
     @IBOutlet weak var addMessageButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    private var messagesList : [MessagesUser] = []
+    private var messagesList : [MessagesUser] = [] {
+        didSet{
+            DispatchQueue.main.async {
+                self.messageTableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        messagesList = []
         getMessages(priorityHigh: true)
         
     }
@@ -69,7 +74,8 @@ class HomeController: UIViewController {
         let delegateHigh = MessagesTableViewDelegate()
         messageTableView.delegate = delegateHigh
         messageTableView.dataSource = self
-        messageTableView.register(MessageCell.nibName, forCellReuseIdentifier: MessageCell.NameCell)
+        let messageCell = MessageCell(style: .default, reuseIdentifier: "")
+        messageTableView.register(messageCell.nibName , forCellReuseIdentifier: messageCell.NameCell)
     }
 }
 
@@ -80,13 +86,18 @@ extension HomeController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.NameCell, for: indexPath) as! MessageCell
+         let messageCell = MessageCell(style: .default, reuseIdentifier: "")
+        let cell = tableView.dequeueReusableCell(withIdentifier: messageCell.NameCell, for: indexPath) as! MessageCell
         let message = messagesList[indexPath.row]
-        cell.setFriendMessages(friend: message)
+        cell.setFriendMessages(friend: message){error in 
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
+            self.present(alertAction.show(), animated: true, completion: nil)
+        }
         return cell
     }
 }
 extension UITableViewDelegate{
+    
 }
 
 extension HomeController : UISearchBarDelegate {

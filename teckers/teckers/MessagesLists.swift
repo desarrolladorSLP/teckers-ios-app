@@ -11,7 +11,6 @@ import Foundation
 class MessagesLists {
     
     private var listMessages : [MessagesUser]
-//    private let backendInteraction : MessagesService
     init() {
         listMessages = []
         
