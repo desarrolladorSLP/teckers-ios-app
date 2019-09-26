@@ -33,6 +33,7 @@ class MainNavigationItem: UINavigationItem {
         setupMessages()
     }
     func setupMessages(){
+        
         let addButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapButton))
         self.rightBarButtonItem = addButton
     }
