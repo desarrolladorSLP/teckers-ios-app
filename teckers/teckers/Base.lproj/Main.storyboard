@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ea8-tV-rz4">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,55 +15,69 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="he4-jc-dOg">
-                                <rect key="frame" x="0.0" y="20" width="414" height="578"/>
+                                <rect key="frame" x="20" y="124" width="374" height="532"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Was-HK-eFX">
-                                <rect key="frame" x="0.0" y="598" width="414" height="138"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
-                                        <rect key="frame" x="30" y="54" width="354" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="sWN-DG-YyR"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.95294117647058818" green="0.90980392156862744" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
+                                <rect key="frame" x="30" y="666" width="354" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UPq-Tw-RLD" secondAttribute="bottom" constant="200" id="AiP-Xm-EGA"/>
-                                    <constraint firstAttribute="trailing" secondItem="UPq-Tw-RLD" secondAttribute="trailing" constant="30" id="E7X-GE-sJ0"/>
-                                    <constraint firstAttribute="width" secondItem="Was-HK-eFX" secondAttribute="height" multiplier="6:2" id="J5u-tC-pg1"/>
-                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerX" secondItem="Was-HK-eFX" secondAttribute="centerX" id="Un3-sR-oGg"/>
-                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerY" secondItem="Was-HK-eFX" secondAttribute="centerY" id="WJK-0j-Stb"/>
-                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="leading" secondItem="Was-HK-eFX" secondAttribute="leading" constant="30" id="XLq-aV-Yyt"/>
-                                    <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="lessThanOrEqual" secondItem="Was-HK-eFX" secondAttribute="top" constant="200" id="wn3-QQ-cqV"/>
+                                    <constraint firstAttribute="height" constant="30" id="sWN-DG-YyR"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2S6-PC-sFo"/>
-                            <constraint firstAttribute="bottom" secondItem="Was-HK-eFX" secondAttribute="bottom" id="5Y7-Ku-k4s"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6jO-qJ-zc6"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Ct3-SK-X8U"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Dxa-kb-zJb"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fv0-9I-iIt"/>
-                            <constraint firstItem="Was-HK-eFX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" id="Np0-dC-0U5"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="agO-0y-wxH"/>
-                            <constraint firstItem="he4-jc-dOg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nkW-Iq-CN7"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fv0-9I-iIt">
+                                <variation key="heightClass=compact-widthClass=compact" constant="70"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="lessThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="50" id="H9H-C7-3n5">
+                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nu7-mk-obI"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="PYi-gX-tag">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RMA-In-AZb">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UPq-Tw-RLD" secondAttribute="bottom" constant="60" id="UBn-c1-4ya">
+                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="10" id="bzB-l4-kUO"/>
+                            <constraint firstAttribute="trailing" secondItem="UPq-Tw-RLD" secondAttribute="trailing" constant="30" id="hXQ-Yb-KJ9">
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="lmU-Wd-lpE">
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nkW-Iq-CN7">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-70"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z5j-rZ-iTf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="QwU-kU-n8K"/>
                     <connections>
                         <outlet property="signInButton" destination="UPq-Tw-RLD" id="piH-br-2Tl"/>
-                        <outlet property="yellowView" destination="Was-HK-eFX" id="Bq2-7M-Ttm"/>
                         <segue destination="1jn-IL-sMp" kind="show" identifier="toHome" id="psI-ad-9ST"/>
                     </connections>
                 </viewController>
@@ -76,17 +90,17 @@
             <objects>
                 <viewController storyboardIdentifier="SignedInViewControllerID" id="Vwy-cf-2wf" customClass="SignedInViewController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t4c-rg-fVS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqZ-oi-lN6">
-                                <rect key="frame" x="186" y="429" width="42" height="21"/>
+                                <rect key="frame" x="186" y="555" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXU-lK-Hr0">
-                                <rect key="frame" x="184" y="472" width="46" height="40"/>
+                                <rect key="frame" x="184" y="598" width="46" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2GN-l9-EcV"/>
                                 </constraints>

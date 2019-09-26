@@ -9,24 +9,21 @@
 import Foundation
 
 class MessagesLists {
-    var HighPriorityMessages : [MessagesUser]
-    var LessPriorityMessages : [MessagesUser]
     
-    var ListMessages : [MessagesUser]
-    private let backendInteraction : MessagesRequest
-    init(success : @escaping (_ list : [MessagesUser]) -> Void, onFailure failure: @escaping (_ error: Error) -> Void, priority : Bool) {
-        ListMessages = []
-        HighPriorityMessages = []
-        LessPriorityMessages = []
-        backendInteraction = MessagesRequest(onFailure: failure)
+    private var listMessages : [MessagesUser]
+    init() {
+        listMessages = []
         
-        self.backendInteraction.backendMessagesRequest  { (response) in
-            self.readMessages(JSON: response, priority: priority)
-            success(self.ListMessages)
-        }
+//        MessagesService.backendMessagesRequest(onFailure: failure) { (response) in
+//            self.readMessages(JSON: response, priority: priority)
+//            success(self.ListMessages)
+//        }
     }
-    
-    func readMessages(JSON : [String: Any], priority : Bool){
+    func getMessagesList() -> [MessagesUser]{
+        return listMessages
+    }
+
+    func readMessages(JSON : [String: Any], priority : Bool) {
         let listJSON :  [Any]?
         if priority{
             listJSON = JSON[MessagesKeys.highPriority.rawValue] as? [ Any]
@@ -44,7 +41,7 @@ class MessagesLists {
         for listItem  in list {
             if let item = listItem as? [String : Any] {
                 let userMessage = MessagesUser(item: item, priority: priority)
-                ListMessages.append(userMessage)
+                listMessages.append(userMessage)
             }
         }
     }
