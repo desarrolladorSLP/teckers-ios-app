@@ -16,39 +16,74 @@
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Was-HK-eFX">
-                                <rect key="frame" x="0.0" y="676" width="414" height="220"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
-                                        <rect key="frame" x="25" y="87" width="362" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.95294117647058818" green="0.90980392156862744" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Copia de teckers logo-4" translatesAutoresizingMaskIntoConstraints="NO" id="nCU-y1-oYe">
-                                <rect key="frame" x="-12" y="32" width="438" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="he4-jc-dOg">
+                                <rect key="frame" x="20" y="124" width="374" height="532"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-Tw-RLD" customClass="GIDSignInButton">
+                                <rect key="frame" x="30" y="666" width="354" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sWN-DG-YyR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36470588235294116" green="0.36078431372549019" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fv0-9I-iIt">
+                                <variation key="heightClass=compact-widthClass=compact" constant="70"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="lessThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="50" id="H9H-C7-3n5">
+                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nu7-mk-obI"/>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="PYi-gX-tag">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RMA-In-AZb">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UPq-Tw-RLD" secondAttribute="bottom" constant="60" id="UBn-c1-4ya">
+                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="he4-jc-dOg" secondAttribute="bottom" constant="10" id="bzB-l4-kUO"/>
+                            <constraint firstAttribute="trailing" secondItem="UPq-Tw-RLD" secondAttribute="trailing" constant="30" id="hXQ-Yb-KJ9">
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="UPq-Tw-RLD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="lmU-Wd-lpE">
+                                <variation key="heightClass=compact-widthClass=regular" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nkW-Iq-CN7">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-70"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
+                            <constraint firstItem="he4-jc-dOg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z5j-rZ-iTf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="QwU-kU-n8K"/>
                     <connections>
                         <outlet property="signInButton" destination="UPq-Tw-RLD" id="piH-br-2Tl"/>
-                        <outlet property="yellowView" destination="Was-HK-eFX" id="Bq2-7M-Ttm"/>
                         <segue destination="1jn-IL-sMp" kind="show" identifier="toHome" id="psI-ad-9ST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="75"/>
+            <point key="canvasLocation" x="1034.1796875" y="70.278184480234259"/>
         </scene>
         <!--Signed In View Controller-->
         <scene sceneID="3YH-Bf-eA4">
@@ -121,6 +156,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Copia de teckers logo-4" width="1475" height="1325"/>
+        <image name="Logo-1" width="1475" height="1325"/>
     </resources>
 </document>

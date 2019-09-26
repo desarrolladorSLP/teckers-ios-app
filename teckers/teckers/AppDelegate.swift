@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         UITabBar.appearance().tintColor = .purple
-        UINavigationBar.appearance().tintColor = .purple
+        UINavigationBar.appearance().tintColor = Color.purple
         return true
     }
 
