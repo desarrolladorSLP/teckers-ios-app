@@ -35,7 +35,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     func signUI() {
         signInButton.layer.cornerRadius = 20
-        yellowView.layer.cornerRadius = 40
     }
 }
 
