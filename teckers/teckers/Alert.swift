@@ -21,11 +21,25 @@ class Alert {
     }
     
     func show() -> UIAlertController {
-        let alert = UIAlertController(title: self.title, message: self.massage, preferredStyle: UIAlertController.Style.alert)
+        var alert = UIAlertController()
         
         switch self.type {
         case 0:
+            alert = UIAlertController(title: self.title, message: self.massage, preferredStyle: UIAlertController.Style.alert)
+            
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        case 1:
+            alert = UIAlertController(title: self.title, message: self.massage, preferredStyle: .actionSheet)
+
+            alert.addAction(UIAlertAction(title: "Si", style: .default , handler: { (UIAlertAction) in
+                print("1")
+            }))
+            alert.addAction(UIAlertAction(title: "No🙁", style: .default , handler: { (UIAlertAction) in
+                print("2")
+            }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (UIAlertAction) in
+                print("Bye")
+            }))
         default:
             print("default")
         }

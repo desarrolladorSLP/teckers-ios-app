@@ -17,9 +17,11 @@ public class Token{
         let serverURL = RoadURL.baseURL.rawValue
         self.keychain = Keychain(server : serverURL, protocolType: .https)
     }
+    
     func setToken(key: String, with token : String) throws {
         return try keychain.set(token, key: key)
     }
+    
     func getToken(user: String) throws -> String? {
         var token: String?
         do {
@@ -32,9 +34,11 @@ public class Token{
         }
        return token
     }
-    func getAllTokens() -> [[String : Any]]{
+    
+    func getAllTokens() -> [[String : Any]] {
         return keychain.allItems()
     }
+    
     func removeTocken(user: String) throws {
         return try keychain.remove(user)
     }

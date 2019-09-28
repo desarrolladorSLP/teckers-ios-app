@@ -14,7 +14,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     private var delegate : InteractionScreenDelegate?
     private var onFailure : ((_ error: Error?) -> Void)?
-    private var TokenDiccionary = Token()
+    private var tokenDiccionary = Token()
     
     override init( ){
         super.init()
@@ -47,7 +47,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         }
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        
+ 
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let Error = error {
                 self.delegate?.error(message: Error.localizedDescription)
@@ -83,18 +83,21 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         do{
             let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
             try self.saveToken(accessToken: authFromBackend.access_token, and: token)
-            self.delegate?.goTo(with: Segues.toHome)
         }
         catch{
             self.onFailure!(error)
         }
     }
     
+<<<<<<< HEAD
+    func saveToken(accessToken: String, and refreshToken : String) throws {
+=======
     
     func saveToken(accessToken: String, and refreshToken : String) throws{
+>>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
         do{
-            try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
-            try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
+            try self.tokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
+            try self.tokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
         }
         catch{
             throw error

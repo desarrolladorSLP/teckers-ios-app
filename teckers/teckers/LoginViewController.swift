@@ -10,6 +10,7 @@ import UIKit
 import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
+    
     @IBOutlet weak var yellowView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton! //Google Button
     
@@ -19,7 +20,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         authentification = Authentication()
         authentification?.setDelegate(self, onFailure: { (error) in
-            if let signOutError = error{
+            if let signOutError = error {
                 let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
                 self.present(alertAction.show(), animated: true, completion: nil)
             }
@@ -37,7 +38,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 }
 
-extension LoginViewController : InteractionScreenDelegate{
+extension LoginViewController : InteractionScreenDelegate {
     
     func goTo(with segueIdentifier: Segues) {
         self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
