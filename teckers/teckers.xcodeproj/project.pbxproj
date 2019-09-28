@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		11C9EAE2844D44721F94F837 /* Pods_teckersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76485E88A007657CB8C2E05 /* Pods_teckersTests.framework */; };
 		1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1EF2EE23145C80002BA0B1 /* Image.swift */; };
+		1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2375233D1F52004C70CC /* DateCalendar.swift */; };
+		1D2B2378233E91F4004C70CC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2377233E91F4004C70CC /* Cell.swift */; };
 		1D7E52E22316B91000776C4F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E52E12316B91000776C4F /* DayCell.swift */; };
-		1D7E52E42316EAD100776C4F /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E52E32316EAD100776C4F /* Week.swift */; };
 		1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98197E23198F0B00A4B7C3 /* Session.swift */; };
 		1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DE1F4232BD31600273123 /* SessionRouter.swift */; };
 		1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */; };
 		1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */; };
 		1DB4518A2315B8F200AD3684 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB451892315B8F200AD3684 /* Month.swift */; };
+		1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */; };
 		1DED601C23025FBA00B5E13A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED601B23025FBA00B5E13A /* Alert.swift */; };
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */; };
@@ -78,13 +80,15 @@
 /* Begin PBXFileReference section */
 		1B65FE8172873E0A1D90E5B0 /* Pods-teckersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.debug.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D1EF2EE23145C80002BA0B1 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		1D2B2375233D1F52004C70CC /* DateCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendar.swift; sourceTree = "<group>"; };
+		1D2B2377233E91F4004C70CC /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		1D7E52E12316B91000776C4F /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
-		1D7E52E32316EAD100776C4F /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		1D98197E23198F0B00A4B7C3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1D9DE1F4232BD31600273123 /* SessionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRouter.swift; sourceTree = "<group>"; };
 		1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1DB451892315B8F200AD3684 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAuthentication.swift; sourceTree = "<group>"; };
 		1DED601B23025FBA00B5E13A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1DED60212303651100B5E13A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		1DFB58312314A7E000AC1A99 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
@@ -206,8 +210,6 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
-				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
-				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
 				9B90A34822D7A6D600342CEE /* Info.plist */,
@@ -227,8 +229,10 @@
 				4D93E93423314044001FC80C /* InfoApplicationKeys.swift */,
 				4D74A52723122C7C008DC93B /* BaseCell.swift */,
 				4D74A52823122C7C008DC93B /* BaseCell.xib */,
+				1D2B2375233D1F52004C70CC /* DateCalendar.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
+				1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */,
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
@@ -251,7 +255,9 @@
 				1D0366DB2304878200D72520 /* RoadURL.swift */,
 				4D6DB19A23064CFD009F23FA /* Segues.swift */,
 				1D98197E23198F0B00A4B7C3 /* Session.swift */,
+				1DFC4765231D7C2D00CDCF8E /* SessionCell.swift */,
 				1DFB58312314A7E000AC1A99 /* SessionController.swift */,
+				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
 				4D3C2B112332DFEF00DEAA44 /* Storyboards.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
@@ -267,6 +273,7 @@
 				1D7E52E32316EAD100776C4F /* Week.swift */,
 				1DFC4765231D7C2D00CDCF8E /* SessionCell.swift */,
 				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
+				1D2B2377233E91F4004C70CC /* Cell.swift */,
 			);
 			path = teckers;
 			sourceTree = "<group>";
@@ -479,6 +486,7 @@
 				4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */,
 				4D3C2B162332E71600DEAA44 /* MessagesService.swift in Sources */,
 				1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */,
+				1D2B2378233E91F4004C70CC /* Cell.swift in Sources */,
 				4DA6471D2305B23900376414 /* AuthManager.swift in Sources */,
 				4D3C2B142332DFFC00DEAA44 /* Views.swift in Sources */,
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
@@ -503,6 +511,8 @@
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
+				1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */,
+				1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */,
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				4D3C2B0E2332DFB500DEAA44 /* RoadURL.swift in Sources */,
 				4DAB95F623426D5F007869C5 /* TypeNetworkErrors.swift in Sources */,
@@ -520,7 +530,6 @@
 				1DB4518A2315B8F200AD3684 /* Month.swift in Sources */,
 				4DD230C12312013A000A87A8 /* PrincipalNavigationItem.swift in Sources */,
 				1D0366DC2304878200D72520 /* RoadURL.swift in Sources */,
-				1D7E52E42316EAD100776C4F /* Week.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,

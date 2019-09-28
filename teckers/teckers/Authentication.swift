@@ -14,7 +14,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     private var delegate : InteractionScreenDelegate?
     private var onFailure : ((_ error: Error?) -> Void)?
-    private var TokenDiccionary = Token()
+    private var tokenDiccionary = Token()
     
     override init( ){
         super.init()
@@ -109,17 +109,16 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         do{
             let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
             try self.saveToken(accessToken: authFromBackend.access_token, and: token)
-            self.delegate?.goTo(with: Segues.toHome)
         }
         catch{
             self.onFailure!(error)
         }
     }
     
-    func saveToken(accessToken: String, and refreshToken : String) throws{
+    func saveToken(accessToken: String, and refreshToken : String) throws {
         do{
-            try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
-            try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
+            try self.tokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
+            try self.tokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
         }
         catch {
             throw error
