@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import GoogleSignIn
-import Alamofire
 
 class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
@@ -71,18 +70,15 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     
     func backendAuthenticationRequest(with idToken: String) {
-        Alamofire.request(AuthRouter.auth(token: idToken)).responseJSON {
-            response in
-            if let Error = response.error {
-                self.delegate?.error(message: Error.localizedDescription)
+        NetworkHandler.request(url: AuthRouter.auth(token: idToken), onSucess: { [weak self] (jsonResponseBackend) in
+            if let view = self{
+                view.parseJSONfromBackend(jsonResponse: jsonResponseBackend, with: idToken)
+                view.delegate?.goTo(with: Segues.toHome)
             }
-            else if let jsonResponseBackend = response.value as? [String:Any] {
-                self.parseJSONfromBackend(jsonResponse: jsonResponseBackend, with: idToken)
-                self.delegate?.goTo(with: Segues.toHome)
-            }
+        }) { (error) in
+            self.delegate?.error(message: error.localizedDescription)
         }
     }
-    
     func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
         do{
             let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
@@ -98,7 +94,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             try self.tokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
             try self.tokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
         }
-        catch {
+        catch{
             throw error
         }
     }
