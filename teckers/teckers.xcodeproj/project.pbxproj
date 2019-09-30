@@ -249,7 +249,6 @@
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
-				9B90A34022D7A6D500342CEE /* Main.storyboard */,
 				1DB451892315B8F200AD3684 /* Month.swift */,
 				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				4DD230C02312013A000A87A8 /* PrincipalNavigationItem.swift */,
@@ -268,13 +267,7 @@
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				1D7E52E32316EAD100776C4F /* Week.swift */,
-				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
-				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
-				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
-				9B90A34022D7A6D500342CEE /* Main.storyboard */,
-				1DFC4765231D7C2D00CDCF8E /* SessionCell.swift */,
 				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
-				1D2B2377233E91F4004C70CC /* Cell.swift */,
 			);
 			path = teckers;
 			sourceTree = "<group>";

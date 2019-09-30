@@ -43,6 +43,23 @@ struct NetworkHandler {
                 fail()
                 
             }
+//            if let Error = response.error {
+//                failure(Error)
+//            }
+//            else if let jsonResponseBackend = response.value as? [String:Any] {
+//                success(jsonResponseBackend)
+//            }
+//            switch response.response?.statusCode{
+//                case 400:
+//                    if let error = NetworkError.instance.getAction(for: .badRequest){
+//                        error(response.error)
+//                    }
+//                case 500:
+//                    print("\n\n\n\nError 500 - 599")
+//                default:
+//                    print("Error default ")
+//            }
+            
         }
     }
     
