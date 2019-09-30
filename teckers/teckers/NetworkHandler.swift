@@ -16,12 +16,41 @@ struct NetworkHandler {
     
     static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void,  onFailure failure: @escaping (_ error: Error) -> Void){
         Alamofire.request(url).responseJSON{ response in
-            if let Error = response.error {
-                failure(Error)
+            switch response.result{
+            case .success(let succes):
+                print("Exito:  \(succes)")
+                if let jsonResponseBackend = response.value as? [String:Any] {
+                    success(jsonResponseBackend)
+                }
+            case .failure(let error):
+                print(error)
+                
+                switch response.response?.statusCode {
+                case 503:
+                    if let fail = NetworkError.instance.getAction(for: .badRequest){
+                        fail(error)
+                    }
+                default:
+                    failure(error)
+                }
             }
-            else if let jsonResponseBackend = response.value as? [String:Any] {
-                success(jsonResponseBackend)
-            }
+//            if let Error = response.error {
+//                failure(Error)
+//            }
+//            else if let jsonResponseBackend = response.value as? [String:Any] {
+//                success(jsonResponseBackend)
+//            }
+//            switch response.response?.statusCode{
+//                case 400:
+//                    if let error = NetworkError.instance.getAction(for: .badRequest){
+//                        error(response.error)
+//                    }
+//                case 500:
+//                    print("\n\n\n\nError 500 - 599")
+//                default:
+//                    print("Error default ")
+//            }
+            
         }
     }
     
