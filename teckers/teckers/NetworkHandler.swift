@@ -16,41 +16,29 @@ struct NetworkHandler {
     
     static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void,  onFailure failure: @escaping (_ error: Error) -> Void){
         Alamofire.request(url).responseJSON{ response in
+            guard let statusCode = response.response?.statusCode else{
+                let fail = NetworkError.instance.getAction(for: -1)
+                fail()
+                return
+            }
             switch response.result{
-            case .success(let succes):
-                print("Exito:  \(succes)")
-                if let jsonResponseBackend = response.value as? [String:Any] {
-                    success(jsonResponseBackend)
+            case .success(let value):
+                print(value)
+                switch statusCode{
+                case 100..<400:
+                    if let jsonResponseBackend = response.value as? [String:Any] {
+                        success(jsonResponseBackend)
+                    }
+                default:
+                    let fail = NetworkError.instance.getAction(for: statusCode)
+                    fail()
                 }
             case .failure(let error):
                 print(error)
+                let fail = NetworkError.instance.getAction(for: statusCode)
+                fail()
                 
-                switch response.response?.statusCode {
-                case 503:
-                    if let fail = NetworkError.instance.getAction(for: .badRequest){
-                        fail(error)
-                    }
-                default:
-                    failure(error)
-                }
             }
-//            if let Error = response.error {
-//                failure(Error)
-//            }
-//            else if let jsonResponseBackend = response.value as? [String:Any] {
-//                success(jsonResponseBackend)
-//            }
-//            switch response.response?.statusCode{
-//                case 400:
-//                    if let error = NetworkError.instance.getAction(for: .badRequest){
-//                        error(response.error)
-//                    }
-//                case 500:
-//                    print("\n\n\n\nError 500 - 599")
-//                default:
-//                    print("Error default ")
-//            }
-            
         }
     }
     

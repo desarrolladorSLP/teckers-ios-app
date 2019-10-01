@@ -9,12 +9,16 @@
 import Foundation
 
 enum TypesNetworkErrors : String {
-    case badRequest = "400"
-    case unauthorized = "401"
-    case requestTimeOut = "408"
-    case internalServerError = "500"
-    case serviceUnavaible = "503"
+    case badRequest = "400" //Status 400
+    case unauthorized = "401" //Status 401
+    case forbidden //Status 403
+    case pageNotFound = "Pagina No Encontrada" //Status 404
+    case requestTimeOut = "408" //Status 408
     
+    case internalServerError = "500" //Status 500
+    case serviceUnavaible = "503" //Status 503
+    
+    case noInternet = "Sin Internet"
     case noJSON
-    case unknow
+    case unknow = "Error Desconocido \n favor de comunicarte con el administrador"
 }

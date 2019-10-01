@@ -39,6 +39,7 @@
 		4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471A2305B1F500376414 /* Authenticable.swift */; };
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DAB95F623426D5F007869C5 /* TypeNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB95F523426D5F007869C5 /* TypeNetworkErrors.swift */; };
+		4DB3E0B62343E01700EB558E /* TypeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E0B52343E01700EB558E /* TypeButtons.swift */; };
 		4DBBF66C231090B300F722FC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66B231090B300F722FC /* HomeController.swift */; };
 		4DBBF66E231092DD00F722FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66D231092DD00F722FC /* Message.swift */; };
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
@@ -100,6 +101,7 @@
 		4DA6471A2305B1F500376414 /* Authenticable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticable.swift; sourceTree = "<group>"; };
 		4DA6471C2305B23900376414 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4DAB95F523426D5F007869C5 /* TypeNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeNetworkErrors.swift; sourceTree = "<group>"; };
+		4DB3E0B52343E01700EB558E /* TypeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtons.swift; sourceTree = "<group>"; };
 		4DBBF66B231090B300F722FC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4DBBF66D231092DD00F722FC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				4DAB95F523426D5F007869C5 /* TypeNetworkErrors.swift */,
+				4DB3E0B52343E01700EB558E /* TypeButtons.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D3C2B132332DFFB00DEAA44 /* Views.swift */,
 				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
@@ -457,6 +460,7 @@
 				4D415238231EC5AA0065D901 /* Color.swift in Sources */,
 				4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */,
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
+				4DB3E0B62343E01700EB558E /* TypeButtons.swift in Sources */,
 				1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
