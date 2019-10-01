@@ -511,6 +511,8 @@
 				4D415238231EC5AA0065D901 /* Color.swift in Sources */,
 				4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */,
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
+				4DB3E0B62343E01700EB558E /* TypeButtons.swift in Sources */,
+				1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
