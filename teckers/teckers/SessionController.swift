@@ -226,11 +226,15 @@ extension SessionController: UICollectionViewDataSource {
             if (dateSession == dateCurrent && allSessions.count > 0) {
                 let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?")
                 let alertOptions = alertNotification.showActionSheetAssistance(id: sessionsForDate[indexPath.row].id, success: { [weak self] response in
-                    if response == 200 {
+                    switch response {
+                    case 200:
                         let alert = Alert(title: "Exito", massage: "Se a confirmado la asistencia para esta sesión")
                         self?.present(alert.showOK(), animated: true, completion: nil)
-                    } else if response == 409 {
+                    case 409:
                         let alert = Alert(title: "Aviso", massage: "Esta sesion ya fue confirmada su asistencia")
+                        self?.present(alert.showOK(), animated: true, completion: nil)
+                    default:
+                        let alert = Alert(title: "Error", massage: "Se ha detectado un error en la parte de asistencia, intente despues.")
                         self?.present(alert.showOK(), animated: true, completion: nil)
                     }
                 })
