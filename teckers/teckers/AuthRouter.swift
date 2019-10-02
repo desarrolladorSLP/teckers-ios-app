@@ -22,11 +22,7 @@ enum AuthRouter: URLRequestConvertible {
     var parameters: Parameters? {
         switch self {
         case .auth(let token):
-<<<<<<< HEAD
             return ["grant_type": "firebase", "firebase_token_id": token]
-=======
-            return  ["grant_type": "firebase", "firebase_token_id": token]
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
         }
     }
     
@@ -40,40 +36,21 @@ enum AuthRouter: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-<<<<<<< HEAD
-        let fileName = "InfoApplication"
-        let fileExtension = "plist"
-        let account = (user: "USER",password: "PASSWORD")
-        
-        urlRequest.httpMethod = method.rawValue
-        if let path = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
-            do {
-                let dataPlist = try Data(contentsOf: path)
-                let pListData = try PropertyListSerialization.propertyList(from: dataPlist, options: [], format: nil) as? [String:Any]
-                let username = pListData?[account.user] ?? ""
-                let password = pListData?[account.password] ?? ""
-                let loginString = "\(username):\(password)"
-                let loginData = loginString.data(using: String.Encoding.utf8) ?? nil
-                let base64LoginString = loginData?.base64EncodedString() ?? ""
-                let authorizationHeader = "Authorization"
-                let acceptHeader = "Accept"
-                
-                urlRequest.setValue(Header.Authorization.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
-                urlRequest.setValue(Header.Accept.rawValue, forHTTPHeaderField: acceptHeader)
-=======
+        let authorizationHeader = "Authorization"
+        let acceptHeader = "Accept"
+
         if let path = Bundle.main.url(forResource: "InfoApplication", withExtension: "plist") {
             do {
                 let dataPlist = try Data(contentsOf: path)
                 let pListData = try PropertyListSerialization.propertyList(from: dataPlist, options: [], format: nil) as! [String:Any]
-                let username = pListData[InfoApplicationKeys.USER.rawValue] as! String
-                let password = pListData[InfoApplicationKeys.PASSWORD.rawValue] as! String
-                let loginString = String(format: "%@:%@", username, password)
+                let username = pListData[InfoApplicationKeys.USER.rawValue] ?? ""
+                let password = pListData[InfoApplicationKeys.PASSWORD.rawValue] ?? ""
+                let loginString = "\(username):\(password)"
                 let loginData = loginString.data(using: String.Encoding.utf8)!
                 let base64LoginString = loginData.base64EncodedString()
                 urlRequest.httpMethod = method.rawValue
-                urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
+                urlRequest.setValue(Header.Authorization.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
+                urlRequest.setValue(Header.Accept.rawValue, forHTTPHeaderField: acceptHeader)
             } catch {
                 return error as! URLRequest
             }
