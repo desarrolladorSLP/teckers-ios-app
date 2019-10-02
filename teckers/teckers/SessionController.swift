@@ -36,11 +36,13 @@ class SessionController: UIViewController {
             for dictionarySession in response {
                 self?.allSessions.append(Session(JSON: dictionarySession))
             }
-            self?.sessionsValue = self?.sessionsForDate.count ?? 0
+            self?.sessionsValue = self?.allSessions.count ?? 0
+            self?.sessionsForDate = self!.allSessions
+            self?.calendarCollectionView.reloadData()
             }, failure: { [weak self] Error in
                 let alertAction = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
                 self?.present(alertAction.show(), animated: true, completion: nil)
-        } )
+        })
         sessionsForDate = allSessions
         daysOfMonth = DateCalendar.daysOfMonthsByYear(yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
@@ -190,7 +192,6 @@ extension SessionController: UICollectionViewDataSource {
             day.labelDay.text = "\(indexPath.row + 1 - startOfMonth + 1)"
             day.viewDay.backgroundColor = UIColor.clear
             if ((indexPath.row + 1  - startOfMonth + 1) == NSCalendar.current.component(.day, from: Date()) && monthCurrent == NSCalendar.current.component(.month, from: Date()) && yearCurrent == NSCalendar.current.component(.year, from: Date())) {
-                flag += 1
                 day.backgroundColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1)
                 day.labelDay.textColor = UIColor.white
             }
@@ -203,7 +204,12 @@ extension SessionController: UICollectionViewDataSource {
                 for dictionarySession in sessionsForDate {
                     let dateSession = DateCalendar.datetoString(dictionarySession.date)
                     if (dateSession == dateCurrent) {
-                        day.viewDay.backgroundColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1)
+                        if ((indexPath.row + 1  - startOfMonth + 1) == NSCalendar.current.component(.day, from: Date()) && monthCurrent == NSCalendar.current.component(.month, from: Date()) && yearCurrent == NSCalendar.current.component(.year, from: Date())) {
+                            day.viewDay.backgroundColor = UIColor.yellow
+                        }
+                        else {
+                            day.viewDay.backgroundColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1)
+                        }
                     }
                 }
             }
