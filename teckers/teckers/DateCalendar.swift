@@ -51,7 +51,7 @@ class DateCalendar {
         formatter.timeZone = TimeZone(identifier: "UTC")
         let formattedDateString = formatter.string(from: date ?? Date())
         
-        var fullNameArr = formattedDateString.split(separator: "-").map(String.init)
+        let fullNameArr = formattedDateString.split(separator: "-").map(String.init)
         let time = fullNameArr[0]
         
         return time

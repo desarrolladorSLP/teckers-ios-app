@@ -209,17 +209,14 @@
 				1DED60212303651100B5E13A /* AuthenticationInfo.swift */,
 				4DA6471C2305B23900376414 /* AuthManager.swift */,
 				1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */,
-<<<<<<< HEAD
 				4D74A52723122C7C008DC93B /* BaseCell.swift */,
 				4D74A52823122C7C008DC93B /* BaseCell.xib */,
 				1D2B2375233D1F52004C70CC /* DateCalendar.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
 				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
 				1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */,
-=======
 				4D415237231EC5AA0065D901 /* Color.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				4D93E93423314044001FC80C /* InfoApplicationKeys.swift */,
@@ -244,14 +241,7 @@
 				1DFB58312314A7E000AC1A99 /* SessionController.swift */,
 				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
-<<<<<<< HEAD
-				1DED601F23030C1C00B5E13A /* Storyboards.swift */,
-				4DF508AE230CE5E7000C2B95 /* Token.swift */,
-				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
-				4D74A52523122A85008DC93B /* User.swift */,
-				4D6DB19923064CFD009F23FA /* Views.swift */,
 				1D2B2377233E91F4004C70CC /* Cell.swift */,
-=======
 				4D4DF166233D207F00DD4341 /* Storyboards.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
@@ -262,7 +252,6 @@
 				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
 				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
 				9B90A34022D7A6D500342CEE /* Main.storyboard */,
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
 			);
 			path = teckers;
 			sourceTree = "<group>";
@@ -473,13 +462,10 @@
 				4D4DF16A233D208000DD4341 /* Views.swift in Sources */,
 				4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */,
 				1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */,
-<<<<<<< HEAD
 				1D2B2378233E91F4004C70CC /* Cell.swift in Sources */,
-=======
 				4D4DF169233D208000DD4341 /* Storyboards.swift in Sources */,
 				4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */,
 				4D3C2B162332E71600DEAA44 /* MessagesService.swift in Sources */,
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
 				4DA6471D2305B23900376414 /* AuthManager.swift in Sources */,
 				1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */,
 				4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */,
@@ -489,12 +475,9 @@
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
-<<<<<<< HEAD
 				1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */,
 				1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */,
-=======
 				4D4DF168233D208000DD4341 /* Segues.swift in Sources */,
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */,
 				1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */,
@@ -503,13 +486,10 @@
 				1DB4518A2315B8F200AD3684 /* Month.swift in Sources */,
 				1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */,
 				1D0366DC2304878200D72520 /* RoadURL.swift in Sources */,
-<<<<<<< HEAD
-=======
 				1D7E52E42316EAD100776C4F /* Week.swift in Sources */,
 				4D415238231EC5AA0065D901 /* Color.swift in Sources */,
 				4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */,
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
->>>>>>> 0b41fb4b4b3b04f6aac885beeb3c7f5e728e24a8
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
