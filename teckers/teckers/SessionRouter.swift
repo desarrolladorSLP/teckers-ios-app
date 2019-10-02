@@ -11,17 +11,22 @@ import Alamofire
 
 enum SessionRouter: URLRequestConvertible {
     case getSessions(year: Int, month: Int)
-
+    case setSessionAssistance(id: String)
     var method: HTTPMethod {
         switch self {
         case .getSessions:
             return .get
+        case .setSessionAssistance(_):
+            return .post
         }
+        
     }
 
     var parameters: Parameters? {
         switch self {
         case .getSessions(_, _):
+            return nil
+        case .setSessionAssistance(_):
             return nil
         }
     }
@@ -30,6 +35,8 @@ enum SessionRouter: URLRequestConvertible {
         switch self {
         case .getSessions(let year, let month):
             return "api/events/\(year)/\(month)"
+        case .setSessionAssistance(let id):
+            return "/api/session/confirm/\(id)"
         }
     }
 

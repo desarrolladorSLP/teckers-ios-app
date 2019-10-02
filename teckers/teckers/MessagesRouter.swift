@@ -1,10 +1,9 @@
 //
 //  MessagesRouter.swift
-//  
+//
 //
 //  Created by Maggie Mendez on 9/12/19.
 //
-
 import Foundation
 import Alamofire
 
@@ -45,4 +44,3 @@ enum MessagesRouter: URLRequestConvertible {
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
-

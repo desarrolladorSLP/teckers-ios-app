@@ -38,8 +38,8 @@ class SignedInViewController: UIViewController, GIDSignInUIDelegate {
             self.navigationController?.popViewController(animated: true)
         }, onFailure: { (error) in
             if let signOutError = error{
-                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
-                self.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription)
+                self.present(alertAction.showOK(), animated: true, completion: nil)
             }
         })
         

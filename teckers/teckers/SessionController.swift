@@ -32,14 +32,14 @@ class SessionController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
-        Session.backendSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
+        Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
             for dictionarySession in response {
                 self?.allSessions.append(Session(JSON: dictionarySession))
             }
             self?.sessionsValue = self?.sessionsForDate.count ?? 0
             }, failure: { [weak self] Error in
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                self?.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
         } )
         sessionsForDate = allSessions
         daysOfMonth = DateCalendar.daysOfMonthsByYear(yearCurrent)
@@ -63,7 +63,7 @@ class SessionController: UIViewController {
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
         endOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
-        Session.backendSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
+        Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
             for dictionarySession in response {
                 self?.allSessions.append(Session(JSON: dictionarySession))
             }
@@ -71,8 +71,8 @@ class SessionController: UIViewController {
             self?.sessionsForDate = self!.allSessions
             self?.calendarCollectionView.reloadData()
             }, failure: { [weak self] Error in
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                self?.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
         })
         dayCurrent = 0
         sessionCollectionView.reloadData()
@@ -94,7 +94,7 @@ class SessionController: UIViewController {
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
         endOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
-        Session.backendSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
+        Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
             for dictionarySession in response {
                 self?.allSessions.append(Session(JSON: dictionarySession))
             }
@@ -102,8 +102,8 @@ class SessionController: UIViewController {
             self?.sessionsForDate = self!.allSessions
             self?.calendarCollectionView.reloadData()
             }, failure: { [weak self] Error in
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription, type: 0)
-                self?.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
         })
         dayCurrent = 0
         sessionCollectionView.reloadData()
@@ -157,32 +157,33 @@ extension SessionController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView == sessionCollectionView) {
-            let session = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.SessionCell.rawValue, for: indexPath) as! SessionCell
+            let sessionCurrent = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.SessionCell.rawValue, for: indexPath) as! SessionCell
+            
             if (sessionsForDate.count > 0) {
                 let dateSession = DateCalendar.datetoString(sessionsForDate[indexPath.row].date)
                 let dateCurrent = "\(DateCalendar.left(num: String(dayCurrent), total: 2, cadena: "0"))-\(DateCalendar.left(num: String(monthCurrent), total: 2, cadena: "0"))-\(yearCurrent)"
                 
                 if (dateSession == dateCurrent) {
-                    session.layer.borderColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1).cgColor
-                    session.layer.borderWidth = 2
-                    session.setDateText(text: "Sesión el día \(DateCalendar.datetoString(sessionsForDate[indexPath.row].date))")
-                    session.setInfoText(text: "INFORMACIÓN:")
-                    session.setLocationText(text: "Ubicación: \(sessionsForDate[indexPath.row].location)")
-                    session.setScheduleText(text: "Horario de \(DateCalendar.timeToString(sessionsForDate[indexPath.row].startTime)) a \(DateCalendar.timeToString(sessionsForDate[indexPath.row].endTime))")
-                    session.setSubjectText(text: "Temas a tratar: \(sessionsForDate[indexPath.row].subject)")
-                    session.setGeneralDirectionsText(text: "Indicacíones generales: \(String(describing: sessionsForDate[indexPath.row].directions))")
+                    sessionCurrent.layer.borderColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1).cgColor
+                    sessionCurrent.layer.borderWidth = 2
+                    sessionCurrent.setDateText(text: "Sesión el día \(DateCalendar.datetoString(sessionsForDate[indexPath.row].date))")
+                    sessionCurrent.setInfoText(text: "INFORMACIÓN:")
+                    sessionCurrent.setLocationText(text: "Ubicación: \(sessionsForDate[indexPath.row].location)")
+                    sessionCurrent.setScheduleText(text: "Horario de \(DateCalendar.timeToString(sessionsForDate[indexPath.row].startTime)) a \(DateCalendar.timeToString(sessionsForDate[indexPath.row].endTime))")
+                    sessionCurrent.setSubjectText(text: "Temas a tratar: \(sessionsForDate[indexPath.row].subject)")
+                    sessionCurrent.setGeneralDirectionsText(text: "Indicacíones generales: \(String(describing: sessionsForDate[indexPath.row].directions))")
                 }
             }
             else {
-                session.setDateText(text: "")
-                session.setInfoText(text: "")
-                session.setLocationText(text: "")
-                session.setScheduleText(text: "")
-                session.setSubjectText(text: "")
-                session.setGeneralDirectionsText(text: "")
+                sessionCurrent.setDateText(text: "")
+                sessionCurrent.setInfoText(text: "")
+                sessionCurrent.setLocationText(text: "")
+                sessionCurrent.setScheduleText(text: "")
+                sessionCurrent.setSubjectText(text: "")
+                sessionCurrent.setGeneralDirectionsText(text: "")
             }
             
-            return session
+            return sessionCurrent
         }
         let day = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.DayCell.rawValue, for: indexPath) as! DayCell
         
@@ -223,8 +224,17 @@ extension SessionController: UICollectionViewDataSource {
             let dateCurrent = "\(DateCalendar.left(num: String(dayCurrent), total: 2, cadena: "0"))-\(DateCalendar.left(num: String(monthCurrent), total: 2, cadena: "0"))-\(yearCurrent)"
             
             if (dateSession == dateCurrent && allSessions.count > 0) {
-                let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?", type: 1)
-                present(alertNotification.show(), animated: true, completion: nil)
+                let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?")
+                let alertOptions = alertNotification.showActionSheetAssistance(id: sessionsForDate[indexPath.row].id, success: { [weak self] response in
+                    if response == 200 {
+                        let alert = Alert(title: "Exito", massage: "Se a confirmado la asistencia para esta sesión")
+                        self?.present(alert.showOK(), animated: true, completion: nil)
+                    } else if response == 409 {
+                        let alert = Alert(title: "Aviso", massage: "Esta sesion ya fue confirmada su asistencia")
+                        self?.present(alert.showOK(), animated: true, completion: nil)
+                    }
+                })
+                present(alertOptions, animated: true, completion: nil)
             }
         }
         else if (collectionView == calendarCollectionView) {
