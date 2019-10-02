@@ -7,8 +7,9 @@
 //
 
 import Foundation
-enum TypeButtons: Int{
+enum TypeButtons: Int {
     case OK = 1
     case OkCancel = 2
     case Reload = 3
+    case TryLater = 4
 }

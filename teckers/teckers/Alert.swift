@@ -31,6 +31,8 @@ class Alert {
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: handlers[1]))
         case .Reload:
             alert.addAction(UIAlertAction(title: "Reload", style: UIAlertAction.Style.default, handler: handlers[0]))
+        case .TryLater:
+            alert.addAction(UIAlertAction(title: "Try later", style: UIAlertAction.Style.default, handler: handlers[0]))
         }
     }
     

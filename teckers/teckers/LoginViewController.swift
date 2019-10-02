@@ -32,12 +32,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         signUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkError.delegate = self
+    }
+    
     func signUI() {
         signInButton.layer.cornerRadius = 20
     }
 }
 
 extension LoginViewController : InteractionScreenDelegate{
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func goTo(with segueIdentifier: Segues) {
         self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
