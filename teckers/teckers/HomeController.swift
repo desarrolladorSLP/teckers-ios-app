@@ -81,6 +81,21 @@ class HomeController: UIViewController {
         let messageCell = MessageCell(style: .default, reuseIdentifier: "")
         messageTableView.register(messageCell.nibName , forCellReuseIdentifier: messageCell.NameCell)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+            
+            print("\nChi chiñol")
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        if let view = UIApplication.shared.windows[0].rootViewController?.children[0] as? LoginViewController{
+            if let info = NetworkError.instance.getInformation(for: 401){
+                DispatchQueue.main.async {
+                    view.error(message: info.message)
+                }
+            }
+        }
+    }
+    
 }
 
 extension HomeController : UITableViewDataSource{
@@ -121,13 +136,7 @@ extension HomeController : UISearchBarDelegate {
 
 extension HomeController : InteractionScreenDelegate{
     func dismiss() {
-        self.dismiss(animated: true){ [weak self] in
-            if let last = self?.navigationController?.viewControllers.endIndex{
-                if (last - 1) > 0{
-                    NetworkError.delegate = self?.navigationController?.viewControllers[last - 1] as? InteractionScreenDelegate
-                }
-            }
-        }
+        self.dismiss(animated: true)
     }
     
     func goTo(with segueIdentifier: Segues) {

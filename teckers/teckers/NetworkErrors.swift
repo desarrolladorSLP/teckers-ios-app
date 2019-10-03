@@ -70,8 +70,10 @@ class NetworkError{
             if let action = self?.getActionBeforeAlert(for: statusCode) {
                 action()
             }
-            DispatchQueue.main.async {
-                NetworkError.delegate?.error(message: infoAlert.message)
+            else{
+                DispatchQueue.main.async {
+                    NetworkError.delegate?.error(message: infoAlert.message)
+                }
             }
         }
     }
