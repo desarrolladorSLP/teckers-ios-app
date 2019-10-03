@@ -36,10 +36,12 @@ enum AuthRouter: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        let fileName = "InfoApplication"
+        let fileExtension = "plist"
         let authorizationHeader = "Authorization"
         let acceptHeader = "Accept"
 
-        if let path = Bundle.main.url(forResource: "InfoApplication", withExtension: "plist") {
+        if let path = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
             do {
                 let dataPlist = try Data(contentsOf: path)
                 let pListData = try PropertyListSerialization.propertyList(from: dataPlist, options: [], format: nil) as! [String:Any]
@@ -48,7 +50,7 @@ enum AuthRouter: URLRequestConvertible {
                 let loginString = "\(username):\(password)"
                 let loginData = loginString.data(using: String.Encoding.utf8)!
                 let base64LoginString = loginData.base64EncodedString()
-                urlRequest.httpMethod = method.rawValue
+                urlRequest.httpMethod = HTTPMethod.post.rawValue
                 urlRequest.setValue(Header.Authorization.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
                 urlRequest.setValue(Header.Accept.rawValue, forHTTPHeaderField: acceptHeader)
             } catch {
