@@ -83,6 +83,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             self.delegate?.error(message: error.localizedDescription)
         }
     }
+    
     func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
         do{
             let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
@@ -97,30 +98,10 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     func saveToken(accessToken: String, and refreshToken : String) throws{
         do{
-            try self.TokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
-            try self.TokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
-        }
-        catch{
-            throw error
-        }
-    }
-    
-    func parseJSONfromBackend(jsonResponse: [String : Any], with token: String){
-        do{
-            let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
-            try self.saveToken(accessToken: authFromBackend.access_token, and: token)
-        }
-        catch{
-            self.onFailure!(error)
-        }
-    }
-    
-    func saveToken(accessToken: String, and refreshToken : String) throws {
-        do{
             try self.tokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
             try self.tokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
         }
-        catch {
+        catch{
             throw error
         }
     }

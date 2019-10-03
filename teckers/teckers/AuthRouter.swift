@@ -24,7 +24,6 @@ enum AuthRouter: URLRequestConvertible {
         case .auth(let token):
             return ["grant_type": "firebase", "firebase_token_id": token]
         }
-        return nil
     }
     
     var path: String {
