@@ -38,7 +38,6 @@
 		4D45AE2423197D04003A02B4 /* MessageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45AE2323197D04003A02B4 /* MessageUser.swift */; };
 		4D45AE29231D87CC003A02B4 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D45AE28231D87CB003A02B4 /* MessageCell.swift */; };
 		4D4DF16C233D52F500DD4341 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DF16B233D52F500DD4341 /* NetworkErrors.swift */; };
-		4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DB19F230704E4009F23FA /* InfoApplication.plist */; };
 		4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F194B232AC408001E0645 /* TokenKeys.swift */; };
 		4D74A52623122A85008DC93B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A52523122A85008DC93B /* User.swift */; };
 		4D8972EB2329CF4200959180 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8972EA2329CF4200959180 /* Constant.swift */; };
@@ -99,6 +98,7 @@
 		48D288AE27B5F105BA13DC05 /* Pods-teckersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.release.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewDelegate.swift; sourceTree = "<group>"; };
 		4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
+		4D1A9BB02345A4DC005D3C1A /* InfoApplication.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoApplication.plist; sourceTree = "<group>"; };
 		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		4D3C2B0D2332DFB300DEAA44 /* RoadURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadURL.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 		4D45AE2323197D04003A02B4 /* MessageUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageUser.swift; sourceTree = "<group>"; };
 		4D45AE28231D87CB003A02B4 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		4D4DF16B233D52F500DD4341 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
-		4D6DB19F230704E4009F23FA /* InfoApplication.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoApplication.plist; sourceTree = "<group>"; };
 		4D6F194B232AC408001E0645 /* TokenKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenKeys.swift; sourceTree = "<group>"; };
 		4D74A52523122A85008DC93B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4D8972EA2329CF4200959180 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -210,11 +209,13 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
-				1D35371923452C3B0021CBEC /* MessagesRouter.swift */,
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
+				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
+				9B90A34822D7A6D600342CEE /* Info.plist */,
+				4D1A9BB02345A4DC005D3C1A /* InfoApplication.plist */,
+				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				1DED601B23025FBA00B5E13A /* Alert.swift */,
 				9B90A33C22D7A6D500342CEE /* AppDelegate.swift */,
-				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
 				4DA6471A2305B1F500376414 /* Authenticable.swift */,
 				1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */,
 				1DED60212303651100B5E13A /* AuthenticationInfo.swift */,
@@ -229,28 +230,23 @@
 				1D2B2377233E91F4004C70CC /* Cell.swift */,
 				1D2B2375233D1F52004C70CC /* DateCalendar.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
-				4D8A9A152304BA69003483EC /* GoogleService-Info.plist */,
 				1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */,
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
-				9B90A34822D7A6D600342CEE /* Info.plist */,
-				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
-				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
 				9B90A33E22D7A6D500342CEE /* LoginViewController.swift */,
-				9B90A34022D7A6D500342CEE /* Main.storyboard */,
 				4D9552B0232B581C0008E86E /* MainNavigationItem.swift */,
 				4DBBF66D231092DD00F722FC /* Message.swift */,
 				4D45AE28231D87CB003A02B4 /* MessageCell.swift */,
 				4DD31534232B20BA00429B0A /* MessagesKeys.swift */,
 				4D3DAB17232593550023FAA2 /* MessagesLists.swift */,
+				1D35371923452C3B0021CBEC /* MessagesRouter.swift */,
 				4D3C2B152332E71600DEAA44 /* MessagesService.swift */,
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
 				1DB451892315B8F200AD3684 /* Month.swift */,
-				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				4DD230C02312013A000A87A8 /* PrincipalNavigationItem.swift */,
 				1D0366DB2304878200D72520 /* RoadURL.swift */,
 				4D6DB19A23064CFD009F23FA /* Segues.swift */,
@@ -260,14 +256,17 @@
 				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
 				4D3C2B112332DFEF00DEAA44 /* Storyboards.swift */,
-				4DAB95F523426D5F007869C5 /* TypeNetworkErrors.swift */,
 				4DB3E0B52343E01700EB558E /* TypeButtons.swift */,
+				4DAB95F523426D5F007869C5 /* TypeNetworkErrors.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D3C2B132332DFFB00DEAA44 /* Views.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				1D7E52E32316EAD100776C4F /* Week.swift */,
-				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
+				9B90A34322D7A6D600342CEE /* Assets.xcassets */,
+				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
+				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
+				9B90A34022D7A6D500342CEE /* Main.storyboard */,
 			);
 			path = teckers;
 			sourceTree = "<group>";
@@ -330,7 +329,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Teckers;
 				TargetAttributes = {
 					9B90A33822D7A6D500342CEE = {
@@ -371,9 +370,9 @@
 				9B90A34422D7A6D600342CEE /* Assets.xcassets in Resources */,
 				4D3DAB16232591450023FAA2 /* MessageCell.xib in Resources */,
 				4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */,
-				4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */,
 				9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */,
 				4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */,
+				4D1A9BB12345A4DC005D3C1A /* InfoApplication.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +496,6 @@
 				1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */,
 				1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */,
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
-				4D3C2B0E2332DFB500DEAA44 /* RoadURL.swift in Sources */,
 				4DAB95F623426D5F007869C5 /* TypeNetworkErrors.swift in Sources */,
 				1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */,
 				1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */,
@@ -512,7 +510,6 @@
 				4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */,
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
 				4DB3E0B62343E01700EB558E /* TypeButtons.swift in Sources */,
-				1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,

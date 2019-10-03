@@ -13,7 +13,7 @@ class Alert {
     private var title: String
     private var massage: String
     private var type: Int
-    private let alert: UIAlertController
+    private var alert: UIAlertController
     
     init(title: String, massage: String, type: Int) {
         self.title = title

@@ -18,6 +18,6 @@ enum TypesNetworkErrors : String {
     case internalServerError = "Error de Servidor." //Status 500
     
     case noInternet = "No es posible conectarse a una red."
-    case noJSON = "Ha ocurrido un error, favor de comunicarte con el administrador."
+    case noJSON = "Ha ocurrido un error en el formato de los datos, favor de comunicarte con el administrador."
     case unknow = "Error Desconocido, favor de comunicarte con el administrador."
 }

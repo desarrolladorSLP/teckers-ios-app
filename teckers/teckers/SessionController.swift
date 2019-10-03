@@ -272,3 +272,24 @@ extension SessionController: UICollectionViewDataSource {
         day?.isSelected = false
     }
 }
+extension SessionController : InteractionScreenDelegate{
+    func dismiss() {
+        self.dismiss(animated: true) { [weak self] in
+            if let last = self?.navigationController?.viewControllers.endIndex{
+                if (last - 1) > 0{
+                    NetworkError.delegate = self?.navigationController?.viewControllers[last - 1] as? InteractionScreenDelegate
+                }
+            }
+        }
+    }
+    
+    func goTo(with segueIdentifier: Segues) {
+        self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
+    }
+    
+    func error(message : String){
+        let alertNotification = Alert(title: "Error", massage: message, type: 0)
+        present(alertNotification.show(), animated: true, completion: nil)
+    }
+    
+}

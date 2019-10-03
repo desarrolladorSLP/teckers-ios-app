@@ -121,7 +121,13 @@ extension HomeController : UISearchBarDelegate {
 
 extension HomeController : InteractionScreenDelegate{
     func dismiss() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true){ [weak self] in
+            if let last = self?.navigationController?.viewControllers.endIndex{
+                if (last - 1) > 0{
+                    NetworkError.delegate = self?.navigationController?.viewControllers[last - 1] as? InteractionScreenDelegate
+                }
+            }
+        }
     }
     
     func goTo(with segueIdentifier: Segues) {

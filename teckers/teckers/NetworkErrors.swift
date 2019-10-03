@@ -22,14 +22,12 @@ class NetworkError{
                          .pageNotFound : (TypesNetworkErrors.pageNotFound.rawValue, 0),
                          .requestTimeOut : (TypesNetworkErrors.requestTimeOut.rawValue, 1),
                          .noInternet: (TypesNetworkErrors.noInternet.rawValue, 0),
-                         .noJSON: (TypesNetworkErrors.noJSON.rawValue, 0)]
+                         .noJSON: (TypesNetworkErrors.noJSON.rawValue, 0),
+                         .internalServerError: (TypesNetworkErrors.internalServerError.rawValue, 0)]
         self.actionsBeforeAlert = [.unauthorized: {
-            NetworkError.delegate?.dismiss()
-//            if let topController = UIApplication.shared.keyWindow?.rootViewController{
-//                if let presentController = topController.presentedViewController {
-//                    presentController.dismiss(animated: true, completion: nil)
-//                }
-//            }
+            DispatchQueue.main.async{
+                NetworkError.delegate?.dismiss()
+            }
         }]
     }
     
@@ -37,6 +35,8 @@ class NetworkError{
         switch statusCode{
         case ..<0:
             return messageErrors[.requestTimeOut]
+        case 200:
+            return messageErrors[.noJSON]
         case 400:
             return messageErrors[.badRequest]
         case 401:
@@ -46,7 +46,7 @@ class NetworkError{
         case 400..<500:
             return messageErrors[.unknow]
         case 500..<600:
-            return messageErrors[.unknow]
+            return messageErrors[.internalServerError]
         case 600:
             return messageErrors[.noInternet]
         default:
@@ -66,17 +66,13 @@ class NetworkError{
         let informationAnswer = getInformation(for: statusCode)
         
         return { [weak self] in
+            guard let infoAlert = informationAnswer else { return }
             if let action = self?.getActionBeforeAlert(for: statusCode) {
                 action()
             }
-            guard let infoAlert = informationAnswer else { return }
-            NetworkError.delegate?.error(message: infoAlert.message)
-//            let alertAction = Alert(title: "Error", massage: infoAlert.message , type: infoAlert.type)
-//            if let topController = UIApplication.shared.keyWindow?.rootViewController{
-//                if let presentController = topController.presentedViewController {
-//                    presentController.present(alertAction.show(), animated: true, completion: nil)
-//                }
-//            }
+            DispatchQueue.main.async {
+                NetworkError.delegate?.error(message: infoAlert.message)
+            }
         }
     }
 }

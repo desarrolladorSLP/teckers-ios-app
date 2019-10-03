@@ -56,5 +56,6 @@ struct NetworkHandler {
         if let isConnected = NetworkReachabilityManager()?.isReachable {
             return isConnected
         }
+        return false
     }
 }
