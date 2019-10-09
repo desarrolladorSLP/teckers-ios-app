@@ -39,6 +39,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 }
 
 extension LoginViewController : InteractionScreenDelegate {
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func goTo(with segueIdentifier: Segues) {
         self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)

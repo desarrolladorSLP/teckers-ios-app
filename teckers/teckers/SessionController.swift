@@ -142,6 +142,9 @@ class SessionController: UIViewController {
             return ""
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkError.delegate = self
+    }
 }
 
 extension SessionController: UICollectionViewDelegate {
@@ -270,5 +273,20 @@ extension SessionController: UICollectionViewDataSource {
         let day = calendarCollectionView.cellForItem(at: indexPath)
         day?.layer.borderColor = UIColor.clear.cgColor
         day?.isSelected = false
+    }
+}
+
+extension SessionController: InteractionScreenDelegate{
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func goTo(with segueIdentifier: Segues) {
+        self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
+    }
+    
+    func error(message : String){
+        let alertNotification = Alert(title: "Error", massage: message, type: 0)
+        present(alertNotification.show(), animated: true, completion: nil)
     }
 }

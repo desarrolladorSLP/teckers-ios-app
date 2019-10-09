@@ -11,4 +11,5 @@ import Foundation
 protocol InteractionScreenDelegate {
     func goTo(with segueIdentifier : Segues )
     func error(message: String)
+    func dismiss()
 }
