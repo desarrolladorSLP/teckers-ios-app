@@ -48,7 +48,6 @@
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DBBF66C231090B300F722FC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66B231090B300F722FC /* HomeController.swift */; };
 		4DBBF66E231092DD00F722FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66D231092DD00F722FC /* Message.swift */; };
-		4DC97001234E7D3B00147925 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97000234E7D3A00147925 /* NetworkErrors.swift */; };
 		4DC97003234E7D7800147925 /* TypesNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */; };
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
 		4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD31534232B20BA00429B0A /* MessagesKeys.swift */; };
@@ -118,7 +117,6 @@
 		4DA6471C2305B23900376414 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4DBBF66B231090B300F722FC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4DBBF66D231092DD00F722FC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		4DC97000234E7D3A00147925 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesNetworkErrors.swift; sourceTree = "<group>"; };
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		4DD31534232B20BA00429B0A /* MessagesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesKeys.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 		9B90A33B22D7A6D500342CEE /* teckers */ = {
 			isa = PBXGroup;
 			children = (
-				1D35371923452C3B0021CBEC /* MessagesRouter.swift */,
 				4D1FF17422F8AD8500CB5D63 /* .gitignore */,
 				1DED601B23025FBA00B5E13A /* Alert.swift */,
 				9B90A33C22D7A6D500342CEE /* AppDelegate.swift */,
@@ -221,8 +218,6 @@
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				9B90A34822D7A6D600342CEE /* Info.plist */,
 				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
-				4DC97000234E7D3A00147925 /* NetworkErrors.swift */,
-				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
 				4D93E93423314044001FC80C /* InfoApplicationKeys.swift */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
 				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
@@ -234,6 +229,7 @@
 				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
 				4DD31534232B20BA00429B0A /* MessagesKeys.swift */,
 				4D3DAB17232593550023FAA2 /* MessagesLists.swift */,
+				1D35371923452C3B0021CBEC /* MessagesRouter.swift */,
 				4D3C2B152332E71600DEAA44 /* MessagesService.swift */,
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
@@ -251,6 +247,7 @@
 				4D4DF166233D207F00DD4341 /* Storyboards.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
+				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D4DF167233D207F00DD4341 /* Views.swift */,
 			);
@@ -474,7 +471,6 @@
 				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
-				4DC97001234E7D3B00147925 /* NetworkErrors.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
 				1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */,
