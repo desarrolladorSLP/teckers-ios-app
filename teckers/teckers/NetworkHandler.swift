@@ -15,12 +15,28 @@ struct NetworkHandler {
     }
     
     static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void,  onFailure failure: @escaping (_ error: Error) -> Void){
+        if !isConnected(){
+            NetworkError.instance.getAction(for: 600)()
+            return
+        }
         Alamofire.request(url).responseJSON{ response in
-            if let Error = response.error {
-                failure(Error)
+            guard let statusCode = response.response?.statusCode else{
+                NetworkError.instance.getAction(for: -1)()
+                return
             }
-            else if let jsonResponseBackend = response.value as? [String:Any] {
-                success(jsonResponseBackend)
+            switch response.result{
+            case .success(let value):
+                switch statusCode {
+                case 100..<400:
+                    if let jsonResponseBackend = value as? [String:Any]{
+                        success(jsonResponseBackend)
+                    }
+                default:
+                    NetworkError.instance.getAction(for: statusCode)()
+                }
+            case .failure(let error):
+                failure(error)
+                NetworkError.instance.getAction(for: statusCode)()
             }
         }
     }
@@ -29,5 +45,12 @@ struct NetworkHandler {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             completionHandler(data, error)
             }.resume()
+    }
+    
+    static func isConnected() -> Bool{
+        if let isConnected = NetworkReachabilityManager()?.isReachable {
+            return isConnected
+        }
+        return false
     }
 }

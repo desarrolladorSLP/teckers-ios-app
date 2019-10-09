@@ -49,6 +49,7 @@
 		4DBBF66C231090B300F722FC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66B231090B300F722FC /* HomeController.swift */; };
 		4DBBF66E231092DD00F722FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66D231092DD00F722FC /* Message.swift */; };
 		4DC97003234E7D7800147925 /* TypesNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */; };
+		4DC97005234E885A00147925 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97004234E885A00147925 /* NetworkErrors.swift */; };
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
 		4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD31534232B20BA00429B0A /* MessagesKeys.swift */; };
 		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
@@ -118,6 +119,7 @@
 		4DBBF66B231090B300F722FC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4DBBF66D231092DD00F722FC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesNetworkErrors.swift; sourceTree = "<group>"; };
+		4DC97004234E885A00147925 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		4DD31534232B20BA00429B0A /* MessagesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesKeys.swift; sourceTree = "<group>"; };
 		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				1DB451892315B8F200AD3684 /* Month.swift */,
 				4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */,
+				4DC97004234E885A00147925 /* NetworkErrors.swift */,
 				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				1D0366DB2304878200D72520 /* RoadURL.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
@@ -486,6 +489,7 @@
 				1D0366DC2304878200D72520 /* RoadURL.swift in Sources */,
 				4D415238231EC5AA0065D901 /* Color.swift in Sources */,
 				4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */,
+				4DC97005234E885A00147925 /* NetworkErrors.swift in Sources */,
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
