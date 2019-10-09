@@ -48,6 +48,8 @@
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DBBF66C231090B300F722FC /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66B231090B300F722FC /* HomeController.swift */; };
 		4DBBF66E231092DD00F722FC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBF66D231092DD00F722FC /* Message.swift */; };
+		4DC97001234E7D3B00147925 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97000234E7D3A00147925 /* NetworkErrors.swift */; };
+		4DC97003234E7D7800147925 /* TypesNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */; };
 		4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DD230BC2311FDD2000A87A8 /* Principal.storyboard */; };
 		4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD31534232B20BA00429B0A /* MessagesKeys.swift */; };
 		4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAE17E22E8C89900137300 /* SignedInViewController.swift */; };
@@ -116,6 +118,8 @@
 		4DA6471C2305B23900376414 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		4DBBF66B231090B300F722FC /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4DBBF66D231092DD00F722FC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4DC97000234E7D3A00147925 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesNetworkErrors.swift; sourceTree = "<group>"; };
 		4DD230BC2311FDD2000A87A8 /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		4DD31534232B20BA00429B0A /* MessagesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesKeys.swift; sourceTree = "<group>"; };
 		4DEAE17E22E8C89900137300 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				1D1EF2EE23145C80002BA0B1 /* Image.swift */,
 				9B90A34822D7A6D600342CEE /* Info.plist */,
 				4D6DB19F230704E4009F23FA /* InfoApplication.plist */,
+				4DC97000234E7D3A00147925 /* NetworkErrors.swift */,
+				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
 				4D93E93423314044001FC80C /* InfoApplicationKeys.swift */,
 				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
 				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
@@ -468,6 +474,7 @@
 				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
+				4DC97001234E7D3B00147925 /* NetworkErrors.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */,
 				1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */,
@@ -492,6 +499,7 @@
 				1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
 				1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */,
+				4DC97003234E7D7800147925 /* TypesNetworkErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
