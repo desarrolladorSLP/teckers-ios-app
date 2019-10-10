@@ -21,8 +21,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         authentification = Authentication()
         authentification?.setDelegate(self, onFailure: { (error) in
             if let signOutError = error {
-                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
-                self.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription)
+                self.present(alertAction.showOK(), animated: true, completion: nil)
             }
         })
         
@@ -45,8 +45,8 @@ extension LoginViewController : InteractionScreenDelegate {
     }
     
     func error(message : String){
-        let alertNotification = Alert(title: "Error", massage: message, type: 0)
-        present(alertNotification.show(), animated: true, completion: nil)
+        let alertNotification = Alert(title: "Error", massage: message)
+        present(alertNotification.showOK(), animated: true, completion: nil)
     }
     
 }
