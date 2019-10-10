@@ -34,8 +34,7 @@ struct NetworkHandler {
                 default:
                     NetworkError.instance.getAction(for: statusCode)()
                 }
-            case .failure(let error):
-                failure(error)
+            case .failure(_):
                 NetworkError.instance.getAction(for: statusCode)()
             }
         }

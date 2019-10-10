@@ -77,6 +77,19 @@ class HomeController: UIViewController {
         let messageCell = MessageCell(style: .default, reuseIdentifier: "")
         messageTableView.register(messageCell.nibName , forCellReuseIdentifier: messageCell.NameCell)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkError.delegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if let view = UIApplication.shared.windows[0].rootViewController?.children[0] as? LoginViewController{
+            if let info = NetworkError.instance.getInformation(for: 401){
+                DispatchQueue.main.async {
+                    view.error(message: info.message)
+                }
+            }
+        }
+    }
 }
 
 extension HomeController : UITableViewDataSource{
