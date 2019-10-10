@@ -11,6 +11,7 @@ import Alamofire
 
 struct Session: Codable {
     
+    var id: String = ""
     var type: String = ""
     var date: Date?
     var subject: String = ""
@@ -20,6 +21,8 @@ struct Session: Codable {
     var directions: String = ""
     
     init(JSON: [String: Any]) {
+        
+        self.id = JSON["id"] as? String ?? ""
         self.type = JSON["type"] as? String ?? ""
         self.date = DateCalendar.stringToDate(to: JSON["date"] as? String ?? "")
         self.subject = JSON["subject"] as? String ?? ""
@@ -29,7 +32,7 @@ struct Session: Codable {
         self.directions = JSON["directions"] as? String ?? ""
     }
     
-    static func backendSessionsRequest(year: Int, month: Int, success : @escaping (_ JSON : [[String : Any]]) -> Void, failure : @escaping (Error) -> Void) {
+    static func getSessionsRequest(year: Int, month: Int, success : @escaping (_ JSON : [[String : Any]]) -> Void, failure : @escaping (Error) -> Void) {
         Alamofire.request(SessionRouter.getSessions(year: year, month: month)).responseJSON{ response in
             if let Error = response.error {
                 failure(Error)
@@ -37,6 +40,12 @@ struct Session: Codable {
             else if let jsonResponseBackend = response.value as? [[String:Any]] {
                 success(jsonResponseBackend)
             }
+        }
+    }
+    
+    static func setSessionAssistanceRequest(id: String, success: @escaping (_ response : Int) -> Void) {
+        Alamofire.request(SessionRouter.setSessionAssistance(id: id)).response { response in
+            success(response.response?.statusCode ?? 0)
         }
     }
 }

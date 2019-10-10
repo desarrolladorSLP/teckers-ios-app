@@ -38,8 +38,8 @@ class HomeController: UIViewController {
                 }
             }
         }, onFailure: { (error) in
-            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
-            self.present(alertAction.show(), animated: true, completion: nil)
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription)
+            self.present(alertAction.showOK(), animated: true, completion: nil)
         })
     }
     
@@ -103,8 +103,8 @@ extension HomeController : UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: messageCell.NameCell, for: indexPath) as! MessageCell
         let message = messagesList[indexPath.row]
         cell.setFriendMessages(friend: message){error in 
-            let alertAction = Alert(title: "Error", massage: error.localizedDescription, type: 0)
-            self.present(alertAction.show(), animated: true, completion: nil)
+            let alertAction = Alert(title: "Error", massage: error.localizedDescription)
+            self.present(alertAction.showOK(), animated: true, completion: nil)
         }
         return cell
     }

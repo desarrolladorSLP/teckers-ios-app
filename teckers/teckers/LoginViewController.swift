@@ -21,8 +21,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         authentification = Authentication()
         authentification?.setDelegate(self, onFailure: { (error) in
             if let signOutError = error {
-                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription, type: 0)
-                self.present(alertAction.show(), animated: true, completion: nil)
+                let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription)
+                self.present(alertAction.showOK(), animated: true, completion: nil)
             }
         })
         
