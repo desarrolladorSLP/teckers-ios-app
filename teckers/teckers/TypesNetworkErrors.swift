@@ -7,6 +7,9 @@
 //
 import Foundation
 
-enum TypesNetworkErrors : Int {
+enum TypesNetworkErrors: Int {
+
     case confict = 409
+    case ok = 200
+    
 }
