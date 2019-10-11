@@ -42,6 +42,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        if let view = UIApplication.shared.windows[0].rootViewController?.children[0] as? LoginViewController{
+            if let info = NetworkError.instance.getInformation(for: .unauthorized){
+                DispatchQueue.main.async {
+                    view.error(message: info.message)
+                }
+            }
+        }
     }
 }
 
