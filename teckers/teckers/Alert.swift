@@ -30,16 +30,13 @@ class Alert {
         
         alert.addAction(UIAlertAction(title: "Si", style: .default , handler: { (UIAlertAction) in
             Session.setSessionAssistanceRequest(id: id, success: { response in
-                if response == OK.statusOK.rawValue || response == TypesNetworkErrors.confict.rawValue {
+                if TypesNetworkErrors.ok.rawValue == response {
                     success(response)
                 }
             })
         }))
-        alert.addAction(UIAlertAction(title: "No🙁", style: .default , handler: { (UIAlertAction) in
-        }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (UIAlertAction) in
-            
-        }))
+        alert.addAction(UIAlertAction(title: "No🙁", style: .default , handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         
         return alert
     }

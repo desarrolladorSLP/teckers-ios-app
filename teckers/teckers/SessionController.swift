@@ -172,33 +172,33 @@ extension SessionController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView == sessionCollectionView) {
-            let sessionCurrent = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.SessionCell.rawValue, for: indexPath) as! SessionCell
+            let currentSession = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.SessionCell.rawValue, for: indexPath) as! SessionCell
             
             if (sessionsForDate.count > 0) {
                 let dateSession = DateCalendar.datetoString(sessionsForDate[indexPath.row].date)
                 let dateCurrent = "\(DateCalendar.left(num: String(dayCurrent), total: 2, cadena: "0"))-\(DateCalendar.left(num: String(monthCurrent), total: 2, cadena: "0"))-\(yearCurrent)"
                 
                 if (dateSession == dateCurrent) {
-                    sessionCurrent.layer.borderColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1).cgColor
-                    sessionCurrent.layer.borderWidth = 2
-                    sessionCurrent.setDateText(text: "Sesión el día \(DateCalendar.datetoString(sessionsForDate[indexPath.row].date))")
-                    sessionCurrent.setInfoText(text: "INFORMACIÓN:")
-                    sessionCurrent.setLocationText(text: "Ubicación: \(sessionsForDate[indexPath.row].location)")
-                    sessionCurrent.setScheduleText(text: "Horario de \(DateCalendar.timeToString(sessionsForDate[indexPath.row].startTime)) a \(DateCalendar.timeToString(sessionsForDate[indexPath.row].endTime))")
-                    sessionCurrent.setSubjectText(text: "Temas a tratar: \(sessionsForDate[indexPath.row].subject)")
-                    sessionCurrent.setGeneralDirectionsText(text: "Indicacíones generales: \(String(describing: sessionsForDate[indexPath.row].directions))")
+                    currentSession.layer.borderColor = UIColor(red: 93/255, green: 92/255, blue: 160/255, alpha: 1).cgColor
+                    currentSession.layer.borderWidth = 2
+                    currentSession.setDateText(text: "Sesión el día \(DateCalendar.datetoString(sessionsForDate[indexPath.row].date))")
+                    currentSession.setInfoText(text: "INFORMACIÓN:")
+                    currentSession.setLocationText(text: "Ubicación: \(sessionsForDate[indexPath.row].location)")
+                    currentSession.setScheduleText(text: "Horario de \(DateCalendar.timeToString(sessionsForDate[indexPath.row].startTime)) a \(DateCalendar.timeToString(sessionsForDate[indexPath.row].endTime))")
+                    currentSession.setSubjectText(text: "Temas a tratar: \(sessionsForDate[indexPath.row].subject)")
+                    currentSession.setGeneralDirectionsText(text: "Indicacíones generales: \(String(describing: sessionsForDate[indexPath.row].directions))")
                 }
             }
             else {
-                sessionCurrent.setDateText(text: "")
-                sessionCurrent.setInfoText(text: "")
-                sessionCurrent.setLocationText(text: "")
-                sessionCurrent.setScheduleText(text: "")
-                sessionCurrent.setSubjectText(text: "")
-                sessionCurrent.setGeneralDirectionsText(text: "")
+                currentSession.setDateText(text: "")
+                currentSession.setInfoText(text: "")
+                currentSession.setLocationText(text: "")
+                currentSession.setScheduleText(text: "")
+                currentSession.setSubjectText(text: "")
+                currentSession.setGeneralDirectionsText(text: "")
             }
             
-            return sessionCurrent
+            return currentSession
         }
         let day = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.DayCell.rawValue, for: indexPath) as! DayCell
         
@@ -242,7 +242,7 @@ extension SessionController: UICollectionViewDataSource {
                 let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?")
                 let alertOptions = alertNotification.showActionSheetAssistance(id: sessionsForDate[indexPath.row].id, success: { [weak self] response in
                     switch response {
-                    case OK.statusOK.rawValue:
+                    case TypesNetworkErrors.ok.rawValue:
                         let alert = Alert(title: "Exito", massage: "Se a confirmado la asistencia para esta sesión")
                         self?.present(alert.showOK(), animated: true, completion: nil)
                     case TypesNetworkErrors.confict.rawValue:
