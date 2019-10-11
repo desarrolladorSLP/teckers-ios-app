@@ -256,6 +256,7 @@
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
+				4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D4DF167233D207F00DD4341 /* Views.swift */,
 				1D3D8D9D234E6A7900B673B9 /* TypesNetworkErrors.swift */,
