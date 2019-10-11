@@ -8,6 +8,7 @@
 
 import Foundation
 enum NetworkAnswers: Int {
+    
     case requestTimeOutXcode = 0
     case ok = 200
     case badRequest = 400
@@ -21,12 +22,20 @@ enum NetworkAnswers: Int {
     
     case noInternet = 600
     
-    func getRange(status: NetworkAnswers) -> Range<Int>{
-        switch status {
-        case .ok:
-            return 200..<400
+}
+extension NetworkAnswers{
+    init?(value: Int) {
+        switch value {
+        case ...0:
+            self.init(rawValue: 0)
+        case 200..<400:
+            self.init(rawValue: 200)
+        case 402, 405...407, 410..<500:
+            self.init(rawValue: 400)
+        case 500..<600:
+            self.init(rawValue: 500)
         default:
-            return -100..<0
+            self.init(rawValue: value)
         }
     }
 }
