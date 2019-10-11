@@ -144,12 +144,12 @@ class SessionController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NetworkError.delegate = self
+        NetworkError.instance.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         if let view = UIApplication.shared.windows[0].rootViewController?.children[0] as? LoginViewController{
-            if let info = NetworkError.instance.getInformation(for: 401){
+            if let info = NetworkError.instance.getInformation(for: .unauthorized ){
                 DispatchQueue.main.async {
                     view.error(message: info.message)
                 }
@@ -288,16 +288,5 @@ extension SessionController: UICollectionViewDataSource {
 }
 
 extension SessionController: InteractionScreenDelegate{
-    func dismiss() {
-        self.dismiss(animated: true, completion: nil)
-    }
     
-    func goTo(with segueIdentifier: Segues) {
-        self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
-    }
-    
-    func error(message : String){
-        let alertNotification = Alert(title: "Error", massage: message, type: 0)
-        present(alertNotification.show(), animated: true, completion: nil)
-    }
 }

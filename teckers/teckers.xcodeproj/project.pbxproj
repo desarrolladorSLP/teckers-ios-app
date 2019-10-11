@@ -238,8 +238,9 @@
 				4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */,
 				4D45AE2323197D04003A02B4 /* MessageUser.swift */,
 				1DB451892315B8F200AD3684 /* Month.swift */,
-				4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */,
+				4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */,
 				4DC97004234E885A00147925 /* NetworkErrors.swift */,
+				4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */,
 				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				1D0366DB2304878200D72520 /* RoadURL.swift */,
 				4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */,
@@ -253,7 +254,6 @@
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
-				4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D4DF167233D207F00DD4341 /* Views.swift */,
 			);
