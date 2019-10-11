@@ -22,15 +22,6 @@ enum SessionRouter: URLRequestConvertible {
         
     }
     
-    var parameters: Parameters? {
-        switch self {
-        case .getSessions(_, _):
-            return nil
-        case .setSessionAssistance(_):
-            return nil
-        }
-    }
-    
     var path: String {
         switch self {
         case .getSessions(let year, let month):
@@ -50,6 +41,6 @@ enum SessionRouter: URLRequestConvertible {
             urlRequest.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         
-        return try URLEncoding.default.encode(urlRequest, with: parameters)
+        return try URLEncoding.default.encode(urlRequest, with: nil)
     }
 }
