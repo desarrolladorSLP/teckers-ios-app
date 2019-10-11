@@ -16,12 +16,12 @@ struct NetworkHandler {
     
     static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void,  onFailure failure: @escaping (_ error: Error) -> Void){
         if !isConnected(){
-            NetworkError.instance.getAction(for: 600)()
+            NetworkError.instance.getAction(for: .noInternet)()
             return
         }
         Alamofire.request(url).responseJSON{ response in
             guard let statusCode = response.response?.statusCode else{
-                NetworkError.instance.getAction(for: -1)()
+                NetworkError.instance.getAction(for: .requestTimeOutXcode)()
                 return
             }
             switch response.result{
@@ -32,10 +32,10 @@ struct NetworkHandler {
                         success(jsonResponseBackend)
                     }
                 default:
-                    NetworkError.instance.getAction(for: statusCode)()
+                    NetworkError.instance.getAction(for: NetworkAnswers(value: statusCode) ?? .badRequest )()
                 }
             case .failure(_):
-                NetworkError.instance.getAction(for: statusCode)()
+                NetworkError.instance.getAction(for: NetworkAnswers(value: statusCode) ?? .badRequest )()
             }
         }
     }
