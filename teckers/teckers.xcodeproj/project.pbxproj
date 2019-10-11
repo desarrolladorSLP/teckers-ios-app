@@ -40,6 +40,7 @@
 		4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DB19F230704E4009F23FA /* InfoApplication.plist */; };
 		4D6F194C232AC408001E0645 /* TokenKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F194B232AC408001E0645 /* TokenKeys.swift */; };
 		4D74A52623122A85008DC93B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74A52523122A85008DC93B /* User.swift */; };
+		4D857F8F2350E81D004D2EBB /* NetworkAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */; };
 		4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */; };
 		4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D8A9A152304BA69003483EC /* GoogleService-Info.plist */; };
 		4D93E93523314045001FC80C /* InfoApplicationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D93E93423314044001FC80C /* InfoApplicationKeys.swift */; };
@@ -110,6 +111,7 @@
 		4D6DB19F230704E4009F23FA /* InfoApplication.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoApplication.plist; sourceTree = "<group>"; };
 		4D6F194B232AC408001E0645 /* TokenKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenKeys.swift; sourceTree = "<group>"; };
 		4D74A52523122A85008DC93B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAnswers.swift; sourceTree = "<group>"; };
 		4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionScreenDelegate.swift; sourceTree = "<group>"; };
 		4D8A9A152304BA69003483EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D93E93423314044001FC80C /* InfoApplicationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoApplicationKeys.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D6F194B232AC408001E0645 /* TokenKeys.swift */,
 				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
+				4D857F8E2350E81D004D2EBB /* NetworkAnswers.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D4DF167233D207F00DD4341 /* Views.swift */,
 			);
@@ -461,6 +464,7 @@
 				4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */,
 				1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */,
 				4D4DF16A233D208000DD4341 /* Views.swift in Sources */,
+				4D857F8F2350E81D004D2EBB /* NetworkAnswers.swift in Sources */,
 				4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */,
 				1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */,
 				1D2B2378233E91F4004C70CC /* Cell.swift in Sources */,

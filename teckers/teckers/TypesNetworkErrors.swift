@@ -20,4 +20,5 @@ enum TypesNetworkErrors : String {
     case noInternet = "No es posible conectarse a una red."
     case noJSON = "El formato de los datos ha sido incorrecto."
     case unknow = "Problema Desconocido."
+
 }
