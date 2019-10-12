@@ -20,21 +20,17 @@ struct NetworkHandler {
             return
         }
         Alamofire.request(url).responseJSON{ response in
-            guard let statusCode = response.response?.statusCode else{
-                NetworkError.instance.getAction(for: .requestTimeOutXcode)()
-                return
-            }
+            
             switch response.result{
             case .success(let value):
-                switch statusCode {
-                case 100..<400:
-                    if let jsonResponseBackend = value as? [String:Any]{
-                        success(jsonResponseBackend)
-                    }
-                default:
-                    NetworkError.instance.getAction(for: NetworkAnswers(value: statusCode) ?? .badRequest )()
+                if let jsonResponseBackend = value as? [String:Any]{
+                    success(jsonResponseBackend)
                 }
             case .failure(_):
+                guard let statusCode = response.response?.statusCode else{
+                    NetworkError.instance.getAction(for: .requestTimeOutXcode)()
+                    return
+                }
                 NetworkError.instance.getAction(for: NetworkAnswers(value: statusCode) ?? .badRequest )()
             }
         }

@@ -28,7 +28,7 @@ extension NetworkAnswers{
         switch value {
         case ...0:
             self.init(rawValue: 0)
-        case 200..<400:
+        case 201..<400:
             self.init(rawValue: 200)
         case 402, 405...407, 410..<500:
             self.init(rawValue: 400)
