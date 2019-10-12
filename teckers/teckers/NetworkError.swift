@@ -1,8 +1,9 @@
 //
 //  NetworkError.swift
-//  
+//  teckers
 //
 //  Created by Maggie Mendez on 10/9/19.
+//  Copyright © 2019 Teckers. All rights reserved.
 //
 
 import Foundation
@@ -10,7 +11,7 @@ import UIKit
 
  class NetworkError{
     static let instance = NetworkError()
-    static var delegate: InteractionScreenDelegate?
+    var delegate: InteractionScreenDelegate?
     private let messageErrors: [TypesNetworkErrors: (String, Int)]
     private let actionsBeforeAlert: [TypesNetworkErrors: () -> Void ]
     init() {
@@ -25,53 +26,51 @@ import UIKit
                          .internalServerError: (TypesNetworkErrors.internalServerError.rawValue, 0)]
         self.actionsBeforeAlert = [.unauthorized: {
             DispatchQueue.main.async{
-//                NetworkError.delegate?.dismiss()
+                NetworkError.instance.delegate?.dismiss()
             }
         }]
     }
 
-     func getInformation( for statusCode: Int) ->  (message: String, type: Int)?{
-        switch statusCode{
-        case ..<0:
+     func getInformation( for statusCode: NetworkAnswers) ->  (message: String, type: Int)?{
+        switch statusCode.rawValue{
+        case NetworkAnswers.requestTimeOutXcode.rawValue:
             return messageErrors[.requestTimeOut]
-        case 200:
+        case NetworkAnswers.ok.rawValue:
             return messageErrors[.noJSON]
-        case 400:
+        case NetworkAnswers.badRequest.rawValue:
             return messageErrors[.badRequest]
-        case 401:
+        case NetworkAnswers.unauthorized.rawValue:
             return messageErrors[.unauthorized]
-        case 404:
+        case NetworkAnswers.pageNotFound.rawValue:
             return messageErrors[.pageNotFound]
-        case 400..<500:
-            return messageErrors[.unknow]
-        case 500..<600:
+        case NetworkAnswers.internalServerError.rawValue:
             return messageErrors[.internalServerError]
-        case 600:
+        case NetworkAnswers.noInternet.rawValue:
             return messageErrors[.noInternet]
         default:
             return messageErrors[.unknow]
         }
     }
-    func getActionBeforeAlert( for statusCode: Int) ->  (() -> Void)? {
-        switch statusCode{
-        case 401:
+    func getActionBeforeAlert( for statusCode: NetworkAnswers) ->  (() -> Void)? {
+        switch statusCode.rawValue{
+        case NetworkAnswers.unauthorized.rawValue:
             return actionsBeforeAlert[.unauthorized]
         default:
             return nil
         }
     }
 
-     func getAction(for statusCode: Int) -> () -> Void {
+     func getAction(for statusCode: NetworkAnswers) -> () -> Void {
         let informationAnswer = getInformation(for: statusCode)
 
          return { [weak self] in
-            guard let infoAlert = informationAnswer else { return }
+            guard let infoAlert = informationAnswer  else { return }
             if let action = self?.getActionBeforeAlert(for: statusCode) {
                 action()
             }
             else{
                 DispatchQueue.main.async {
-                    NetworkError.delegate?.error(message: infoAlert.message)
+                    NetworkError.instance.delegate?.error(message: infoAlert.message)
                 }
             }
         }
