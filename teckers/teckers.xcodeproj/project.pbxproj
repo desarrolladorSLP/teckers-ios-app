@@ -13,7 +13,6 @@
 		1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2375233D1F52004C70CC /* DateCalendar.swift */; };
 		1D2B2378233E91F4004C70CC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2377233E91F4004C70CC /* Cell.swift */; };
 		1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35371923452C3B0021CBEC /* MessagesRouter.swift */; };
-		1D3D8D9E234E6A7900B673B9 /* TypesNetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3D8D9D234E6A7900B673B9 /* TypesNetworkErrors.swift */; };
 		1D7E52E22316B91000776C4F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E52E12316B91000776C4F /* DayCell.swift */; };
 		1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D98197E23198F0B00A4B7C3 /* Session.swift */; };
 		1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9DE1F4232BD31600273123 /* SessionRouter.swift */; };
@@ -82,7 +81,6 @@
 		1D2B2375233D1F52004C70CC /* DateCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendar.swift; sourceTree = "<group>"; };
 		1D2B2377233E91F4004C70CC /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		1D35371923452C3B0021CBEC /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
-		1D3D8D9D234E6A7900B673B9 /* TypesNetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesNetworkErrors.swift; sourceTree = "<group>"; };
 		1D7E52E12316B91000776C4F /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		1D98197E23198F0B00A4B7C3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1D9DE1F4232BD31600273123 /* SessionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRouter.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 				4DC97002234E7D7800147925 /* TypesNetworkErrors.swift */,
 				4D74A52523122A85008DC93B /* User.swift */,
 				4D4DF167233D207F00DD4341 /* Views.swift */,
-				1D3D8D9D234E6A7900B673B9 /* TypesNetworkErrors.swift */,
 			);
 			path = teckers;
 			sourceTree = "<group>";

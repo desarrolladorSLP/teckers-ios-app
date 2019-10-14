@@ -23,7 +23,7 @@ extension InteractionScreenDelegate where Self: UIViewController {
     }
        
     func error(message : String){
-       let alertNotification = Alert(title: "Error", massage: message, type: 0)
-       present(alertNotification.show(), animated: true, completion: nil)
+       let alertNotification = Alert(title: "Error", massage: message)
+       present(alertNotification.showOK(), animated: true, completion: nil)
     }
 }
