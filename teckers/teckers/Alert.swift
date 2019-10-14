@@ -33,6 +33,9 @@ class Alert {
                 if NetworkAnswers.ok.rawValue == response {
                     success(response)
                 }
+                else if NetworkAnswers.conflict.rawValue == response {
+                    success(response)
+                }
             })
         }))
         alert.addAction(UIAlertAction(title: "No🙁", style: .default , handler: nil))

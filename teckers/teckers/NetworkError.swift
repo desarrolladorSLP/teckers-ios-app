@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
- class NetworkError{
+ class NetworkError {
     static let instance = NetworkError()
     var delegate: InteractionScreenDelegate?
     private let messageErrors: [TypesNetworkErrors: (String, Int)]
     private let actionsBeforeAlert: [TypesNetworkErrors: () -> Void ]
+    
     init() {
         messageErrors = [.badRequest : (TypesNetworkErrors.badRequest.rawValue, 0),
                          .unknow : (TypesNetworkErrors.unknow.rawValue, 0),
@@ -23,6 +24,7 @@ import UIKit
                          .requestTimeOut : (TypesNetworkErrors.requestTimeOut.rawValue, 1),
                          .noInternet: (TypesNetworkErrors.noInternet.rawValue, 0),
                          .noJSON: (TypesNetworkErrors.noJSON.rawValue, 0),
+                         .conflict: (TypesNetworkErrors.noJSON.rawValue, 0),
                          .internalServerError: (TypesNetworkErrors.internalServerError.rawValue, 0)]
         self.actionsBeforeAlert = [.unauthorized: {
             DispatchQueue.main.async{
@@ -47,6 +49,8 @@ import UIKit
             return messageErrors[.internalServerError]
         case NetworkAnswers.noInternet.rawValue:
             return messageErrors[.noInternet]
+            case NetworkAnswers.conflict.rawValue:
+            return messageErrors[.conflict]
         default:
             return messageErrors[.unknow]
         }

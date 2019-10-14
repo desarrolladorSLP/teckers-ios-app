@@ -14,13 +14,13 @@ struct NetworkHandler {
     private init(){
     }
     
-    static func request(url : URLRequestConvertible, onSucess success : @escaping (DataResponse<Any> ) -> Void,  onFailure failure: ((_ error: Error) -> Void)?){
-        if !isConnected(){
+    static func request(url : URLRequestConvertible, onSucess success : @escaping (DataResponse<Any> ) -> Void, onFailure failure: ((_ error: Error) -> Void)?){
+        if !isConnected() {
             NetworkError.instance.getAction(for: .noInternet)()
             return
         }
-        Alamofire.request(url).responseJSON{ response in
-            switch response.result{
+        Alamofire.request(url).responseJSON { response in
+            switch response.result {
             case .success(_):
                 success(response)
             case .failure(_):
