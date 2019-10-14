@@ -14,10 +14,6 @@ class MessagesLists {
     init() {
         listMessages = []
         
-//        MessagesService.backendMessagesRequest(onFailure: failure) { (response) in
-//            self.readMessages(JSON: response, priority: priority)
-//            success(self.ListMessages)
-//        }
     }
     func getMessagesList() -> [MessagesUser]{
         return listMessages
