@@ -14,18 +14,15 @@ struct NetworkHandler {
     private init(){
     }
     
-    static func request(url : URLRequestConvertible, onSucess success : @escaping (_ JSON : [String : Any]) -> Void,  onFailure failure: @escaping (_ error: Error) -> Void){
+    static func request(url : URLRequestConvertible, onSucess success : @escaping (DataResponse<Any> ) -> Void,  onFailure failure: ((_ error: Error) -> Void)?){
         if !isConnected(){
             NetworkError.instance.getAction(for: .noInternet)()
             return
         }
         Alamofire.request(url).responseJSON{ response in
-            
             switch response.result{
-            case .success(let value):
-                if let jsonResponseBackend = value as? [String:Any]{
-                    success(jsonResponseBackend)
-                }
+            case .success(_):
+                success(response)
             case .failure(_):
                 guard let statusCode = response.response?.statusCode else{
                     NetworkError.instance.getAction(for: .requestTimeOutXcode)()

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 struct Session: Codable {
     
@@ -33,19 +32,16 @@ struct Session: Codable {
     }
     
     static func getSessionsRequest(year: Int, month: Int, success : @escaping (_ JSON : [[String : Any]]) -> Void, failure : @escaping (Error) -> Void) {
-        Alamofire.request(SessionRouter.getSessions(year: year, month: month)).responseJSON{ response in
-            if let Error = response.error {
-                failure(Error)
-            }
-            else if let jsonResponseBackend = response.value as? [[String:Any]] {
+        NetworkHandler.request(url: SessionRouter.getSessions(year: year, month: month), onSucess: { (response) in
+            if let jsonResponseBackend = response.value as? [[String:Any]] {
                 success(jsonResponseBackend)
             }
-        }
+        }, onFailure: failure)
     }
     
     static func setSessionAssistanceRequest(id: String, success: @escaping (_ response : Int) -> Void) {
-        Alamofire.request(SessionRouter.setSessionAssistance(id: id)).response { response in
+        NetworkHandler.request(url: SessionRouter.setSessionAssistance(id: id), onSucess: { (response) in
             success(response.response?.statusCode ?? 0)
-        }
+        }, onFailure: nil)
     }
 }

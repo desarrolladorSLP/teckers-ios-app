@@ -70,8 +70,8 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     }
     
     func backendAuthenticationRequest(with idToken: String) {
-        NetworkHandler.request(url: AuthRouter.auth(token: idToken), onSucess: { [weak self] (jsonResponseBackend) in
-            if let view = self{
+        NetworkHandler.request(url: AuthRouter.auth(token: idToken), onSucess: { [weak self] (response) in
+            if let view = self, let jsonResponseBackend = response.value as? [String:Any]{
                 view.parseJSONfromBackend(jsonResponse: jsonResponseBackend, with: idToken)
                 view.delegate?.goTo(with: Segues.toHome)
             }
