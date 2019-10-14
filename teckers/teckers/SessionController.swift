@@ -141,6 +141,20 @@ class SessionController: UIViewController {
             return ""
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkError.instance.delegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if let view = UIApplication.shared.windows[0].rootViewController?.children[0] as? LoginViewController{
+            if let info = NetworkError.instance.getInformation(for: .unauthorized ){
+                DispatchQueue.main.async {
+                    view.error(message: info.message)
+                }
+            }
+        }
+    }
 }
 
 extension SessionController: UICollectionViewDelegate {
@@ -280,4 +294,8 @@ extension SessionController: UICollectionViewDataSource {
         day?.layer.borderColor = UIColor.clear.cgColor
         day?.isSelected = false
     }
+}
+
+extension SessionController: InteractionScreenDelegate{
+
 }

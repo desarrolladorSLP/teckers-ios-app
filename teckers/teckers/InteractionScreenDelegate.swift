@@ -7,8 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 protocol InteractionScreenDelegate {
-    func goTo(with segueIdentifier : Segues )
-    func error(message: String)
+    func dismiss()
+    func goTo(with segueIdentifier: Segues)
+    func error(message : String)
+}
+extension InteractionScreenDelegate where Self: UIViewController {
+    func dismiss(){
+        self.dismiss(animated: true)
+    }
+    func goTo(with segueIdentifier: Segues) {
+       self.performSegue(withIdentifier: segueIdentifier.rawValue, sender: nil)
+    }
+       
+    func error(message : String){
+       let alertNotification = Alert(title: "Error", massage: message)
+       present(alertNotification.showOK(), animated: true, completion: nil)
+    }
 }
