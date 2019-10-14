@@ -242,10 +242,10 @@ extension SessionController: UICollectionViewDataSource {
                 let alertNotification = Alert(title: "Asistencia", massage: "¿Asistirá a esta sesión?")
                 let alertOptions = alertNotification.showActionSheetAssistance(id: sessionsForDate[indexPath.row].id, success: { [weak self] response in
                     switch response {
-                    case NetworkAnswers.ok.rawValue:
+                    case TypesNetworkErrors.ok.rawValue:
                         let alert = Alert(title: "Exito", massage: "Se a confirmado la asistencia para esta sesión")
                         self?.present(alert.showOK(), animated: true, completion: nil)
-                    case NetworkAnswers.confict.rawValue:
+                    case TypesNetworkErrors.confict.rawValue:
                         let alert = Alert(title: "Aviso", massage: "Esta sesion ya fue confirmada su asistencia")
                         self?.present(alert.showOK(), animated: true, completion: nil)
                     default:

@@ -30,7 +30,7 @@ class Alert {
         
         alert.addAction(UIAlertAction(title: "Si", style: .default , handler: { (UIAlertAction) in
             Session.setSessionAssistanceRequest(id: id, success: { response in
-                if NetworkAnswers.ok.rawValue == response {
+                if TypesNetworkErrors.ok.rawValue == response {
                     success(response)
                 }
             })
