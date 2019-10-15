@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1DL-Vl-NuP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1DL-Vl-NuP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +35,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98F-HC-353">
-                                <rect key="frame" x="332" y="741" width="52" height="52"/>
+                                <rect key="frame" x="342" y="751" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="98F-HC-353" secondAttribute="height" multiplier="6:6" id="4xL-QE-H32"/>
                                 </constraints>
@@ -392,30 +392,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="PXg-AT-kN3" kind="relationship" relationship="viewControllers" id="hjj-eK-Dwr"/>
-                        <segue destination="uqG-oV-Fbb" kind="relationship" relationship="viewControllers" id="6el-mE-osR"/>
                         <segue destination="Xge-Ee-Xuh" kind="relationship" relationship="viewControllers" id="HJG-5g-z73"/>
                         <segue destination="9aC-rO-frU" kind="relationship" relationship="viewControllers" id="DCo-ze-X0N"/>
+                        <segue destination="qhx-WE-nDU" kind="relationship" relationship="viewControllers" id="oHf-k3-8FW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7W3-4o-s4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1075" y="1322"/>
-        </scene>
-        <!--Deliverables-->
-        <scene sceneID="Gbc-xE-F29">
-            <objects>
-                <viewController id="uqG-oV-Fbb" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OMW-Te-2dF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="MVO-Xg-bv5"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Deliverables" image="copy" id="BnL-ly-U6G"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dur-ea-Xrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="178" y="2251"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krU-Ok-5Br">
@@ -449,6 +433,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X96-ZE-wmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1219" y="2251"/>
+        </scene>
+        <!--Deliverables-->
+        <scene sceneID="YW9-ZM-4b1">
+            <objects>
+                <viewController id="qhx-WE-nDU" customClass="DeliverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZd-dz-lN5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-fh-ihJ">
+                                <rect key="frame" x="204.5" y="0.0" width="5" height="813"/>
+                                <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="vOF-lj-k57"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wYL-zd-Knz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wYL-zd-Knz" firstAttribute="top" secondItem="kBT-aX-kgh" secondAttribute="top" id="IdK-A6-9VA"/>
+                            <constraint firstItem="wYL-zd-Knz" firstAttribute="leading" secondItem="kBT-aX-kgh" secondAttribute="leading" id="Pf4-eH-xd3"/>
+                            <constraint firstItem="q4e-fh-ihJ" firstAttribute="bottom" secondItem="wYL-zd-Knz" secondAttribute="bottom" id="SWA-3V-P8f"/>
+                            <constraint firstItem="kBT-aX-kgh" firstAttribute="trailing" secondItem="wYL-zd-Knz" secondAttribute="trailing" id="U5x-z7-IQb"/>
+                            <constraint firstItem="q4e-fh-ihJ" firstAttribute="centerX" secondItem="SZd-dz-lN5" secondAttribute="centerX" id="WWB-aY-gGw"/>
+                            <constraint firstItem="kBT-aX-kgh" firstAttribute="bottom" secondItem="wYL-zd-Knz" secondAttribute="bottom" id="XAH-4y-SIL"/>
+                            <constraint firstItem="q4e-fh-ihJ" firstAttribute="centerY" secondItem="SZd-dz-lN5" secondAttribute="centerY" id="oQ8-rq-TSh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kBT-aX-kgh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Deliverables" image="copy" id="s7l-39-x2r"/>
+                    <navigationItem key="navigationItem" id="RKn-q8-VKo"/>
+                    <connections>
+                        <outlet property="tableView" destination="wYL-zd-Knz" id="hEx-TS-iFP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-aR-wd5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="2251"/>
         </scene>
     </scenes>
     <resources>
