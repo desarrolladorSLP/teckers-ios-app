@@ -13,7 +13,11 @@ class DeliverablesController: UIViewController {
     
     let status: [statusDeliverables] = [.toDo, .accepted, .blocked, .inProgress, .overdue, .readyForReview, .rejected, .rejected, .rejected, .rejected ]
     
-    var deliverables: [Deliverable] = []
+    var deliverables: [Deliverable] = [] {
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,52 +29,9 @@ class DeliverablesController: UIViewController {
         
         let nibName2 = UINib(nibName: "DeliverableCell", bundle: nil)
         tableView.register(nibName2, forCellReuseIdentifier: "DeliverableCell")
-        let json = """
-        [
-            {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 1,
-               "resources" : []
-           },
-           {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 2,
-               "resources" : []
-           },
-           {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 3,
-               "resources" : []
-           },
-           {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 4,
-               "resources" : []
-           },
-           {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 5,
-               "resources" : []
-           },
-           {
-               "title" : "Deliverable",
-               "description" : "Deliverable description",
-               "status" : 6,
-               "resources" : []
-           }
-        ]
-        """.data(using: .utf8)!
-        
-        do{
-            deliverables = try JSONDecoder().decode([Deliverable].self, from: json)
-        } catch {
-            print(error.localizedDescription)
-        }
+        DeliverableService.getDeliverable(success: {[weak self] deliverableArray in
+            self?.deliverables = deliverableArray
+        })
     }
     
 }
@@ -85,9 +46,9 @@ extension DeliverablesController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DeliverableCell", for: indexPath)
         
-        if let deliverableCell = cell as? SecondTableViewCell{
+        if let deliverableCell = cell as? DeliverableCell{
             deliverableCell.status = status[indexPath.row]
             deliverableCell.type = (indexPath.row % 2 != 0) ? .right: .left
             deliverableCell.deliverable = deliverables[indexPath.row]
