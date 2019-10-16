@@ -49,7 +49,7 @@ extension DeliverablesController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "DeliverableCell", for: indexPath)
         
         if let deliverableCell = cell as? DeliverableCell{
-            deliverableCell.status = status[indexPath.row]
+            deliverableCell.status = statusDeliverables(rawValue: deliverables[indexPath.row].status) ?? .none
             deliverableCell.type = (indexPath.row % 2 != 0) ? .right: .left
             deliverableCell.deliverable = deliverables[indexPath.row]
         }

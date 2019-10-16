@@ -79,10 +79,12 @@ class DeliverableCell: UITableViewCell {
     func useRightText(){
         rightDescriptionLabel.text = deliverable?.description
         rightTitleLabel.text = deliverable?.title
+        rightDateLabel.text = deliverable?.date
     }
     func useLeftText(){
         leftDescriptionLabel.text = deliverable?.description
         leftTitleLabel.text = deliverable?.title
+        leftDateLabel.text = deliverable?.date
     }
     
     override func awakeFromNib() {
@@ -101,8 +103,6 @@ class DeliverableCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
