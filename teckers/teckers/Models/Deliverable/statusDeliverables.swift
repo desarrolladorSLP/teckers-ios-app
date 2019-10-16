@@ -16,5 +16,5 @@ enum statusDeliverables: Int{
     case rejected = 5
     case blocked = 6
     case overdue = 7
-    case none = 8
+    case none = 0
 }

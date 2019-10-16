@@ -12,9 +12,10 @@ struct Deliverable: Codable {
     let title: String
     let description: String
     let status: Int
+    let date: String
     let resources: [String]
     
     enum CodingKeys: String, CodingKey{
-        case title, description, status, resources
+        case title, description, status, resources, date
     }
 }
