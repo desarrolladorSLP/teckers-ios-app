@@ -333,6 +333,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="esA-o3-amq">
+                                <rect key="frame" x="192" y="391.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="esA-o3-amq" secondAttribute="height" multiplier="1:1" id="EQh-mq-EjN"/>
+                                    <constraint firstAttribute="width" constant="30" id="hb1-g0-ibQ"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -346,6 +353,7 @@
                             <constraint firstItem="mlw-SY-Xlp" firstAttribute="leading" secondItem="xfC-au-NWy" secondAttribute="trailing" constant="3" id="9qe-kM-sBa"/>
                             <constraint firstItem="zMa-Pi-47M" firstAttribute="top" secondItem="sYr-RL-Z18" secondAttribute="bottom" constant="10" id="Av7-ew-9hD"/>
                             <constraint firstItem="E6h-yP-DbQ" firstAttribute="trailing" secondItem="sbg-zc-9o6" secondAttribute="trailing" constant="20" id="Bcc-At-mmE"/>
+                            <constraint firstItem="esA-o3-amq" firstAttribute="centerX" secondItem="rTr-o5-g2R" secondAttribute="centerX" id="DSz-i9-MDK"/>
                             <constraint firstItem="yVC-TG-VwQ" firstAttribute="leading" secondItem="E6h-yP-DbQ" secondAttribute="leading" constant="20" id="IaM-Zt-T6P"/>
                             <constraint firstItem="sbg-zc-9o6" firstAttribute="top" secondItem="tBQ-RC-FP0" secondAttribute="bottom" constant="10" id="LNM-OZ-3re"/>
                             <constraint firstItem="zMa-Pi-47M" firstAttribute="top" secondItem="sbg-zc-9o6" secondAttribute="bottom" constant="10" id="LUa-zI-FkV"/>
@@ -362,6 +370,7 @@
                             <constraint firstItem="zMa-Pi-47M" firstAttribute="top" secondItem="sbg-zc-9o6" secondAttribute="bottom" constant="10" id="eCT-SP-U30"/>
                             <constraint firstItem="zMa-Pi-47M" firstAttribute="leading" secondItem="E6h-yP-DbQ" secondAttribute="leading" constant="20" id="ja4-6q-pX9"/>
                             <constraint firstItem="cnv-xl-kSd" firstAttribute="top" secondItem="E6h-yP-DbQ" secondAttribute="top" constant="20" id="mP2-NY-GFE"/>
+                            <constraint firstItem="esA-o3-amq" firstAttribute="centerY" secondItem="rTr-o5-g2R" secondAttribute="centerY" id="o7H-A5-X4W"/>
                             <constraint firstItem="zMa-Pi-47M" firstAttribute="top" secondItem="xfC-au-NWy" secondAttribute="bottom" constant="10" id="oHW-gB-OER"/>
                             <constraint firstItem="tBQ-RC-FP0" firstAttribute="top" secondItem="E6h-yP-DbQ" secondAttribute="top" constant="10" id="okj-Lp-oO3"/>
                             <constraint firstItem="sYr-RL-Z18" firstAttribute="leading" secondItem="4w7-e7-oQn" secondAttribute="trailing" constant="3" id="qap-Yl-OgR"/>
@@ -381,6 +390,7 @@
                         <outlet property="calendarCollectionView" destination="zMa-Pi-47M" id="OWx-eR-rAf"/>
                         <outlet property="monthLabel" destination="cnv-xl-kSd" id="pMI-X9-1Qc"/>
                         <outlet property="sessionCollectionView" destination="pHJ-Va-sWu" id="6X2-gE-Tzk"/>
+                        <outlet property="spinner" destination="esA-o3-amq" id="QwD-BW-L02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdI-rA-qvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
