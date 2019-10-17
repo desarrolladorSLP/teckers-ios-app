@@ -14,6 +14,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
     
     private var delegate : InteractionScreenDelegate?
     private var onFailure : ((_ error: Error?) -> Void)?
+    private var onSuccess: (() -> Void)?
     private var tokenDiccionary = Token()
     
     override init( ){
@@ -22,7 +23,8 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
     }
-    func setDelegate(_ delegate : InteractionScreenDelegate, onFailure failure: @escaping (_ error: Error?) -> Void){
+    func setDelegate(_ delegate : InteractionScreenDelegate,onSuccess success: @escaping () -> Void, onFailure failure: @escaping (_ error: Error?) -> Void){
+        self.onSuccess = success
         self.onFailure = failure
         self.delegate = delegate
     }
@@ -93,6 +95,9 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         do{
             try self.tokenDiccionary.setToken(key: TokenKeys.RefreshToken.rawValue , with : refreshToken)
             try self.tokenDiccionary.setToken(key: TokenKeys.AccessToken.rawValue, with : accessToken)
+            if let success = onSuccess{
+                success()
+            }
         }
         catch{
             throw error

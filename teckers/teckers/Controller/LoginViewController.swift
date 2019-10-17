@@ -11,20 +11,24 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
-    @IBOutlet weak var yellowView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton! //Google Button
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var authentification: Authentication?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         authentification = Authentication()
-        authentification?.setDelegate(self, onFailure: { (error) in
+        authentification?.setDelegate(self, onSuccess: { [weak self] in
+            if self?.spinner?.isAnimating ?? false{
+                self?.spinner.stopAnimating()
+            }
+        }) { (error) in
             if let signOutError = error {
                 let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription)
                 self.present(alertAction.showOK(), animated: true, completion: nil)
             }
-        })
+        }
         
         if(GIDSignIn.sharedInstance()?.currentUser != nil){
             self.performSegue(withIdentifier: Segues.toHome.rawValue, sender: nil)
@@ -35,6 +39,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     func signUI() {
         signInButton.layer.cornerRadius = 20
+        spinner.hidesWhenStopped = true
+        spinner.transform = CGAffineTransform(scaleX: 2, y: 2);
+        spinner.style = .whiteLarge
+    }
+    @IBAction func tapDown(_ sender: Any) {
+        spinner.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
