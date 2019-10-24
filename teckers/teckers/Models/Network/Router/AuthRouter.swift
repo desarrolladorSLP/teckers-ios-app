@@ -49,7 +49,7 @@ enum AuthRouter: URLRequestConvertible {
                 let loginData = loginString.data(using: String.Encoding.utf8)!
                 let base64LoginString = loginData.base64EncodedString()
                 urlRequest.httpMethod = method.rawValue
-                urlRequest.setValue(Header.Authorization.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
+                urlRequest.setValue(Header.Basic.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
                 urlRequest.setValue(Header.Accept.rawValue, forHTTPHeaderField: acceptHeader)
             } catch {
                 return error as! URLRequest

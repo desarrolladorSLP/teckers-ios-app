@@ -26,6 +26,15 @@
 		1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC4765231D7C2D00CDCF8E /* SessionCell.swift */; };
 		4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */; };
 		4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */; };
+		4D190D1723564E21002F5696 /* DeliverableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D190D1623564E21002F5696 /* DeliverableCell.xib */; };
+		4D190D1923566C05002F5696 /* DeliverableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D1823566C05002F5696 /* DeliverableRouter.swift */; };
+		4D190D1B23568A48002F5696 /* DeliverableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D190D1A23568A48002F5696 /* DeliverableService.swift */; };
+		4D1AC5E6235636D2009E836D /* Deliverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5E5235636D1009E836D /* Deliverable.swift */; };
+		4D1AC5EA23563716009E836D /* imageDeliverables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5E723563716009E836D /* imageDeliverables.swift */; };
+		4D1AC5EB23563716009E836D /* textDeliverableDireccion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5E823563716009E836D /* textDeliverableDireccion.swift */; };
+		4D1AC5EC23563716009E836D /* statusDeliverables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5E923563716009E836D /* statusDeliverables.swift */; };
+		4D1AC5F323563795009E836D /* DeliverableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5EE23563795009E836D /* DeliverableCell.swift */; };
+		4D1AC5F623563795009E836D /* DeliverablesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1AC5F123563795009E836D /* DeliverablesController.swift */; };
 		4D1FF17522F8AD8500CB5D63 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D1FF17422F8AD8500CB5D63 /* .gitignore */; };
 		4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */; };
 		4D3C2B162332E71600DEAA44 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C2B152332E71600DEAA44 /* MessagesService.swift */; };
@@ -97,6 +106,15 @@
 		48D288AE27B5F105BA13DC05 /* Pods-teckersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teckersTests.release.xcconfig"; path = "Target Support Files/Pods-teckersTests/Pods-teckersTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D1899B82320164D00E25D8F /* MessagesTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewDelegate.swift; sourceTree = "<group>"; };
 		4D1899BA2320283A00E25D8F /* SearchBarFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFilter.swift; sourceTree = "<group>"; };
+		4D190D1623564E21002F5696 /* DeliverableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliverableCell.xib; sourceTree = "<group>"; };
+		4D190D1823566C05002F5696 /* DeliverableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableRouter.swift; sourceTree = "<group>"; };
+		4D190D1A23568A48002F5696 /* DeliverableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeliverableService.swift; path = teckers/Models/Network/Services/DeliverableService.swift; sourceTree = SOURCE_ROOT; };
+		4D1AC5E5235636D1009E836D /* Deliverable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deliverable.swift; sourceTree = "<group>"; };
+		4D1AC5E723563716009E836D /* imageDeliverables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageDeliverables.swift; sourceTree = "<group>"; };
+		4D1AC5E823563716009E836D /* textDeliverableDireccion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textDeliverableDireccion.swift; sourceTree = "<group>"; };
+		4D1AC5E923563716009E836D /* statusDeliverables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statusDeliverables.swift; sourceTree = "<group>"; };
+		4D1AC5EE23563795009E836D /* DeliverableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverableCell.swift; sourceTree = "<group>"; };
+		4D1AC5F123563795009E836D /* DeliverablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverablesController.swift; sourceTree = "<group>"; };
 		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		4D3C2B152332E71600DEAA44 /* MessagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
@@ -169,6 +187,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4D1AC5ED23563723009E836D /* Deliverable */ = {
+			isa = PBXGroup;
+			children = (
+				4D1AC5E723563716009E836D /* imageDeliverables.swift */,
+				4D1AC5E923563716009E836D /* statusDeliverables.swift */,
+				4D1AC5E823563716009E836D /* textDeliverableDireccion.swift */,
+				4D1AC5E5235636D1009E836D /* Deliverable.swift */,
+			);
+			path = Deliverable;
+			sourceTree = "<group>";
+		};
 		4D82A4D82355106900491EDB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +205,7 @@
 				1D2B2375233D1F52004C70CC /* DateCalendar.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
 				4D82A4DB2355111200491EDB /* Constants */,
+				4D1AC5ED23563723009E836D /* Deliverable */,
 				4D82A4E0235514FF00491EDB /* Manager */,
 				4D82A4E22355164700491EDB /* Messages */,
 				4D82A4DD235511FB00491EDB /* Network */,
@@ -188,6 +218,7 @@
 		4D82A4D92355108300491EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D190D1623564E21002F5696 /* DeliverableCell.xib */,
 				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
 				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
 				9B90A34022D7A6D500342CEE /* Main.storyboard */,
@@ -200,6 +231,8 @@
 		4D82A4DA2355108D00491EDB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4D1AC5EE23563795009E836D /* DeliverableCell.swift */,
+				4D1AC5F123563795009E836D /* DeliverablesController.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				9B90A33E22D7A6D500342CEE /* LoginViewController.swift */,
@@ -234,6 +267,7 @@
 		4D82A4DC235511EE00491EDB /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4D190D1A23568A48002F5696 /* DeliverableService.swift */,
 				4D3C2B152332E71600DEAA44 /* MessagesService.swift */,
 			);
 			path = Services;
@@ -264,6 +298,7 @@
 		4D82A4DF2355142900491EDB /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				4D190D1823566C05002F5696 /* DeliverableRouter.swift */,
 				1D35371923452C3B0021CBEC /* MessagesRouter.swift */,
 				1D9DE1F4232BD31600273123 /* SessionRouter.swift */,
 				1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */,
@@ -455,6 +490,7 @@
 				9B90A34422D7A6D600342CEE /* Assets.xcassets in Resources */,
 				4D3DAB16232591450023FAA2 /* MessageCell.xib in Resources */,
 				4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */,
+				4D190D1723564E21002F5696 /* DeliverableCell.xib in Resources */,
 				4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */,
 				9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */,
 				4D8A9A162304BA6A003483EC /* GoogleService-Info.plist in Resources */,
@@ -556,14 +592,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1AC5F623563795009E836D /* DeliverablesController.swift in Sources */,
 				4D9552B1232B581D0008E86E /* MainNavigationItem.swift in Sources */,
 				4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */,
+				4D1AC5EB23563716009E836D /* textDeliverableDireccion.swift in Sources */,
 				1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */,
+				4D1AC5EA23563716009E836D /* imageDeliverables.swift in Sources */,
 				4D4DF16A233D208000DD4341 /* Views.swift in Sources */,
 				4D857F8F2350E81D004D2EBB /* NetworkAnswers.swift in Sources */,
 				4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */,
 				1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */,
+				4D1AC5EC23563716009E836D /* statusDeliverables.swift in Sources */,
 				1D2B2378233E91F4004C70CC /* Cell.swift in Sources */,
+				4D1AC5E6235636D2009E836D /* Deliverable.swift in Sources */,
 				4D4DF169233D208000DD4341 /* Storyboards.swift in Sources */,
 				4DD31535232B20BA00429B0A /* MessagesKeys.swift in Sources */,
 				4D3C2B162332E71600DEAA44 /* MessagesService.swift in Sources */,
@@ -585,6 +626,7 @@
 				1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */,
 				9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */,
 				1D7E52E22316B91000776C4F /* DayCell.swift in Sources */,
+				4D1AC5F323563795009E836D /* DeliverableCell.swift in Sources */,
 				1DB4518A2315B8F200AD3684 /* Month.swift in Sources */,
 				1DB3DEB322F9E9BC00AE9CA7 /* AuthRouter.swift in Sources */,
 				1D0366DC2304878200D72520 /* RoadURL.swift in Sources */,
@@ -593,12 +635,14 @@
 				4D3C2B0A2332A7FE00DEAA44 /* NetworkHandler.swift in Sources */,
 				4DEAE17F22E8C89900137300 /* SignedInViewController.swift in Sources */,
 				4DBBF66E231092DD00F722FC /* Message.swift in Sources */,
+				4D190D1B23568A48002F5696 /* DeliverableService.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
 				4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */,
 				4DBBF66C231090B300F722FC /* HomeController.swift in Sources */,
 				1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
 				1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */,
+				4D190D1923566C05002F5696 /* DeliverableRouter.swift in Sources */,
 				4DC97003234E7D7800147925 /* TypesNetworkErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
