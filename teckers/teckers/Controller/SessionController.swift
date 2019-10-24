@@ -12,6 +12,7 @@ class SessionController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var sessionCollectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var daysOfMonth: [Int] = []
     
@@ -23,25 +24,22 @@ class SessionController: UIViewController {
     private var startOfMonth = -1
     private var endOfMonth = -1
     private var sessionsValue = -1
-    private var allSessions:[Session] = []
+    private var allSessions:[Session] = [] {
+        didSet{
+            if spinner.isAnimating{
+                spinner.stopAnimating()
+            }
+        }
+    }
     private var sessionsForDate:[Session] = []
     private var flag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        spinner.transform = CGAffineTransform(scaleX: 2, y: 2);
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
-        Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
-            for dictionarySession in response {
-                self?.allSessions.append(Session(JSON: dictionarySession))
-            }
-            self?.sessionsValue = self?.allSessions.count ?? 0
-            self?.sessionsForDate = self!.allSessions
-            self?.calendarCollectionView.reloadData()
-            }, failure: { [weak self] Error in
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                self?.present(alertAction.showOK(), animated: true, completion: nil)
-        })
+        getSessions()
         sessionsForDate = allSessions
         daysOfMonth = DateCalendar.daysOfMonthsByYear(yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
@@ -64,17 +62,7 @@ class SessionController: UIViewController {
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
         endOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
-        Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
-            for dictionarySession in response {
-                self?.allSessions.append(Session(JSON: dictionarySession))
-            }
-            self?.sessionsValue = self?.allSessions.count ?? 0
-            self?.sessionsForDate = self!.allSessions
-            self?.calendarCollectionView.reloadData()
-            }, failure: { [weak self] Error in
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                self?.present(alertAction.showOK(), animated: true, completion: nil)
-        })
+        getSessions()
         dayCurrent = 0
         sessionCollectionView.reloadData()
     }
@@ -95,6 +83,12 @@ class SessionController: UIViewController {
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         startOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
         endOfMonth = DateCalendar.calculateSpecificStartOfMonth(monthCurrent, yearCurrent)
+        getSessions()
+        dayCurrent = 0
+        sessionCollectionView.reloadData()
+    }
+    func getSessions(){
+        spinner.startAnimating()
         Session.getSessionsRequest(year: yearCurrent, month: monthCurrent, success: { [weak self] (response) in
             for dictionarySession in response {
                 self?.allSessions.append(Session(JSON: dictionarySession))
@@ -106,8 +100,6 @@ class SessionController: UIViewController {
                 let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
                 self?.present(alertAction.showOK(), animated: true, completion: nil)
         })
-        dayCurrent = 0
-        sessionCollectionView.reloadData()
     }
     
     private func changeDateLabel(_ month: Int,_ year: Int) -> String {

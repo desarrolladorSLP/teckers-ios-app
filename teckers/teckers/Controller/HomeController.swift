@@ -13,11 +13,13 @@ class HomeController: UIViewController {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var addMessageButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private var messagesList : [MessagesUser] = [] {
         didSet{
             DispatchQueue.main.async {
                 self.messageTableView.reloadData()
+                self.spinner.stopAnimating()
             }
         }
     }
@@ -25,6 +27,10 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        spinner.hidesWhenStopped = true
+        spinner.style = .gray
+        spinner.transform = CGAffineTransform(scaleX: 2, y: 2);
+        spinner.startAnimating()
         getMessages(priorityHigh: true)
         
     }
@@ -44,6 +50,7 @@ class HomeController: UIViewController {
     }
     
     @IBAction func changeSegmentedControl(_ sender: UISegmentedControl) {
+        spinner.startAnimating()
         if sender.selectedSegmentIndex == 0{
             getMessages(priorityHigh: true)
         }
