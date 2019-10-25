@@ -17,15 +17,12 @@ class DeliverableCell: UITableViewCell {
     @IBOutlet weak var rightDateLabel: UILabel!
     @IBOutlet weak var leftDateLabel: UILabel!
     
-<<<<<<< HEAD
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = TypeDateFormat.dayMonthYear.rawValue
         return formatter
     }
-=======
     static let nameCell = "DeliverableCell"
->>>>>>> Definition of Parent/Mentor with Teckers
     
     var deliverable: Deliverable? {
         didSet{
