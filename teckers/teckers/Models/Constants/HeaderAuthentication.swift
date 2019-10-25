@@ -13,4 +13,5 @@ enum Header: String {
     case Bearer
     case Authorization
     case Accept = "application/json"
+    case Bearer = "Bearer"
 }

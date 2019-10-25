@@ -11,6 +11,7 @@ import Alamofire
 enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
+    case getDeliverablesParent
     case getOneDeliverableWith(_ id: String)
     case postDeliverable(id: String, text: String)
     case getDeliverablesId(teckerId: String)
@@ -32,7 +33,15 @@ enum DeliverableRouter: URLRequestConvertible {
                 return .get
             case .postDeliverable(_, _):
                 return .post
+<<<<<<< HEAD
 
+=======
+    
+            case .getDeliverables:
+                return .get
+            case .getDeliverablesParent:
+                return .get
+>>>>>>> Deliverables display with full display
         }
     }
     
@@ -48,10 +57,17 @@ enum DeliverableRouter: URLRequestConvertible {
                 return "/api/tecker/\(teckerId)/deliverables"
             case .postDeliverable(let id,_):
                 return "/api/deliverable/\(id)"
+<<<<<<< HEAD
             case .getDeliverablesParent:
                 return "/api/parent/teckers"
             case .getDeliverablesMentor:
                 return "/api/mentor/teckers"
+=======
+            case .getDeliverables:
+                return "/api/deliverable"
+            case .getDeliverablesParent:
+                return "/api/parent/teckers"
+>>>>>>> Deliverables display with full display
         }
     }
     var parameters: [String: Any]? {
@@ -60,6 +76,7 @@ enum DeliverableRouter: URLRequestConvertible {
                 return ["Deliverable": text]
             default:
                 return nil
+        
         }
     }
     

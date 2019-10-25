@@ -9,12 +9,33 @@
 import Foundation
 
 struct DeliverableService {
+<<<<<<< HEAD
     static func getDeliverable(completion : @escaping (_ messages:[Deliverable]?, Error?) -> Void) {
+=======
+    static func getDeliverable(success : @escaping (_ messages:[Deliverable]) -> Void) {
+>>>>>>> Deliverables display with full display
         NetworkHandler.request(url: DeliverableRouter.getDeliverables, onSucess: { (response) in
             do {
                 if let data = response.data {
                     let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
+<<<<<<< HEAD
                     completion(deliverables, nil)
+=======
+                    success(deliverables)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }, onFailure: nil)
+    }
+
+    static func getDeliverableParent(success : @escaping (_ messages:[DeliverableParent]) -> Void) {
+        NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+            do{
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([DeliverableParent].self, from: data)
+                    success(deliverables)
+>>>>>>> Deliverables display with full display
                 }
             }
             catch {
