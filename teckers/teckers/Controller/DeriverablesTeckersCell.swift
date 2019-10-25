@@ -13,7 +13,6 @@ class DeriverablesTeckersCell: UICollectionViewCell {
     @IBOutlet weak var imageDeriverables: UIImageView!
     @IBOutlet weak var titleDeriverables: UILabel!
     static let nameCell = "DeriverablesTeckersCell"
-<<<<<<< HEAD
     var mainRect: CGRect?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +30,6 @@ class DeriverablesTeckersCell: UICollectionViewCell {
                 })
             }
         }
-=======
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
->>>>>>> Role Definition
         // Initialization code
     }
     
@@ -70,13 +64,10 @@ class DeriverablesTeckersCell: UICollectionViewCell {
             }
         }
     }
-<<<<<<< HEAD
     func commitInit(name: String) {
         DispatchQueue.main.async {
             self.titleDeriverables.text = name
         }
     }
-=======
->>>>>>> Role Definition
     
 }

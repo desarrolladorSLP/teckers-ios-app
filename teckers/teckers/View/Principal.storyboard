@@ -425,7 +425,6 @@
         <!--Deliverables-->
         <scene sceneID="Gbc-xE-F29">
             <objects>
-<<<<<<< HEAD
                 <viewController storyboardIdentifier="DeliverableMentorID" id="uqG-oV-Fbb" customClass="DeliverablesTeckersController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMW-Te-2dF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
@@ -433,15 +432,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mdK-82-eJC">
                                 <rect key="frame" x="15" y="0.0" width="345" height="724"/>
-=======
-                <viewController id="uqG-oV-Fbb" customClass="DeriverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OMW-Te-2dF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mdK-82-eJC">
-                                <rect key="frame" x="15" y="88" width="384" height="725"/>
->>>>>>> Deliverables display with full display
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rJq-XR-wlW">
                                     <size key="itemSize" width="50" height="50"/>
@@ -475,20 +465,12 @@
                         <viewLayoutGuide key="safeArea" id="MVO-Xg-bv5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Deliverables" image="copy" id="BnL-ly-U6G"/>
-<<<<<<< HEAD
-                    <navigationItem key="navigationItem" id="oQi-Nr-YFR"/>
                     <connections>
                         <outlet property="collectionViewDeriverables" destination="mdK-82-eJC" id="CPi-Yq-fTW"/>
-                        <segue destination="qhx-WE-nDU" kind="show" identifier="showDeliverables" id="dVt-tp-yuX"/>
-=======
-                    <connections>
-                        <outlet property="collectionViewDeriverables" destination="mdK-82-eJC" id="CPi-Yq-fTW"/>
->>>>>>> Deliverables display with full display
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dur-ea-Xrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="2218" y="1516"/>
         </scene>
         <!--Navigation Controller-->
@@ -506,9 +488,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrc-80-MXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1367" y="1516"/>
-=======
-            <point key="canvasLocation" x="178" y="2251"/>
->>>>>>> Deliverables display with full display
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krU-Ok-5Br">

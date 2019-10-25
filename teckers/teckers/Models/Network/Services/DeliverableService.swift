@@ -9,19 +9,24 @@
 import Foundation
 
 struct DeliverableService {
-<<<<<<< HEAD
-    static func getDeliverable(completion : @escaping (_ messages:[Deliverable]?, Error?) -> Void) {
-=======
     static func getDeliverable(success : @escaping (_ messages:[Deliverable]) -> Void) {
->>>>>>> Deliverables display with full display
         NetworkHandler.request(url: DeliverableRouter.getDeliverables, onSucess: { (response) in
             do {
                 if let data = response.data {
                     let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
-<<<<<<< HEAD
-                    completion(deliverables, nil)
-=======
-                    success(deliverables)
+                    success(deliverables)}
+            }
+            catch {
+                completion(nil, error)
+            }
+        }, onFailure: nil)
+    }
+    static func getDeliverableParent(success : @escaping (_ messages:[DeliverableParent]) -> Void){
+        NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+            do{
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([DeliverableParent].self, from: data)
+                        success(deliverables)
                 }
             } catch {
                 print(error.localizedDescription)
@@ -29,14 +34,12 @@ struct DeliverableService {
         }, onFailure: nil)
     }
 
-<<<<<<< HEAD
     static func getDeliverableParent(success : @escaping (_ messages:[DeliverableParent]) -> Void) {
         NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
             do{
                 if let data = response.data {
                     let deliverables = try JSONDecoder().decode([DeliverableParent].self, from: data)
                     success(deliverables)
->>>>>>> Deliverables display with full display
                 }
             }
             catch {
@@ -57,7 +60,6 @@ struct DeliverableService {
             }
         }, onFailure: nil)
         
-=======
     static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
         
         if roles.contains(Roles.Parent.rawValue) {
@@ -85,7 +87,6 @@ struct DeliverableService {
                 }
             }, onFailure: nil)
         }
->>>>>>> Role Definition
     }
     
     static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {

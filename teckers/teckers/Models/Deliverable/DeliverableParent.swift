@@ -10,10 +10,10 @@ import Foundation
 
 import Foundation
 
-struct DeliverableTeckers: Codable {
+struct DeliverableParent: Codable {
     let teckerId: String
     let name: String
-    let imageUrl: String?
+    let imageUrl: String
     
     enum CodingKeys: String, CodingKey {
         case teckerId, name, imageUrl
