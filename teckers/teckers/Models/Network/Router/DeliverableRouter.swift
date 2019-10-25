@@ -20,21 +20,20 @@ enum DeliverableRouter: URLRequestConvertible {
     case getDeliverablesParent
     case getDeliverablesMentor
     
-    
     var method: HTTPMethod {
         switch self {
             case .getDeliverables:
                 return .get
+            case .getOneDeliverableWith(_):
+                return .get
+            case .postDeliverable(_, _):
+                return .post
             case .getDeliverablesId(_):
                 return .get
             case .getDeliverablesParent:
                 return .get
             case .getDeliverablesMentor:
                 return .get
-            case .getOneDeliverableWith(_):
-                return .get
-            case .postDeliverable(_, _):
-                return .post
         }
     }
     
