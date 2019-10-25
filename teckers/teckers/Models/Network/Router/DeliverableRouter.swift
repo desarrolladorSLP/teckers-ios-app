@@ -12,10 +12,13 @@ import Alamofire
 enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
+    case getDeliverablesParent
     
     var method: HTTPMethod {
         switch self {
         case .getDeliverables:
+            return .get
+        case .getDeliverablesParent:
             return .get
         }
     }
@@ -24,6 +27,8 @@ enum DeliverableRouter: URLRequestConvertible {
         switch self {
         case .getDeliverables:
             return "/api/deliverable"
+        case .getDeliverablesParent:
+            return "/api/parent/teckers"
         }
     }
     
@@ -31,10 +36,10 @@ enum DeliverableRouter: URLRequestConvertible {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         let tokendictionary = Token()
-        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue){
+        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue) {
             urlRequest.setValue("\(Header.Bearer.rawValue) \(accessToken)", forHTTPHeaderField: Header.Authorization.rawValue)
         }
+        
         return try URLEncoding.default.encode(urlRequest, with: nil)
     }
 }
-
