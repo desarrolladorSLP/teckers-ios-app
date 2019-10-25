@@ -12,6 +12,7 @@ import Alamofire
 enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
+    case getDeliverablesParent
     case getOneDeliverableWith(_ id: String)
     case postDeliverable(id: String, text: String)
     
@@ -23,6 +24,11 @@ enum DeliverableRouter: URLRequestConvertible {
                 return .get
             case .postDeliverable(_, _):
                 return .post
+    
+            case .getDeliverables:
+                return .get
+            case .getDeliverablesParent:
+                return .get
         }
     }
     
@@ -34,6 +40,10 @@ enum DeliverableRouter: URLRequestConvertible {
                 return "/api/deliverable/\(id)"
             case .postDeliverable(let id,_):
                 return "/api/deliverable/\(id)"
+            case .getDeliverables:
+                return "/api/deliverable"
+            case .getDeliverablesParent:
+                return "/api/parent/teckers"
         }
     }
     var parameters: [String: Any]? {
@@ -42,6 +52,7 @@ enum DeliverableRouter: URLRequestConvertible {
                 return ["Deliverable": text]
             default:
                 return nil
+        
         }
     }
     
@@ -49,10 +60,9 @@ enum DeliverableRouter: URLRequestConvertible {
         let url = try RoadURL.baseURL.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         let tokendictionary = Token()
-        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue){
+        if let accessToken = try tokendictionary.getToken(user: TokenKeys.AccessToken.rawValue) {
             urlRequest.setValue("\(Header.Bearer.rawValue) \(accessToken)", forHTTPHeaderField: Header.Authorization.rawValue)
         }
         return try URLEncoding.default.encode(urlRequest, with: parameters)
     }
 }
-
