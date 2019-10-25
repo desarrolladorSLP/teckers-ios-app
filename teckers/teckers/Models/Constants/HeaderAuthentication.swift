@@ -11,4 +11,5 @@ import Foundation
 enum Header: String {
     case Authorization = "Basic "
     case Accept = "application/json"
+    case Bearer = "Bearer"
 }
