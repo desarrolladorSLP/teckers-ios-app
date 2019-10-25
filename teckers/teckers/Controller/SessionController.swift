@@ -37,6 +37,7 @@ class SessionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        spinner.hidesWhenStopped = true
         spinner.transform = CGAffineTransform(scaleX: 2, y: 2);
         monthLabel.text = changeDateLabel(monthCurrent, yearCurrent)
         getSessions()
@@ -96,9 +97,11 @@ class SessionController: UIViewController {
             self?.sessionsValue = self?.allSessions.count ?? 0
             self?.sessionsForDate = self!.allSessions
             self?.calendarCollectionView.reloadData()
+            self?.spinner.stopAnimating()
             }, failure: { [weak self] Error in
                 let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
                 self?.present(alertAction.showOK(), animated: true, completion: nil)
+                self?.spinner.stopAnimating()
         })
     }
     
