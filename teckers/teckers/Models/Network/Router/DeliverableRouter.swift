@@ -5,7 +5,6 @@
 //  Created by Maggie Mendez on 15/10/19.
 //  Copyright © 2019 Teckers. All rights reserved.
 //
-
 import Foundation
 import Alamofire
 
@@ -13,7 +12,7 @@ enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
     case getDeliverablesParent
-<<<<<<< HEAD
+    case getDeliverablesMentor
     case getOneDeliverableWith(_ id: String)
     case postDeliverable(id: String, text: String)
     
@@ -30,8 +29,8 @@ enum DeliverableRouter: URLRequestConvertible {
                 return .get
             case .getDeliverablesParent:
                 return .get
-=======
-    case getDeliverablesMentor
+        }
+    }
     
     var method: HTTPMethod {
         switch self {
@@ -41,7 +40,6 @@ enum DeliverableRouter: URLRequestConvertible {
             return .get
         case .getDeliverablesMentor:
             return .get
->>>>>>> Role Definition
         }
     }
     
@@ -53,8 +51,6 @@ enum DeliverableRouter: URLRequestConvertible {
                 return "/api/deliverable/\(id)"
             case .postDeliverable(let id,_):
                 return "/api/deliverable/\(id)"
-            case .getDeliverables:
-                return "/api/deliverable"
             case .getDeliverablesParent:
                 return "/api/parent/teckers"
             case .getDeliverablesMentor:

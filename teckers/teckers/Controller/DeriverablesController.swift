@@ -13,6 +13,8 @@ class DeriverablesController: UIViewController {
     @IBOutlet weak var collectionViewDeriverables: UICollectionView!
     private let roles = UserInformation.shared.roles ?? []
     var teckers: [DeliverableTeckers] = [] {
+    let nameCell = "DeriverablesCell"
+    var deliverablesParent: [DeliverableParent] = [] {
         didSet{
             self.collectionViewDeriverables.reloadData()
         }
@@ -37,6 +39,14 @@ class DeriverablesController: UIViewController {
         }
         else {
             print("Pase a la otra pantalla")
+        }
+        
+        if UserInformation.shared.roles?.contains(Roles.Administrador.rawValue) ?? false {
+            let nibCell = UINib(nibName: self.nameCell, bundle: nil)
+            collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: nameCell)
+            DeliverableService.getDeliverableParent(success: { [weak self] deliverableArray in
+                self?.deliverablesParent = deliverableArray
+            })
         }
     }
 }
