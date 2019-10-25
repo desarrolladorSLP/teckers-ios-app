@@ -130,7 +130,6 @@
 		4D1AC5E923563716009E836D /* statusDeliverables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statusDeliverables.swift; sourceTree = "<group>"; };
 		4D1AC5EE23563795009E836D /* DeliverableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverableCell.swift; sourceTree = "<group>"; };
 		4D1AC5F123563795009E836D /* DeliverablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverablesController.swift; sourceTree = "<group>"; };
-		4D1FF17422F8AD8500CB5D63 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4D3C2B092332A7FE00DEAA44 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		4D3C2B152332E71600DEAA44 /* MessagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		4D3DAB15232591450023FAA2 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
