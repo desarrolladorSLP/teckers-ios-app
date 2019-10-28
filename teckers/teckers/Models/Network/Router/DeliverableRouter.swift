@@ -13,6 +13,7 @@ enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
     case getDeliverablesParent
+<<<<<<< HEAD
     case getOneDeliverableWith(_ id: String)
     case postDeliverable(id: String, text: String)
     
@@ -29,6 +30,18 @@ enum DeliverableRouter: URLRequestConvertible {
                 return .get
             case .getDeliverablesParent:
                 return .get
+=======
+    case getDeliverablesMentor
+    
+    var method: HTTPMethod {
+        switch self {
+        case .getDeliverables:
+            return .get
+        case .getDeliverablesParent:
+            return .get
+        case .getDeliverablesMentor:
+            return .get
+>>>>>>> Role Definition
         }
     }
     
@@ -44,6 +57,8 @@ enum DeliverableRouter: URLRequestConvertible {
                 return "/api/deliverable"
             case .getDeliverablesParent:
                 return "/api/parent/teckers"
+            case .getDeliverablesMentor:
+                return "/api/mentor/teckers"
         }
     }
     var parameters: [String: Any]? {
