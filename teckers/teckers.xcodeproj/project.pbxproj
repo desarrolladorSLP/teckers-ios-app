@@ -523,6 +523,7 @@
 				4D3DAB16232591450023FAA2 /* MessageCell.xib in Resources */,
 				4DD230BD2311FDD2000A87A8 /* Principal.storyboard in Resources */,
 				4D190D1723564E21002F5696 /* DeliverableCell.xib in Resources */,
+				1D2EDD992357FF8700831E16 /* DeriverablesTeckersCell.xib in Resources */,
 				4D6DB1A0230704E4009F23FA /* InfoApplication.plist in Resources */,
 				9B90A34222D7A6D500342CEE /* Main.storyboard in Resources */,
 			);
