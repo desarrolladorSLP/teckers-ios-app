@@ -16,9 +16,6 @@ enum DeliverableRouter: URLRequestConvertible {
     case getDeliverablesMentor
     case getOneDeliverableWith(_ id: String)
     case postDeliverable(id: String, text: String)
-    case getDeliverablesId(teckerId: String)
-    case getDeliverablesParent
-    case getDeliverablesMentor
     
     var method: HTTPMethod {
         switch self {
