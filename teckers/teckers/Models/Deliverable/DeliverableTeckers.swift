@@ -13,7 +13,11 @@ import Foundation
 struct DeliverableTeckers: Codable {
     let teckerId: String
     let name: String
+<<<<<<< HEAD
     let imageUrl: String?
+=======
+    let imageUrl: String
+>>>>>>> Role Definition
     
     enum CodingKeys: String, CodingKey {
         case teckerId, name, imageUrl

@@ -13,8 +13,8 @@
 		1D2B2376233D1F52004C70CC /* DateCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2375233D1F52004C70CC /* DateCalendar.swift */; };
 		1D2B2378233E91F4004C70CC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2377233E91F4004C70CC /* Cell.swift */; };
 		1D2EDD95235799B400831E16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D2EDD94235799B400831E16 /* GoogleService-Info.plist */; };
-		1D2EDD982357FF8700831E16 /* DeriverablesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EDD962357FF8700831E16 /* DeriverablesCell.swift */; };
-		1D2EDD992357FF8700831E16 /* DeriverablesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2EDD972357FF8700831E16 /* DeriverablesCell.xib */; };
+		1D2EDD982357FF8700831E16 /* DeriverablesTeckersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EDD962357FF8700831E16 /* DeriverablesTeckersCell.swift */; };
+		1D2EDD992357FF8700831E16 /* DeriverablesTeckersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D2EDD972357FF8700831E16 /* DeriverablesTeckersCell.xib */; };
 		1D2EDD9B23580E2500831E16 /* DeriverablesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */; };
 		1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35371923452C3B0021CBEC /* MessagesRouter.swift */; };
 		1D37B42C238716F2005DA29F /* DeliverableParentMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */; };
@@ -33,7 +33,7 @@
 		1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCB65F3237DD8D3004FA8C7 /* Roles.swift */; };
 		1DD219182362215E00FF33A7 /* DeliverableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD219172362215E00FF33A7 /* DeliverableRouter.swift */; };
 		1DD2191A23622F2600FF33A7 /* DeliverableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD2191923622F2600FF33A7 /* DeliverableService.swift */; };
-		1DD2191E23622F9E00FF33A7 /* DeliverableParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD2191D23622F9E00FF33A7 /* DeliverableParent.swift */; };
+		1DD2191E23622F9E00FF33A7 /* DeliverableTeckers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD2191D23622F9E00FF33A7 /* DeliverableTeckers.swift */; };
 		1DED601C23025FBA00B5E13A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED601B23025FBA00B5E13A /* Alert.swift */; };
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB58312314A7E000AC1A99 /* SessionController.swift */; };
@@ -123,8 +123,8 @@
 		1D2B2375233D1F52004C70CC /* DateCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalendar.swift; sourceTree = "<group>"; };
 		1D2B2377233E91F4004C70CC /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		1D2EDD94235799B400831E16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1D2EDD962357FF8700831E16 /* DeriverablesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeriverablesCell.swift; sourceTree = "<group>"; };
-		1D2EDD972357FF8700831E16 /* DeriverablesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeriverablesCell.xib; sourceTree = "<group>"; };
+		1D2EDD962357FF8700831E16 /* DeriverablesTeckersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeriverablesTeckersCell.swift; sourceTree = "<group>"; };
+		1D2EDD972357FF8700831E16 /* DeriverablesTeckersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeriverablesTeckersCell.xib; sourceTree = "<group>"; };
 		1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeriverablesController.swift; sourceTree = "<group>"; };
 		1D35371923452C3B0021CBEC /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
 		1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableParentMentor.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAuthentication.swift; sourceTree = "<group>"; };
 		1DD219172362215E00FF33A7 /* DeliverableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableRouter.swift; sourceTree = "<group>"; };
 		1DD2191923622F2600FF33A7 /* DeliverableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableService.swift; sourceTree = "<group>"; };
-		1DD2191D23622F9E00FF33A7 /* DeliverableParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableParent.swift; sourceTree = "<group>"; };
+		1DD2191D23622F9E00FF33A7 /* DeliverableTeckers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableTeckers.swift; sourceTree = "<group>"; };
 		1DED601B23025FBA00B5E13A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1DED60212303651100B5E13A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		1DFB58312314A7E000AC1A99 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		1DD2191C23622F8A00FF33A7 /* Deliverable */ = {
 			isa = PBXGroup;
 			children = (
-				1DD2191D23622F9E00FF33A7 /* DeliverableParent.swift */,
+				1DD2191D23622F9E00FF33A7 /* DeliverableTeckers.swift */,
 			);
 			path = Deliverable;
 			sourceTree = "<group>";
@@ -307,6 +307,7 @@
 				4D9552B0232B581C0008E86E /* MainNavigationItem.swift */,
 
 				1D2EDD972357FF8700831E16 /* DeriverablesCell.xib */,
+				1D2EDD972357FF8700831E16 /* DeriverablesTeckersCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +323,7 @@
 				4D37CF20235E0CD900860206 /* DetailsDeliverableCell.swift */,
 				4D37CF1E235E0AC700860206 /* DetailsDeliverableController.swift */,
 				1D2EDD962357FF8700831E16 /* DeriverablesCell.swift */,
+				1D2EDD962357FF8700831E16 /* DeriverablesTeckersCell.swift */,
 				1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */,
 				4DBBF66B231090B300F722FC /* HomeController.swift */,
 				9B90A33E22D7A6D500342CEE /* LoginViewController.swift */,
@@ -752,9 +754,9 @@
 				4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */,
 				4D96DD94235180DF0017F784 /* NetworkError.swift in Sources */,
 				1D1EF2EF23145C80002BA0B1 /* Image.swift in Sources */,
-				1D2EDD982357FF8700831E16 /* DeriverablesCell.swift in Sources */,
+				1D2EDD982357FF8700831E16 /* DeriverablesTeckersCell.swift in Sources */,
 				1D98197F23198F0B00A4B7C3 /* Session.swift in Sources */,
-				1DD2191E23622F9E00FF33A7 /* DeliverableParent.swift in Sources */,
+				1DD2191E23622F9E00FF33A7 /* DeliverableTeckers.swift in Sources */,
 				9B90A33D22D7A6D500342CEE /* AppDelegate.swift in Sources */,
 				1D7E52E22316B91000776C4F /* DayCell.swift in Sources */,
 				4D1AC5F323563795009E836D /* DeliverableCell.swift in Sources */,
