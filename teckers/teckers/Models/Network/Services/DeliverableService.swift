@@ -49,6 +49,19 @@ struct DeliverableService {
             }, onFailure: nil)
         }
     }
+    
+    static func getDeliverableId(id: String, success : @escaping (_ messages:[Deliverable]) -> Void) {
+        NetworkHandler.request(url: DeliverableRouter.getDeliverablesId(teckerId: id), onSucess: { (response) in
+            do{
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
+                    success(deliverables)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }, onFailure: nil)
+    }
 
     static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
         

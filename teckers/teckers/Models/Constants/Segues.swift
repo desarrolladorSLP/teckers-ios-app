@@ -12,4 +12,5 @@ enum Segues: String {
     case toHome = "toHome"
     case toDetailsDeliverable
     case goToPost
+    case toDeliverables = "showDeliverables"
 }

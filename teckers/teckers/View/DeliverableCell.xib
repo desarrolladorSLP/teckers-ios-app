@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,12 +33,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6W-Sc-UdU">
-                        <rect key="frame" x="10" y="37.5" width="120" height="14.5"/>
+                        <rect key="frame" x="10" y="37.5" width="120" height="16.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliverable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2H-3W-sS7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Deliverable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2H-3W-sS7">
                         <rect key="frame" x="190" y="15" width="120" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -63,6 +63,7 @@
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x2d-L5-Nvf" secondAttribute="bottom" constant="10" id="ciZ-PW-hNN"/>
                     <constraint firstItem="j6W-Sc-UdU" firstAttribute="top" secondItem="ODj-v8-OGj" secondAttribute="bottom" constant="2" id="cyn-0q-dBz"/>
                     <constraint firstItem="x2d-L5-Nvf" firstAttribute="leading" secondItem="ODj-v8-OGj" secondAttribute="trailing" constant="10" id="f9l-6M-WTb"/>
+                    <constraint firstItem="yrU-E1-UD5" firstAttribute="bottom" secondItem="j6W-Sc-UdU" secondAttribute="bottom" id="fa3-5U-x7G"/>
                     <constraint firstItem="ODj-v8-OGj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iXQ-PF-oAr"/>
                     <constraint firstItem="yrU-E1-UD5" firstAttribute="top" secondItem="A2H-3W-sS7" secondAttribute="bottom" constant="2" id="m5f-b1-oJ6"/>
                     <constraint firstItem="j6W-Sc-UdU" firstAttribute="leading" secondItem="ODj-v8-OGj" secondAttribute="leading" id="mhN-Ff-PsA"/>

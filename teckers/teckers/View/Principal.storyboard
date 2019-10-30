@@ -3,7 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -425,13 +425,13 @@
         <!--Deliverables-->
         <scene sceneID="Gbc-xE-F29">
             <objects>
-                <viewController id="uqG-oV-Fbb" customClass="DeriverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uqG-oV-Fbb" customClass="DeliverablesTeckersController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMW-Te-2dF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mdK-82-eJC">
-                                <rect key="frame" x="15" y="88" width="384" height="725"/>
+                                <rect key="frame" x="15" y="0.0" width="384" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rJq-XR-wlW">
                                     <size key="itemSize" width="50" height="50"/>
@@ -465,13 +465,31 @@
                         <viewLayoutGuide key="safeArea" id="MVO-Xg-bv5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Deliverables" image="copy" id="BnL-ly-U6G"/>
+                    <navigationItem key="navigationItem" id="oQi-Nr-YFR"/>
                     <connections>
                         <outlet property="collectionViewDeriverables" destination="mdK-82-eJC" id="CPi-Yq-fTW"/>
+                        <segue destination="qhx-WE-nDU" kind="show" identifier="showDeliverables" id="dVt-tp-yuX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dur-ea-Xrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="2251"/>
+            <point key="canvasLocation" x="1216" y="2230"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ni-ke-wXr">
+            <objects>
+                <navigationController id="XTw-2T-vvh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ypD-bP-8Oh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uqG-oV-Fbb" kind="show" id="jMl-UC-8sC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lrc-80-MXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="320" y="2230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krU-Ok-5Br">
@@ -548,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-aR-wd5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="2251"/>
+            <point key="canvasLocation" x="2000" y="2230"/>
         </scene>
         <!--Details Deliverable Controller-->
         <scene sceneID="m4V-Ms-PfQ">
@@ -688,4 +706,7 @@
         <image name="new-post" width="16.666666030883789" height="16.666666030883789"/>
         <image name="people-24" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jMl-UC-8sC"/>
+    </inferredMetricsTieBreakers>
 </document>
