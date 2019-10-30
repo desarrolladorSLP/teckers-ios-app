@@ -1,5 +1,5 @@
 //
-//  DeliverablesTekersController.swift
+//  DeliverablesTeckersController.swift
 //  teckers
 //
 //  Created by Ricardo Granja on 16/10/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeliverablesTekersController: UIViewController {
+class DeliverablesTeckersController: UIViewController {
 
     @IBOutlet weak var collectionViewDeriverables: UICollectionView!
     private let roles = UserInformation.shared.roles ?? []
@@ -17,17 +17,30 @@ class DeliverablesTekersController: UIViewController {
             self.collectionViewDeriverables.reloadData()
         }
     }
+    var deliverables: [Deliverable] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nibCell = UINib(nibName: DeriverablesTeckersCell.nameCell, bundle: nil)
-            collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
+        collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
         
-        if !roles.contains(Roles.Tecker.rawValue) {
+        if roles.contains(Roles.Tecker.rawValue) {
+            DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
+                self?.deliverables = deliverableArray
+                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+            })
+        }
+        else {
             DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
                 if let teckersArray = deliverableArray {
                     self?.teckers = teckersArray
+                    if self?.teckers.count == 1 {
+                        DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
+                            self?.deliverables = deliverableArray
+                            self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+                        })
+                    }
                 }
                 else if let Error = error {
                     let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
@@ -35,20 +48,28 @@ class DeliverablesTekersController: UIViewController {
                 }
             })
         }
-        else {
-            print("Pase a la otra pantalla")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.toDeliverables.rawValue {
+            let teckersDeriverables = segue.destination as! DeliverablesController
+            teckersDeriverables.setup(with: deliverables)
         }
     }
 }
 
 
-extension DeliverablesTekersController: UICollectionViewDelegate {
+extension DeliverablesTeckersController: UICollectionViewDelegate {
 
 }
 
-extension DeliverablesTekersController: UICollectionViewDataSource {
+extension DeliverablesTeckersController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return teckers.count
+        if (self.teckers.count > 1) {
+            return teckers.count
+        }
+        
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,9 +90,12 @@ extension DeliverablesTekersController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewDeriverables {
-            let _ = collectionViewDeriverables.cellForItem(at: indexPath)
+            let idTecker = teckers[indexPath.row].teckerId
             
-            
+            DeliverableService.getDeliverableId(id: idTecker, success: { [weak self] response in
+                self?.deliverables = response
+                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: indexPath.row)
+            })
         }
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 
 enum Segues: String {
     case toHome = "toHome"
+    case toDeliverables = "showDeliverables"
 }
