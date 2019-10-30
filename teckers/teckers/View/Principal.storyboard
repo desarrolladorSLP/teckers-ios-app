@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -465,20 +465,30 @@
                         <viewLayoutGuide key="safeArea" id="MVO-Xg-bv5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Deliverables" image="copy" id="BnL-ly-U6G"/>
+                    <navigationItem key="navigationItem" id="oQi-Nr-YFR"/>
                     <connections>
                         <outlet property="collectionViewDeriverables" destination="mdK-82-eJC" id="CPi-Yq-fTW"/>
+                        <segue destination="qhx-WE-nDU" kind="show" identifier="showDeliverables" id="dVt-tp-yuX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dur-ea-Xrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2218" y="1516"/>
+=======
+            <point key="canvasLocation" x="1216" y="2230"/>
+>>>>>>> Definition of Parent/Mentor with Teckers
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0ni-ke-wXr">
             <objects>
                 <navigationController id="XTw-2T-vvh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ypD-bP-8Oh">
+<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+=======
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+>>>>>>> Definition of Parent/Mentor with Teckers
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -487,7 +497,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrc-80-MXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1367" y="1516"/>
+=======
+            <point key="canvasLocation" x="320" y="2230"/>
+>>>>>>> Definition of Parent/Mentor with Teckers
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krU-Ok-5Br">
@@ -581,7 +595,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed4-aR-wd5" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="3143" y="1516"/>
+=======
+<<<<<<< HEAD
+            <point key="canvasLocation" x="398" y="2251"/>
+>>>>>>> Definition of Parent/Mentor with Teckers
         </scene>
         <!--Deliverables-->
         <scene sceneID="Gkq-3r-XsM">
@@ -655,7 +674,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8s-uX-Jcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1366" y="2251"/>
+=======
+            <point key="canvasLocation" x="397.60000000000002" y="2946.4767616191907"/>
+=======
+            <point key="canvasLocation" x="2000" y="2230"/>
+>>>>>>> Definition of Parent/Mentor with Teckers
+>>>>>>> Definition of Parent/Mentor with Teckers
         </scene>
         <!--Details Deliverable Controller-->
         <scene sceneID="m4V-Ms-PfQ">
@@ -796,4 +822,7 @@
         <image name="new-post" width="20" height="20"/>
         <image name="people-24" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jMl-UC-8sC"/>
+    </inferredMetricsTieBreakers>
 </document>

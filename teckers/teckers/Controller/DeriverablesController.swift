@@ -52,11 +52,11 @@ class DeliverablesTekersController: UIViewController {
 }
 
 
-extension DeriverablesController: UICollectionViewDelegate {
+extension DeliverablesTekersController: UICollectionViewDelegate {
 
 }
 
-extension DeriverablesController: UICollectionViewDataSource {
+extension DeliverablesTekersController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return teckers.count
     }

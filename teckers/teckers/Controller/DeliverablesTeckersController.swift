@@ -18,7 +18,10 @@ class DeliverablesTeckersController: UIViewController {
         }
     }
     var deliverables: [Deliverable] = []
+<<<<<<< HEAD
     let mockId = "fe1bba25-2d10-4828-8cdd-e278b1d32c76"
+=======
+>>>>>>> Definition of Parent/Mentor with Teckers
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class DeliverablesTeckersController: UIViewController {
         let nibCell = UINib(nibName: DeriverablesTeckersCell.nameCell, bundle: nil)
         collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
         
+<<<<<<< HEAD
 //        if roles.contains(Roles.Tecker.rawValue) {
 //            DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
 //                self?.deliverables = deliverableArray ?? []
@@ -78,6 +82,30 @@ class DeliverablesTeckersController: UIViewController {
                 let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
                 self?.present(alertAction.showOK(), animated: true, completion: nil)
             }
+=======
+        if roles.contains(Roles.Tecker.rawValue) {
+            DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
+                self?.deliverables = deliverableArray
+                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+            })
+        }
+        else {
+            DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
+                if let teckersArray = deliverableArray {
+                    self?.teckers = teckersArray
+                    if self?.teckers.count == 1 {
+                        DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
+                            self?.deliverables = deliverableArray
+                            self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+                        })
+                    }
+                }
+                else if let Error = error {
+                    let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                    self?.present(alertAction.showOK(), animated: true, completion: nil)
+                }
+            })
+>>>>>>> Definition of Parent/Mentor with Teckers
         }
     }
     
@@ -106,6 +134,7 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeriverablesTeckersCell.nameCell, for: indexPath) as! DeriverablesTeckersCell
         
+<<<<<<< HEAD
         DeriverablesTeckersCell.downloadImage(urlString: teckers[indexPath.row].imageUrl ?? "", completion: { data, error in
 //            if let Error = error {
 //                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
@@ -116,6 +145,15 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
             }
             else{
                 cell.commitInit(name: self.teckers[indexPath.row].name)
+=======
+        DeriverablesTeckersCell.downloadImage(urlString: teckers[indexPath.row].imageUrl, completion: { data, error in
+            if let Error = error {
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self.present(alertAction.showOK(), animated: true, completion: nil)
+            }
+            else if let Data = data {
+                cell.commitInit(data: Data, name: self.teckers[indexPath.row].name)
+>>>>>>> Definition of Parent/Mentor with Teckers
             }
         })
         
@@ -126,7 +164,11 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
         if collectionView == collectionViewDeriverables {
             let idTecker = teckers[indexPath.row].teckerId
             
+<<<<<<< HEAD
             DeliverableService.getDeliverableId(id: mockId, success: { [weak self] response in
+=======
+            DeliverableService.getDeliverableId(id: idTecker, success: { [weak self] response in
+>>>>>>> Definition of Parent/Mentor with Teckers
                 self?.deliverables = response
                 self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: indexPath.row)
             })

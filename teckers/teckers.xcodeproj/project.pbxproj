@@ -20,8 +20,6 @@
 		1D2EDD9B23580E2500831E16 /* DeriverablesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */; };
 		1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35371923452C3B0021CBEC /* MessagesRouter.swift */; };
 		1D37B42C238716F2005DA29F /* DeliverableParentMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */; };
-		1D37B42E23871882005DA29F /* DeriverablesTeckersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37B42D23871882005DA29F /* DeriverablesTeckersCell.swift */; };
-		1D37B4302387188B005DA29F /* DeriverablesTeckersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D37B42F2387188B005DA29F /* DeriverablesTeckersCell.xib */; };
 		1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */; };
 		1D5495D62367BF930038FACB /* DeliverableTeckers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5495D52367BF930038FACB /* DeliverableTeckers.swift */; };
 		1D7E52E22316B91000776C4F /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E52E12316B91000776C4F /* DayCell.swift */; };
@@ -130,8 +128,6 @@
 		1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeriverablesController.swift; sourceTree = "<group>"; };
 		1D35371923452C3B0021CBEC /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
 		1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableParentMentor.swift; sourceTree = "<group>"; };
-		1D37B42D23871882005DA29F /* DeriverablesTeckersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeriverablesTeckersCell.swift; sourceTree = "<group>"; };
-		1D37B42F2387188B005DA29F /* DeriverablesTeckersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeriverablesTeckersCell.xib; sourceTree = "<group>"; };
 		1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverablesTeckersController.swift; sourceTree = "<group>"; };
 		1D5495D52367BF930038FACB /* DeliverableTeckers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverableTeckers.swift; sourceTree = "<group>"; };
 		1D7E52E12316B91000776C4F /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
@@ -328,6 +324,7 @@
 				4D37CF20235E0CD900860206 /* DetailsDeliverableCell.swift */,
 				4D37CF1E235E0AC700860206 /* DetailsDeliverableController.swift */,
 				1D2EDD962357FF8700831E16 /* DeriverablesCell.swift */,
+				1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */,
 				1D2EDD962357FF8700831E16 /* DeriverablesTeckersCell.swift */,
 				1D2EDD962357FF8700831E16 /* DeriverablesCell.swift */,
 				1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */,
@@ -369,6 +366,7 @@
 				4D190D1A23568A48002F5696 /* DeliverableService.swift */,
 				4D950800237E60E1005EA66A /* ProgramService.swift */,
 				4D576535237F15AD005A28E4 /* BatchService.swift */,
+				4D190D1A23568A48002F5696 /* DeliverableService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -782,7 +780,6 @@
 				4D190D1B23568A48002F5696 /* DeliverableService.swift in Sources */,
 				4D9C1D312385B21100AB7EF4 /* Roles.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
-				1DD2191A23622F2600FF33A7 /* DeliverableService.swift in Sources */,
 				4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */,
 				4D9507FF237E6002005EA66A /* ProgramRouter.swift in Sources */,
 				1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */,
@@ -791,6 +788,7 @@
 				1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */,
 				4DAAB12D238E339A0050DF42 /* BatchTecker.swift in Sources */,
 				4D576534237F14B5005A28E4 /* BatchRouter.swift in Sources */,
+				1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
 				1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */,
 				1D37B42E23871882005DA29F /* DeriverablesTeckersCell.swift in Sources */,

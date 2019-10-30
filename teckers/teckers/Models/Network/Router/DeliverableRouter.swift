@@ -11,6 +11,7 @@ import Alamofire
 enum DeliverableRouter: URLRequestConvertible {
     
     case getDeliverables
+    case getDeliverablesId(teckerId: String)
     case getDeliverablesParent
     case getDeliverablesMentor
     case getOneDeliverableWith(_ id: String)
