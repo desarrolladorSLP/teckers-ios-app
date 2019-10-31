@@ -23,6 +23,11 @@ class DeliverableCell: UITableViewCell {
         return formatter
     }
     static let nameCell = "DeliverableCell"
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMMM-yyyy"
+        return formatter
+    }
     
     var deliverable: Deliverable? {
         didSet{
