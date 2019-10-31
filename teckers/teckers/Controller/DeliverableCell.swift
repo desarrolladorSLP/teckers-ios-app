@@ -10,15 +10,18 @@ import UIKit
 
 class DeliverableCell: UITableViewCell {
 
-    @IBOutlet weak var yoloLabel: UILabel!
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var rightTitleLabel: UILabel!
-    @IBOutlet weak var rightDescriptionLabel: UILabel!
     @IBOutlet weak var leftTitleLabel: UILabel!
-    @IBOutlet weak var leftDescriptionLabel: UILabel!
     
     @IBOutlet weak var rightDateLabel: UILabel!
     @IBOutlet weak var leftDateLabel: UILabel!
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMMM-yyyy"
+        return formatter
+    }
     
     var deliverable: Deliverable? {
         didSet{
@@ -66,25 +69,28 @@ class DeliverableCell: UITableViewCell {
     var type: textDeliverableDireccion = .right {
         willSet(newValue){
             if newValue != .right{
-                leftDescriptionLabel.isHidden = false
                 leftTitleLabel.isHidden = false
                 leftDateLabel.isHidden = false
                 rightTitleLabel.isHidden = true
-                rightDescriptionLabel.isHidden = true
                 rightDateLabel.isHidden = true
             }
+            else {
+                leftTitleLabel.isHidden = true
+                leftDateLabel.isHidden = true
+                rightTitleLabel.isHidden = false
+                rightDateLabel.isHidden = false
+            }
+
         }
     }
     
     func useRightText(){
-        rightDescriptionLabel.text = deliverable?.description
         rightTitleLabel.text = deliverable?.title
-        rightDateLabel.text = deliverable?.date
+        rightDateLabel.text = dateFormatter.string(from: deliverable?.date ?? Date())
     }
     func useLeftText(){
-        leftDescriptionLabel.text = deliverable?.description
         leftTitleLabel.text = deliverable?.title
-        leftDateLabel.text = deliverable?.date
+        leftDateLabel.text = dateFormatter.string(from: deliverable?.date ?? Date())
     }
     
     override func awakeFromNib() {
@@ -95,7 +101,6 @@ class DeliverableCell: UITableViewCell {
     }
 
     func setup(){
-        leftDescriptionLabel.isHidden = true
         leftTitleLabel.isHidden = true
         leftDateLabel.isHidden = true
         status = .none
