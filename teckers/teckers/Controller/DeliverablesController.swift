@@ -30,7 +30,7 @@ class DeliverablesController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         let nibName2 = UINib(nibName: DeliverableCell.nameCell, bundle: nil)
-        tableView.register(nibName2, forCellReuseIdentifier: identifierDeliverableCell)
+        tableView.register(nibName2, forCellReuseIdentifier: DeliverableCell.nameCell)
         DeliverableService.getDeliverable(success: {[weak self] deliverableArray in
             self?.deliverables = deliverableArray
         })
