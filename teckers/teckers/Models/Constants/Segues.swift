@@ -13,4 +13,6 @@ enum Segues: String {
     case toDetailsDeliverable
     case goToPost
     case toDeliverables = "showDeliverables"
+    case toDetailsDeliverable
+    case goToPost
 }
