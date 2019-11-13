@@ -13,5 +13,4 @@ enum detailsTypeCell: Int{
     case description = 1
     case status = 2
     case date = 3
-    case post = 4
 }
