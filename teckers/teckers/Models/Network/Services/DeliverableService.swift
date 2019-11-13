@@ -21,4 +21,22 @@ struct DeliverableService {
             }
         }, onFailure: nil)
     }
+    static func getOneDeliverable(for id: String, onSuccess success: @escaping (_ result: Deliverable) -> Void, onFailure: ((Error)->Void)?){
+        NetworkHandler.request(url: DeliverableRouter.getOneDeliverableWith(id), onSucess: { (response) in
+            do{
+                if let data = response.data{
+                    let deliverable = try JSONDecoder().decode(Deliverable.self, from: data)
+                    success(deliverable)
+                }
+            }
+            catch{
+                print(error.localizedDescription)
+            }
+        }, onFailure: nil)
+    }
+    static func postDeliverable(for id: String, text: String, onSuccess success: @escaping () -> Void, onFailure failure: () -> Void){
+        NetworkHandler.request(url: DeliverableRouter.postDeliverable(id: id, text: text), onSucess: { (response) in
+            success()
+        }, onFailure: nil)
+    }
 }
