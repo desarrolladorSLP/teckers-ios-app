@@ -138,12 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwX-Zn-POf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="69.642857142857139"/>
+            <point key="canvasLocation" x="2323" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pM-vk-Vj1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ea8-tV-rz4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginControllerID" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ea8-tV-rz4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W2s-w1-UvO">
@@ -161,7 +161,9 @@
         <!--Principal-->
         <scene sceneID="eAb-QJ-D6i">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="principalNavigationController" storyboardName="Principal" id="1jn-IL-sMp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="principalNavigationController" storyboardName="Principal" id="1jn-IL-sMp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vec-kv-ezS"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofe-Kp-Jyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1902.8985507246377" y="69.642857142857139"/>

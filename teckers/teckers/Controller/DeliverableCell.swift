@@ -19,7 +19,7 @@ class DeliverableCell: UITableViewCell {
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MMMM-yyyy"
+        formatter.dateFormat = TypeDateFormat.dayMonthYear.rawValue
         return formatter
     }
     
