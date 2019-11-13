@@ -725,6 +725,7 @@
 				4DF508AF230CE5E7000C2B95 /* Token.swift in Sources */,
 				4D576538237F175F005A28E4 /* Batch.swift in Sources */,
 				1DED601C23025FBA00B5E13A /* Alert.swift in Sources */,
+				4DB6B664237C9F1B003BCF82 /* detailsTypeCell.swift in Sources */,
 				4D3DAB18232593550023FAA2 /* MessagesLists.swift in Sources */,
 				9B90A33F22D7A6D500342CEE /* LoginViewController.swift in Sources */,
 				4D95167E237D09AC007AE872 /* ProgramBatchController.swift in Sources */,
