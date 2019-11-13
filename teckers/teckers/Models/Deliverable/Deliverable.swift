@@ -16,7 +16,7 @@ struct Deliverable: Decodable {
     let date: Date?
     
     enum CodingKeys: String, CodingKey{
-        case id, title, description, status, date = "dueDate"
+        case id, title, description , status, date = "dueDate"
     }
     
     init(from decoder: Decoder) throws {
@@ -25,11 +25,11 @@ struct Deliverable: Decodable {
         title = try container.decode(String.self, forKey: .title)
         let dateString = try container.decode(String.self, forKey: .date)
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy/MM/dd"
+        dateFormater.dateFormat = TypeDateFormat.dayMonthYearNumbers.rawValue
         date = dateFormater.date(from: dateString)
         let statusNumber = try container.decode(String.self, forKey: .status)
         status = statusDeliverables(rawValue: statusNumber)
-        description = nil
+        description = try container.decodeIfPresent(String.self, forKey: .description)
     }
     
 }
