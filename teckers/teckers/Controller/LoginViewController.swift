@@ -23,25 +23,25 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             if self?.spinner?.isAnimating ?? false{
                 self?.spinner.stopAnimating()
             }
-        }) { (error) in
+        }) { [weak self](error) in
             if let signOutError = error {
                 let alertAction = Alert(title: "Error", massage: signOutError.localizedDescription)
-                self.present(alertAction.showOK(), animated: true, completion: nil)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
+                if self?.spinner?.isAnimating ?? false{
+                    self?.spinner.stopAnimating()
+                }
             }
         }
-        
-        if(GIDSignIn.sharedInstance()?.currentUser != nil){
-            self.performSegue(withIdentifier: Segues.toHome.rawValue, sender: nil)
-        }
         GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().signInSilently()
         signUI()
     }
     
     func signUI() {
-        signInButton.layer.cornerRadius = 20
-        spinner.hidesWhenStopped = true
-        spinner.transform = CGAffineTransform(scaleX: 2, y: 2);
-        spinner.style = .whiteLarge
+        signInButton?.layer.cornerRadius = 20
+        spinner?.hidesWhenStopped = true
+        spinner?.transform = CGAffineTransform(scaleX: 2, y: 2);
+        spinner?.style = .whiteLarge
     }
     @IBAction func tapDown(_ sender: Any) {
         spinner.startAnimating()
@@ -63,5 +63,13 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 }
 
 extension LoginViewController : InteractionScreenDelegate {
-    
+    func goTo(with segueIdentifier: Segues) {
+        if segueIdentifier == Segues.toHome {
+            let storyboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
+            if let home = storyboard.instantiateViewController(withIdentifier: Views.principalNavigationController.rawValue) as? UINavigationController {
+                UIApplication.shared.delegate?.window??.rootViewController = home
+            }
+            
+        }
+    }
 }
