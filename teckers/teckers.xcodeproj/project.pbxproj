@@ -20,6 +20,7 @@
 		1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */; };
 		1DB4518A2315B8F200AD3684 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB451892315B8F200AD3684 /* Month.swift */; };
 		1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */; };
+		1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCB65F3237DD8D3004FA8C7 /* Roles.swift */; };
 		1DED601C23025FBA00B5E13A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED601B23025FBA00B5E13A /* Alert.swift */; };
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB58312314A7E000AC1A99 /* SessionController.swift */; };
@@ -97,6 +98,7 @@
 		1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1DB451892315B8F200AD3684 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAuthentication.swift; sourceTree = "<group>"; };
+		1DCB65F3237DD8D3004FA8C7 /* Roles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roles.swift; sourceTree = "<group>"; };
 		1DED601B23025FBA00B5E13A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1DED60212303651100B5E13A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		1DFB58312314A7E000AC1A99 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				4DA6471A2305B1F500376414 /* Authenticable.swift */,
 				1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */,
 				1DED60212303651100B5E13A /* AuthenticationInfo.swift */,
+				1DCB65F3237DD8D3004FA8C7 /* Roles.swift */,
 			);
 			path = Usuarios;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				4D190D1B23568A48002F5696 /* DeliverableService.swift in Sources */,
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
 				4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */,
+				1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */,
 				4DBBF66C231090B300F722FC /* HomeController.swift in Sources */,
 				1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
