@@ -13,4 +13,5 @@ enum Views: String {
     case HomeControllerID
     case principalNavigationController
     case LoginControllerID
+    case DeliverablesID
 }

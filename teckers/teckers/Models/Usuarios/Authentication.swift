@@ -85,6 +85,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
         do{
             let authFromBackend = AuthenticationInfo(JSON: jsonResponse)
             try self.saveToken(accessToken: authFromBackend.access_token, and: token)
+            UserDefaults.standard.set(authFromBackend.roles, forKey: TokenKeys.roles.rawValue)
         }
         catch{
             self.onFailure!(error)
