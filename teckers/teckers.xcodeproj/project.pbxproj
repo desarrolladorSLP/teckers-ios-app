@@ -26,6 +26,7 @@
 		1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */; };
 		1DB4518A2315B8F200AD3684 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB451892315B8F200AD3684 /* Month.swift */; };
 		1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */; };
+		1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCB65F3237DD8D3004FA8C7 /* Roles.swift */; };
 		1DED601C23025FBA00B5E13A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED601B23025FBA00B5E13A /* Alert.swift */; };
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB58312314A7E000AC1A99 /* SessionController.swift */; };
@@ -129,6 +130,7 @@
 		1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1DB451892315B8F200AD3684 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAuthentication.swift; sourceTree = "<group>"; };
+		1DCB65F3237DD8D3004FA8C7 /* Roles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roles.swift; sourceTree = "<group>"; };
 		1DED601B23025FBA00B5E13A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1DED60212303651100B5E13A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		1DFB58312314A7E000AC1A99 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
@@ -260,15 +262,7 @@
 		4D82A4D82355106900491EDB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				4DAAB126238D90B90050DF42 /* TypeDateFormat.swift */,
-				4D950803237E621A005EA66A /* Batch */,
-				4D950802237E620E005EA66A /* Program */,
-=======
-				4D950803237E621A005EA66A /* Batch */,
-				4D950802237E620E005EA66A /* Program */,
 				4DB6B663237C9F1B003BCF82 /* detailsTypeCell.swift */,
->>>>>>> Project configuration
 				1DED601B23025FBA00B5E13A /* Alert.swift */,
 				1D2B2375233D1F52004C70CC /* DateCalendar.swift */,
 				4DF508AE230CE5E7000C2B95 /* Token.swift */,
@@ -288,7 +282,6 @@
 		4D82A4D92355108300491EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				1D37B42F2387188B005DA29F /* DeriverablesTeckersCell.xib */,
 				4D190D1623564E21002F5696 /* DeliverableCell.xib */,
 				4D9C1D3C2385BD6700AB7EF4 /* DetailsDeliverableCell.xib */,
@@ -299,17 +292,6 @@
 				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
 				4DB6B665237CA146003BCF82 /* MainTabBarController.swift */,
 				4D9552B0232B581C0008E86E /* MainNavigationItem.swift */,
-=======
-				4DD230BC2311FDD2000A87A8 /* Principal.storyboard */,
-				4D8A9A132304A459003483EC /* InteractionScreenDelegate.swift */,
-				4D9552B0232B581C0008E86E /* MainNavigationItem.swift */,
-				4DB6B665237CA146003BCF82 /* MainTabBarController.swift */,
-				4D190D1623564E21002F5696 /* DeliverableCell.xib */,
-				4D37CF21235E0CD900860206 /* DetailsDeliverableCell.xib */,
-				4D3DAB15232591450023FAA2 /* MessageCell.xib */,
-				9B90A34522D7A6D600342CEE /* LaunchScreen.storyboard */,
-				9B90A34022D7A6D500342CEE /* Main.storyboard */,
->>>>>>> Project configuration
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,10 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				4D3C2B152332E71600DEAA44 /* MessagesService.swift */,
-<<<<<<< HEAD
 				4D190D1A23568A48002F5696 /* DeliverableService.swift */,
-=======
->>>>>>> Project configuration
 				4D950800237E60E1005EA66A /* ProgramService.swift */,
 				4D576535237F15AD005A28E4 /* BatchService.swift */,
 			);
@@ -440,6 +419,7 @@
 				4DA6471A2305B1F500376414 /* Authenticable.swift */,
 				1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */,
 				1DED60212303651100B5E13A /* AuthenticationInfo.swift */,
+				1DCB65F3237DD8D3004FA8C7 /* Roles.swift */,
 			);
 			path = Usuarios;
 			sourceTree = "<group>";
@@ -455,10 +435,7 @@
 		4D950803237E621A005EA66A /* Batch */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				4DAAB12C238E33990050DF42 /* BatchTecker.swift */,
-=======
->>>>>>> Project configuration
 				4D576537237F175F005A28E4 /* Batch.swift */,
 			);
 			path = Batch;
@@ -724,10 +701,7 @@
 				4D1AC5EB23563716009E836D /* textDeliverableDireccion.swift in Sources */,
 				1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */,
 				4D950801237E60E1005EA66A /* ProgramService.swift in Sources */,
-<<<<<<< HEAD
 				4DAAB127238D90B90050DF42 /* TypeDateFormat.swift in Sources */,
-=======
->>>>>>> Project configuration
 				4D1AC5EA23563716009E836D /* imageDeliverables.swift in Sources */,
 				4D4DF16A233D208000DD4341 /* Views.swift in Sources */,
 				4D857F8F2350E81D004D2EBB /* NetworkAnswers.swift in Sources */,
@@ -779,13 +753,11 @@
 				1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */,
 				4D1899B92320164E00E25D8F /* MessagesTableViewDelegate.swift in Sources */,
 				4D9507FF237E6002005EA66A /* ProgramRouter.swift in Sources */,
+				1DCB65F4237DD8D3004FA8C7 /* Roles.swift in Sources */,
 				4DBBF66C231090B300F722FC /* HomeController.swift in Sources */,
 				1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */,
-<<<<<<< HEAD
 				1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */,
 				4DAAB12D238E339A0050DF42 /* BatchTecker.swift in Sources */,
-=======
->>>>>>> Project configuration
 				4D576534237F14B5005A28E4 /* BatchRouter.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
 				1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */,
