@@ -13,7 +13,7 @@
         <!--Messages-->
         <scene sceneID="QXY-aO-XJs">
             <objects>
-                <viewController id="PXg-AT-kN3" customClass="HomeController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessagesControllerID" id="PXg-AT-kN3" customClass="HomeController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXa-OB-2Ep">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="-529" y="2251"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="4K1-3M-R5e">
             <objects>
-                <tabBarController storyboardIdentifier="HomeControllerID" id="cgR-kB-Ffe" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeControllerID" id="cgR-kB-Ffe" customClass="MainTabBarController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="tWw-do-Zvk" customClass="MainNavigationItem" customModule="teckers" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="Coh-TC-kVL"/>
                     </navigationItem>
@@ -527,10 +527,26 @@
             </objects>
             <point key="canvasLocation" x="-1219" y="2251"/>
         </scene>
+        <!--Deliverable-->
+        <scene sceneID="rBN-Yx-6uK">
+            <objects>
+                <viewController id="VJL-cV-Sve" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2hh-Ah-4Yv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6vg-yG-S5m"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Deliverable" selectedImage="copy" id="rkx-35-qkO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T0U-db-8dX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="1322"/>
+        </scene>
         <!--Deliverables-->
         <scene sceneID="YW9-ZM-4b1">
             <objects>
-                <viewController id="qhx-WE-nDU" customClass="DeliverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeliverablesID" id="qhx-WE-nDU" customClass="DeliverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZd-dz-lN5">
 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
@@ -580,11 +596,11 @@
             <objects>
                 <viewController id="4yP-8d-rqm" customClass="DetailsDeliverableController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1L-sk-AvP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-lp-b7e">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Vuh-sa-FOd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -592,7 +608,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bc0-ZF-anT">
                                             <rect key="frame" x="125.66666666666669" y="8" width="124" height="28"/>
-                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                             <state key="normal" title="Redactar Tarea">
                                                 <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -660,7 +676,7 @@
                                 <rect key="frame" x="10" y="14" width="65" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Cancelar">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sendDeliverable:" destination="oQ7-6g-UJe" eventType="touchUpInside" id="h8Q-iv-F4Q"/>
