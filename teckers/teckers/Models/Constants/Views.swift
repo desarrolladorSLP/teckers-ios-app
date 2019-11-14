@@ -14,6 +14,12 @@ enum Views: String {
     case principalNavigationController
     case LoginControllerID
     case DeliverablesID
+<<<<<<< HEAD
     case ProgramBatchControllerID
+<<<<<<< HEAD
     case DeliverableMentorID
+=======
+=======
+>>>>>>> check roles
+>>>>>>> check roles
 }

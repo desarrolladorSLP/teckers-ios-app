@@ -88,6 +88,7 @@ class Authentication: NSObject, GIDSignInDelegate, Authenticable {
             UserInformation.shared.setInformation(infoUser: authFromBackend)
             UserDefaults.standard.set(authFromBackend.roles, forKey: TokenKeys.roles.rawValue)
             UserInformation.shared.setInformation(infoUser: authFromBackend)
+            UserDefaults.standard.set(authFromBackend.roles, forKey: TokenKeys.roles.rawValue)
         }
         catch{
             self.onFailure!(error)

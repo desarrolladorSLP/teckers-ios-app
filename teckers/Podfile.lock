@@ -100,7 +100,11 @@ DEPENDENCIES:
   - KeychainAccess
 
 SPEC REPOS:
+<<<<<<< HEAD
   trunk:
+=======
+  https://github.com/CocoaPods/Specs.git:
+>>>>>>> check roles
     - Alamofire
     - AppAuth
     - Firebase
@@ -144,4 +148,8 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 07e73414723f08c2598fa21178e90b9c04688321
 
+<<<<<<< HEAD
 COCOAPODS: 1.8.4
+=======
+COCOAPODS: 1.8.3
+>>>>>>> check roles
