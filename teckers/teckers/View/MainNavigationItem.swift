@@ -30,7 +30,7 @@ class MainNavigationItem: UINavigationItem {
         
         self.leftBarButtonItems = [hamburgerButton]
         self.titleView = imageView
-        setupMessages()
+//        setupMessages()
     }
     func setupMessages(){
         
