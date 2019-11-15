@@ -380,7 +380,6 @@
 				1DB3DEB222F9E9BC00AE9CA7 /* AuthRouter.swift */,
 				4D9507FE237E6002005EA66A /* ProgramRouter.swift */,
 				4D576533237F14B5005A28E4 /* BatchRouter.swift */,
-				1DD219172362215E00FF33A7 /* DeliverableRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -762,6 +761,7 @@
 				4DAAB12D238E339A0050DF42 /* BatchTecker.swift in Sources */,
 				4D576534237F14B5005A28E4 /* BatchRouter.swift in Sources */,
 				1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */,
+				4D576534237F14B5005A28E4 /* BatchRouter.swift in Sources */,
 				4D74A52623122A85008DC93B /* User.swift in Sources */,
 				1D9DE1F5232BD31600273123 /* SessionRouter.swift in Sources */,
 				1D37B42E23871882005DA29F /* DeriverablesTeckersCell.swift in Sources */,
