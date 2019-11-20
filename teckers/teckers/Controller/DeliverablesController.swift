@@ -30,7 +30,6 @@ class DeliverablesController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         let nibName2 = UINib(nibName: DeliverableCell.nameCell, bundle: nil)
-<<<<<<< HEAD
         tableView.register(nibName2, forCellReuseIdentifier: DeliverableCell.nameCell)
         DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
             if let teckersArray = deliverableArray {
@@ -40,11 +39,6 @@ class DeliverablesController: UIViewController {
                 let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
                 self?.present(alertAction.showOK(), animated: true, completion: nil)
             }
-=======
-        tableView.register(nibName2, forCellReuseIdentifier: identifierDeliverableCell)
-        DeliverableService.getDeliverable(success: {[weak self] deliverableArray in
-            self?.deliverables = deliverableArray
->>>>>>> Definition of Parent/Mentor with Teckers
         })
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
