@@ -77,6 +77,12 @@
 		4D96DD94235180DF0017F784 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DD93235180DF0017F784 /* NetworkError.swift */; };
 		4D988BCA2371F1D300685B11 /* PostDeliverableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D988BC92371F1D300685B11 /* PostDeliverableController.swift */; };
 		4D9C1D312385B21100AB7EF4 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D302385B21000AB7EF4 /* Roles.swift */; };
+		4D9C1D352385BC7400AB7EF4 /* TypeDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D342385BC7400AB7EF4 /* TypeDateFormat.swift */; };
+		4D9C1D382385BCBC00AB7EF4 /* DetailsDeliverableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D362385BCBB00AB7EF4 /* DetailsDeliverableCell.swift */; };
+		4D9C1D392385BCBC00AB7EF4 /* DetailsDeliverableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D372385BCBB00AB7EF4 /* DetailsDeliverableController.swift */; };
+		4D9C1D3B2385BD5400AB7EF4 /* PostDeliverableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D3A2385BD5400AB7EF4 /* PostDeliverableController.swift */; };
+		4D9C1D3D2385BD6800AB7EF4 /* DetailsDeliverableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C1D3C2385BD6700AB7EF4 /* DetailsDeliverableCell.xib */; };
+		4D9C1D3F2385C24C00AB7EF4 /* detailsTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C1D3E2385C24B00AB7EF4 /* detailsTypeCell.swift */; };
 		4DA6471B2305B1F500376414 /* Authenticable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471A2305B1F500376414 /* Authenticable.swift */; };
 		4DA6471D2305B23900376414 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6471C2305B23900376414 /* AuthManager.swift */; };
 		4DAAB127238D90B90050DF42 /* TypeDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAB126238D90B90050DF42 /* TypeDateFormat.swift */; };
@@ -260,6 +266,7 @@
 			children = (
 				4DAAB128238D921C0050DF42 /* detailsTypeCell.swift */,
 				1D5495D52367BF930038FACB /* DeliverableTeckers.swift */,
+				4D9C1D3E2385C24B00AB7EF4 /* detailsTypeCell.swift */,
 				4D1AC5E723563716009E836D /* imageDeliverables.swift */,
 				4D1AC5E923563716009E836D /* statusDeliverables.swift */,
 				4D1AC5E823563716009E836D /* textDeliverableDireccion.swift */,
@@ -315,6 +322,9 @@
 			children = (
 				1D37B42D23871882005DA29F /* DeriverablesTeckersCell.swift */,
 				1D7E52E12316B91000776C4F /* DayCell.swift */,
+				4D9C1D3A2385BD5400AB7EF4 /* PostDeliverableController.swift */,
+				4D9C1D362385BCBB00AB7EF4 /* DetailsDeliverableCell.swift */,
+				4D9C1D372385BCBB00AB7EF4 /* DetailsDeliverableController.swift */,
 				4D1AC5EE23563795009E836D /* DeliverableCell.swift */,
 				4D1AC5F123563795009E836D /* DeliverablesController.swift */,
 				1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */,
