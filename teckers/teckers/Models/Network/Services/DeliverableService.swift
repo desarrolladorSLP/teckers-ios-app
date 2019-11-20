@@ -77,24 +77,34 @@ struct DeliverableService {
     }
 
     static func getDeliverableTeckers(with roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
-        var endPoint: URLRequest
+//        TODO: change this function to a new router for teckers or parents and mentors
         if roles.contains( Roles.Parent.rawValue) {
-            endPoint =  DeliverableRouter.getDeliverablesParent
+            NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+                do {
+                    if let data = response.data {
+                        let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                            completion(deliverables, nil)
+                    }
+                }
+                catch {
+                    completion(nil, error)
+                }
+            }, onFailure: nil)
         }
         else if roles.contains(Roles.Mentor.rawValue) {
-            endPoint = DeliverableRouter.getDeliverablesMentor
+            NetworkHandler.request(url: DeliverableRouter.getDeliverablesMentor, onSucess: { (response) in
+                   do {
+                       if let data = response.data {
+                           let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                               completion(deliverables, nil)
+                       }
+                   }
+                   catch {
+                       completion(nil, error)
+                   }
+               }, onFailure: nil)
         }
-        NetworkHandler.request(url: endPoint, onSucess: { (response) in
-            do {
-                if let data = response.data {
-                    let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
-                        completion(deliverables, nil)
-                }
-            }
-            catch {
-                completion(nil, error)
-            }
-        }, onFailure: nil)
+        
     }
     static func postDeliverable(for id: String, text: String, onSuccess success: @escaping () -> Void, onFailure failure: () -> Void){
         NetworkHandler.request(url: DeliverableRouter.postDeliverable(id: id, text: text), onSucess: { (response) in
