@@ -13,10 +13,10 @@ class DeliverablesController: UIViewController {
     
     let status: [statusDeliverables] = [.toDo, .accepted, .blocked, .inProgress, .overdue, .readyForReview, .rejected, .rejected, .rejected, .rejected ]
     
-    var deliverables: [Deliverable] = [] {
-        didSet{
-            self.tableView.reloadData()
-        }
+    var deliverables: [Deliverable] = []
+    
+    func setup(with deliverablesArray: [Deliverable]) {
+        self.deliverables = deliverablesArray
     }
     
     override func viewDidLoad() {
@@ -27,11 +27,8 @@ class DeliverablesController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         
-        let nibName2 = UINib(nibName: "DeliverableCell", bundle: nil)
-        tableView.register(nibName2, forCellReuseIdentifier: "DeliverableCell")
-        DeliverableService.getDeliverable(success: {[weak self] deliverableArray in
-            self?.deliverables = deliverableArray
-        })
+        let nibName2 = UINib(nibName: DeliverableCell.nameCell, bundle: nil)
+        tableView.register(nibName2, forCellReuseIdentifier: DeliverableCell.nameCell)
     }
     
 }
@@ -46,13 +43,14 @@ extension DeliverablesController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DeliverableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: DeliverableCell.nameCell, for: indexPath)
         
         if let deliverableCell = cell as? DeliverableCell{
             deliverableCell.status = statusDeliverables(rawValue: deliverables[indexPath.row].status) ?? .none
             deliverableCell.type = (indexPath.row % 2 != 0) ? .right: .left
             deliverableCell.deliverable = deliverables[indexPath.row]
         }
+        
         return cell
     }
 }

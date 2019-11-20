@@ -9,7 +9,6 @@
 import Foundation
 
 struct AuthenticationInfo: Codable {
-    
     var email: String = ""
     var access_token: String = ""
     var name: String = ""
@@ -17,6 +16,7 @@ struct AuthenticationInfo: Codable {
     var validated: Int = 0
     var enabled: Int = 0
     var expiresIn: Int = 0
+    var roles: [String]?
     
     init(JSON: [String: Any]) {
         self.email = JSON["email"] as? String ?? ""
@@ -26,5 +26,6 @@ struct AuthenticationInfo: Codable {
         self.validated = JSON["validated"] as? Int ?? 0
         self.enabled = JSON["enabled"] as? Int ?? 0
         self.expiresIn = JSON["expiresIn"] as? Int ?? 0
+        self.roles = JSON["roles"] as? [String]
     }
 }
