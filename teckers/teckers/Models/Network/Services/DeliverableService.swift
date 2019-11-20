@@ -37,7 +37,7 @@ struct DeliverableService {
 
     static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
         
-        if roles.contains(Roles.Parent.rawValue) {
+        if roles.contains( Roles.Parent.rawValue) {
             NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
                 do {
                     if let data = response.data {
