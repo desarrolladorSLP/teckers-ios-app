@@ -58,7 +58,7 @@ class DetailsDeliverableController: UIViewController {
 extension DetailsDeliverableController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PostDeliverableController{
-            destination.delverable = deliverable
+            destination.deliverable = deliverable
         }
     }
 }
