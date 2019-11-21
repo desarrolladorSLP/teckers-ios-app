@@ -31,8 +31,14 @@ class DeliverablesController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         let nibName2 = UINib(nibName: DeliverableCell.nameCell, bundle: nil)
         tableView.register(nibName2, forCellReuseIdentifier: DeliverableCell.nameCell)
-        DeliverableService.getDeliverable(success: {[weak self] deliverableArray in
-            self?.deliverables = deliverableArray
+        DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+            if let teckersArray = deliverableArray {
+                self?.deliverables = teckersArray
+            }
+            else if let Error = error {
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
+            }
         })
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

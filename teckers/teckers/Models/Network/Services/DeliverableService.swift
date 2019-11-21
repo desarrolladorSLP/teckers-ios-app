@@ -9,30 +9,34 @@
 import Foundation
 
 struct DeliverableService {
-    static func getDeliverable(success : @escaping (_ messages:[Deliverable]) -> Void) {
+    static func getDeliverable(completion : @escaping (_ messages:[Deliverable]?, Error?) -> Void) {
         NetworkHandler.request(url: DeliverableRouter.getDeliverables, onSucess: { (response) in
-            do{
-                if let data = response.data{
-                    let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
-                    success(deliverables) 
-             catch {
-                    completion(nil, error)
-                }
-            }, onFailure: nil)
-        
-    }
-    static func getDeliverableParent(success : @escaping (_ messages:[DeliverableParent]) -> Void){
-        NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
-            do{
+            do {
                 if let data = response.data {
-                    let deliverables = try JSONDecoder().decode([DeliverableParent].self, from: data)
-                        success(deliverables)
-               catch {
+                    let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
+                    completion(deliverables, nil)
+                }
+            }
+            catch {
+                completion(nil, error)
+            }
+        }, onFailure: nil)}
+            
+    static func getDeliverableParent(completion : @escaping (_ messages:[DeliverableParentMentor]?, Error?) -> Void) {
+        NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+            do {
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([DeliverableParentMentor].self, from: data)
+                    completion(deliverables, nil)
+                }
+            }
+            catch {
                 completion(nil, error)
             }
         }, onFailure: nil)
         
     }
+    
     static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
         
         if (roles.contains(Roles.Parent.rawValue)) {

@@ -83,7 +83,7 @@ DEPENDENCIES:
   - KeychainAccess
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Firebase
     - FirebaseAnalytics
@@ -117,4 +117,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 07e73414723f08c2598fa21178e90b9c04688321
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

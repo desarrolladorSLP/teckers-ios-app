@@ -26,8 +26,8 @@ class DeliverablesTeckersController: UIViewController {
         collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
         
         if roles.contains(Roles.Tecker.rawValue) {
-            DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
-                self?.deliverables = deliverableArray
+            DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+                self?.deliverables = deliverableArray ?? []
                 self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
             })
         }
@@ -36,8 +36,8 @@ class DeliverablesTeckersController: UIViewController {
                 if let teckersArray = deliverableArray {
                     self?.teckers = teckersArray
                     if self?.teckers.count == 1 {
-                        DeliverableService.getDeliverable(success: { [weak self] deliverableArray in
-                            self?.deliverables = deliverableArray
+                        DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+                            self?.deliverables = deliverableArray ?? []
                             self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
                         })
                     }
