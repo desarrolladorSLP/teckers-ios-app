@@ -16,24 +16,7 @@ enum DeliverableRouter: URLRequestConvertible {
     case getDeliverablesId(teckerId: String)
     case getDeliverablesParent
     case getDeliverablesMentor
-    case getOneDeliverableWith(_ id: String)
-    case postDeliverable(id: String, text: String)
     
-    var method: HTTPMethod {
-        switch self {
-            case .getDeliverables:
-                return .get
-            case .getOneDeliverableWith(_):
-                return .get
-            case .postDeliverable(_, _):
-                return .post
-    
-            case .getDeliverables:
-                return .get
-            case .getDeliverablesParent:
-                return .get
-        }
-    }
     
     var method: HTTPMethod {
         switch self {
@@ -49,6 +32,7 @@ enum DeliverableRouter: URLRequestConvertible {
                 return .get
             case .postDeliverable(_, _):
                 return .post
+
         }
     }
     
@@ -56,6 +40,8 @@ enum DeliverableRouter: URLRequestConvertible {
         switch self {
             case .getDeliverables:
                 return "/api/tecker"
+          //case .getDeliverables:
+            //return "/api/tecker/deliverables"
             case .getOneDeliverableWith(let id):
                 return "/api/deliverable/\(id)"
             case .getDeliverablesId(let teckerId):
@@ -74,7 +60,6 @@ enum DeliverableRouter: URLRequestConvertible {
                 return ["Deliverable": text]
             default:
                 return nil
-        
         }
     }
     
@@ -86,5 +71,6 @@ enum DeliverableRouter: URLRequestConvertible {
             urlRequest.setValue("\(Header.Bearer.rawValue) \(accessToken)", forHTTPHeaderField: Header.Authorization.rawValue)
         }
         return try URLEncoding.default.encode(urlRequest, with: parameters)
+
     }
 }

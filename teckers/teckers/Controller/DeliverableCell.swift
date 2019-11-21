@@ -28,6 +28,8 @@ class DeliverableCell: UITableViewCell {
         formatter.dateFormat = TypeDateFormat.dayMonthYear.rawValue
         return formatter
     }
+  
+    static let nameCell = "DeliverableCell"
     
     var deliverable: Deliverable? {
         didSet{
