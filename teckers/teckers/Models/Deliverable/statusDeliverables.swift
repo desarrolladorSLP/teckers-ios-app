@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum statusDeliverables: Int{
-    case inProgress = 1
-    case toDo = 2
-    case readyForReview = 3
-    case accepted = 4
-    case rejected = 5
-    case blocked = 6
-    case overdue = 7
-    case none = 0
+enum statusDeliverables: String, Decodable{
+    case inProgress = "IN_PROGRESS"
+    case toDo = "TO_DO"
+    case readyForReview = "READY_FOR_REVIEW"
+    case accepted = "ACCEPTED"
+    case rejected = "REJECTED"
+    case blocked = "BLOCKED"
+    case overdue = "OVERDUE"
+    case none = "NONE"
 }

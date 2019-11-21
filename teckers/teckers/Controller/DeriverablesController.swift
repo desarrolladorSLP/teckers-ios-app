@@ -38,6 +38,21 @@ class DeliverablesTekersController: UIViewController {
         else {
             print("Pase a la otra pantalla")
         }
+        
+        if !roles.contains(Roles.Tecker.rawValue) {
+            DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
+                if let teckersArray = deliverableArray {
+                    self?.teckers = teckersArray
+                }
+                else if let Error = error {
+                    let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                    self?.present(alertAction.showOK(), animated: true, completion: nil)
+                }
+            })
+        }
+        else {
+            print("Pase a la otra pantalla")
+        }
     }
 }
 

@@ -14,10 +14,64 @@ struct DeliverableService {
             do{
                 if let data = response.data{
                     let deliverables = try JSONDecoder().decode([Deliverable].self, from: data)
-                    success(deliverables)
+                    success(deliverables) 
+             catch {
+                    completion(nil, error)
                 }
-            } catch {
-                print(error.localizedDescription)
+            }, onFailure: nil)
+        
+    }
+    static func getDeliverableParent(success : @escaping (_ messages:[DeliverableParent]) -> Void){
+        NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+            do{
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([DeliverableParent].self, from: data)
+                        success(deliverables)
+               catch {
+                completion(nil, error)
+            }
+        }, onFailure: nil)
+        
+    }
+    static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
+        
+        if (roles.contains(Roles.Parent.rawValue)) {
+            NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
+                do {
+                    if let data = response.data {
+                        let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                            completion(deliverables, nil)
+                    }
+                }
+                catch {
+                    completion(nil, error)
+                }
+            }, onFailure: nil)
+        }
+        else if (roles.contains(Roles.Mentor.rawValue) ) {
+            NetworkHandler.request(url: DeliverableRouter.getDeliverablesMentor, onSucess: { (response) in
+                do{
+                    if let data = response.data {
+                        let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                        completion(deliverables, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                }
+            }, onFailure: nil)
+        }
+    }
+                               
+    static func getOneDeliverable(for id: String, onSuccess success: @escaping (_ result: Deliverable) -> Void, onFailure: ((Error)->Void)?){
+        NetworkHandler.request(url: DeliverableRouter.getOneDeliverableWith(id), onSucess: { (response) in
+            do{
+                if let data = response.data{
+                    let deliverable = try JSONDecoder().decode(Deliverable.self, from: data)
+                    success(deliverable)
+                }
+            }
+            catch{
+              print(error.localizedDescription)
             }
         }, onFailure: nil)
     }
@@ -35,8 +89,9 @@ struct DeliverableService {
         }, onFailure: nil)
     }
 
-    static func getDeliverableTeckers(roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
-        
+    static func getDeliverableTeckers(with roles: [String], completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
+//        TODO: change this function to a new router for teckers or parents and mentors
+
         if roles.contains( Roles.Parent.rawValue) {
             NetworkHandler.request(url: DeliverableRouter.getDeliverablesParent, onSucess: { (response) in
                 do {
@@ -52,15 +107,22 @@ struct DeliverableService {
         }
         else if roles.contains(Roles.Mentor.rawValue) {
             NetworkHandler.request(url: DeliverableRouter.getDeliverablesMentor, onSucess: { (response) in
-                do{
-                    if let data = response.data {
-                        let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
-                        completion(deliverables, nil)
-                    }
-                } catch {
-                    completion(nil, error)
-                }
-            }, onFailure: nil)
+                   do {
+                       if let data = response.data {
+                           let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                               completion(deliverables, nil)
+                       }
+                   }
+                   catch {
+                       completion(nil, error)
+                   }
+               }, onFailure: nil)
         }
+        
+    }
+    static func postDeliverable(for id: String, text: String, onSuccess success: @escaping () -> Void, onFailure failure: () -> Void){
+        NetworkHandler.request(url: DeliverableRouter.postDeliverable(id: id, text: text), onSucess: { (response) in
+            success()
+        }, onFailure: nil)
     }
 }

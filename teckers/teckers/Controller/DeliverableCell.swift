@@ -17,6 +17,18 @@ class DeliverableCell: UITableViewCell {
     @IBOutlet weak var rightDateLabel: UILabel!
     @IBOutlet weak var leftDateLabel: UILabel!
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = TypeDateFormat.dayMonthYear.rawValue
+        return formatter
+    }
+    static let nameCell = "DeliverableCell"
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = TypeDateFormat.dayMonthYear.rawValue
+        return formatter
+    }
+  
     static let nameCell = "DeliverableCell"
     
     var deliverable: Deliverable? {
@@ -70,16 +82,23 @@ class DeliverableCell: UITableViewCell {
                 rightTitleLabel.isHidden = true
                 rightDateLabel.isHidden = true
             }
+            else {
+                leftTitleLabel.isHidden = true
+                leftDateLabel.isHidden = true
+                rightTitleLabel.isHidden = false
+                rightDateLabel.isHidden = false
+            }
+
         }
     }
     
     func useRightText(){
         rightTitleLabel.text = deliverable?.title
-        rightDateLabel.text = deliverable?.date
+        rightDateLabel.text = dateFormatter.string(from: deliverable?.date ?? Date())
     }
     func useLeftText(){
         leftTitleLabel.text = deliverable?.title
-        leftDateLabel.text = deliverable?.date
+        leftDateLabel.text = dateFormatter.string(from: deliverable?.date ?? Date())
     }
     
     override func awakeFromNib() {
