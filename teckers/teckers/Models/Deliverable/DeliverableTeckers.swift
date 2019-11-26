@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 struct DeliverableTeckers: Codable {
     let teckerId: String
     let name: String

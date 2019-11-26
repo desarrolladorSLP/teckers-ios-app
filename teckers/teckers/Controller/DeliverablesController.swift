@@ -44,7 +44,7 @@ class DeliverablesController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is DetailsDeliverableController{
             if let destination = segue.destination as? DetailsDeliverableController{
-                if tableView.indexPathForSelectedRow != nil{
+                if tableView.indexPathForSelectedRow != nil {
                     DeliverableService.getOneDeliverable(for: idMock, onSuccess: { (deliverable) in
                         destination.deliverable = deliverable
                     }) { (error) in

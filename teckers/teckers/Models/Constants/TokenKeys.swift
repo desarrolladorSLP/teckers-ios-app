@@ -9,6 +9,7 @@
 import Foundation
 
 enum TokenKeys : String{
-    case  RefreshToken
-    case  AccessToken
+    case RefreshToken
+    case AccessToken
+    case Roles
 }
