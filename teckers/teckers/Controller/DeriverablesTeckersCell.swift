@@ -13,9 +13,23 @@ class DeriverablesTeckersCell: UICollectionViewCell {
     @IBOutlet weak var imageDeriverables: UIImageView!
     @IBOutlet weak var titleDeriverables: UILabel!
     static let nameCell = "DeriverablesTeckersCell"
-    
+    var mainRect: CGRect?
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageDeriverables.image = UIImage(named: Image.perfilImageDefault.rawValue)
+        
+        self.imageDeriverables.layer.cornerRadius = self.imageDeriverables.frame.height / 2
+        self.imageDeriverables.layer.masksToBounds = true
+        mainRect = CGRect(x: 0, y: 0, width: self.imageDeriverables.frame.width, height: self.imageDeriverables.frame.height)
+        DispatchQueue.main.async { [weak self] in
+            if let rect = self?.mainRect{
+                let render = UIGraphicsImageRenderer(size: rect.size )
+                self?.imageDeriverables.image = render.image(actions: { (context) in
+                    context.fill(rect)
+                    self?.imageDeriverables.draw(rect)
+                })
+            }
+        }
         // Initialization code
     }
     
@@ -48,6 +62,11 @@ class DeriverablesTeckersCell: UICollectionViewCell {
                     self.imageDeriverables.draw(mainRect)
                 })
             }
+        }
+    }
+    func commitInit(name: String) {
+        DispatchQueue.main.async {
+            self.titleDeriverables.text = name
         }
     }
     

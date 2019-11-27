@@ -17,17 +17,15 @@ class ProgramBatchController: UIViewController {
     var program: Program? {
         didSet{
             BatchService.getBatches(by: program?.id ?? "", onSuccess: { (batches) in
-                self.batch = batches
+                self.batches = batches
             }, onFailure: nil)
         }
     }
+    var batch: Batch?
     var programs: [Program]?
-    var batch: [Batch]?
+    var batches: [Batch]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let navigator = navigationController {
-            navigator.setNavigationBarHidden(true, animated: true)
-        }
         setupContinueButton()
         
         ProgramService.getPrograms(onSuccess: {[weak self] (allPrograms) in
@@ -98,11 +96,12 @@ class ProgramBatchController: UIViewController {
         }
     }
     @IBAction func tapContinue(_ sender: Any) {
-        if let viewController = UIStoryboard(name: Storyboards.logedStoryboard.rawValue , bundle: nil).instantiateViewController(withIdentifier: Views.DeliverablesID.rawValue) as? DeliverablesController {
-               if let navigator = navigationController {
-                   navigator.setNavigationBarHidden(false, animated: true)
-                   navigator.pushViewController(viewController, animated: true)
-               }
+        if let viewController = UIStoryboard(name: Storyboards.logedStoryboard.rawValue , bundle: nil).instantiateViewController(withIdentifier: Views.DeliverableMentorID.rawValue) as? DeliverablesTeckersController {
+                if let navigator = navigationController {
+                    navigator.setNavigationBarHidden(false, animated: true)
+                    viewController.getTeckers(by: batch?.id ?? "")
+                    navigator.pushViewController(viewController, animated: true)
+                }
            }
     }
     
@@ -118,14 +117,14 @@ extension ProgramBatchController: UIPickerViewDataSource{
         if ProgramTextField.isFirstResponder{
             return (programs?.count ?? 0) 
         }
-        return (batch?.count ?? 0)
+        return (batches?.count ?? 0)
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if ProgramTextField.isFirstResponder{
             return programs?[row].name ?? ""
         }
         else if BatchTextField.isFirstResponder{
-            return batch?[row].name ?? ""
+            return batches?[row].name ?? ""
         }
         return ""
     }
@@ -135,7 +134,8 @@ extension ProgramBatchController: UIPickerViewDataSource{
             program = programs?[row]
         }
         else if BatchTextField.isFirstResponder{
-            BatchTextField.text = batch?[row].name
+            BatchTextField.text = batches?[row].name
+            batch = batches?[row]
         }
     }
     

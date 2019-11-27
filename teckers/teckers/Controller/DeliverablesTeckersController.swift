@@ -18,6 +18,7 @@ class DeliverablesTeckersController: UIViewController {
         }
     }
     var deliverables: [Deliverable] = []
+    let mockId = "fe1bba25-2d10-4828-8cdd-e278b1d32c76"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,28 +26,58 @@ class DeliverablesTeckersController: UIViewController {
         let nibCell = UINib(nibName: DeriverablesTeckersCell.nameCell, bundle: nil)
         collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
         
-        if roles.contains(Roles.Tecker.rawValue) {
-            DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
-                self?.deliverables = deliverableArray ?? []
-                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
-            })
-        }
-        else {
-            DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
-                if let teckersArray = deliverableArray {
-                    self?.teckers = teckersArray
-                    if self?.teckers.count == 1 {
-                        DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
-                            self?.deliverables = deliverableArray ?? []
-                            self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
-                        })
-                    }
+//        if roles.contains(Roles.Tecker.rawValue) {
+//            DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+//                self?.deliverables = deliverableArray ?? []
+//                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+//            })
+//        }
+//        else {
+//            
+//        }
+    }
+    func getTeckers(){
+        DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
+            if let teckersArray = deliverableArray {
+                self?.teckers = teckersArray
+                if self?.teckers.count == 1 {
+                    DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+                        self?.deliverables = deliverableArray ?? []
+                        let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
+                        if let deliverable = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesID.rawValue) as? DeliverablesController {
+                            deliverable.setup(with: self?.deliverables ?? [])
+                            self?.tabBarController?.viewControllers?[1] = deliverable
+                        }
+                        //self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
+                    })
                 }
-                else if let Error = error {
-                    let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                    self?.present(alertAction.showOK(), animated: true, completion: nil)
+            }
+            else if let Error = error {
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
+            }
+        })
+    }
+    
+    func getTeckers(by batch: String){
+        DeliverableService.getTeckers(by: batch) { [weak self] deliverableArray, error  in
+            if let teckersArray = deliverableArray {
+                self?.teckers = teckersArray
+                if self?.teckers.count == 1 {
+                    DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
+                        self?.deliverables = deliverableArray ?? []
+                        let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
+                        if let deliverable = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesID.rawValue) as? DeliverablesController {
+                            deliverable.setup(with: self?.deliverables ?? [])
+                            self?.tabBarController?.viewControllers?[1] = deliverable
+                        }
+                    })
                 }
-            })
+            }
+            else if let Error = error {
+                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+                self?.present(alertAction.showOK(), animated: true, completion: nil)
+            }
         }
     }
     
@@ -75,13 +106,16 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeriverablesTeckersCell.nameCell, for: indexPath) as! DeriverablesTeckersCell
         
-        DeriverablesTeckersCell.downloadImage(urlString: teckers[indexPath.row].imageUrl, completion: { data, error in
-            if let Error = error {
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                self.present(alertAction.showOK(), animated: true, completion: nil)
-            }
-            else if let Data = data {
+        DeriverablesTeckersCell.downloadImage(urlString: teckers[indexPath.row].imageUrl ?? "", completion: { data, error in
+//            if let Error = error {
+//                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
+//                self.present(alertAction.showOK(), animated: true, completion: nil)
+//            } else
+            if let Data = data {
                 cell.commitInit(data: Data, name: self.teckers[indexPath.row].name)
+            }
+            else{
+                cell.commitInit(name: self.teckers[indexPath.row].name)
             }
         })
         
@@ -92,7 +126,7 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
         if collectionView == collectionViewDeriverables {
             let idTecker = teckers[indexPath.row].teckerId
             
-            DeliverableService.getDeliverableId(id: idTecker, success: { [weak self] response in
+            DeliverableService.getDeliverableId(id: mockId, success: { [weak self] response in
                 self?.deliverables = response
                 self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: indexPath.row)
             })
