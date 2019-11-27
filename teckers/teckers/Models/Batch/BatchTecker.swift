@@ -1,21 +1,19 @@
 //
-//  DeliverableParent.swift
+//  BatchTecker.swift
 //  teckers
 //
-//  Created by Ricardo Granja on 24/10/19.
+//  Created by Maggie Mendez on 26/11/19.
 //  Copyright © 2019 Teckers. All rights reserved.
 //
 
 import Foundation
 
-import Foundation
-
-struct DeliverableTeckers: Codable {
+struct BatchTeckers: Codable {
     let teckerId: String
     let name: String
-    let imageUrl: String?
+    let pictureUrl: String
     
     enum CodingKeys: String, CodingKey {
-        case teckerId, name, imageUrl
+        case teckerId, name, pictureUrl
     }
 }

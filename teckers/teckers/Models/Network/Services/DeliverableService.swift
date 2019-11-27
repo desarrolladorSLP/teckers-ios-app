@@ -65,6 +65,19 @@ struct DeliverableService {
             }, onFailure: nil)
         }
     }
+    static func getTeckers(by batch: String, completion: @escaping (_ messages: [DeliverableTeckers]?, _ error: Error?) -> Void) {
+        NetworkHandler.request(url: BatchRouter.getTeckersByBatch(batchId: batch), onSucess: { (response) in
+            do {
+                if let data = response.data {
+                    let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                    completion(deliverables, nil)
+                }
+            }
+            catch {
+                completion(nil, error)
+            }
+        }, onFailure: nil)
+    }
                                
     static func getOneDeliverable(for id: String, onSuccess success: @escaping (_ result: Deliverable) -> Void, onFailure: ((Error)->Void)?){
         NetworkHandler.request(url: DeliverableRouter.getOneDeliverableWith(id), onSucess: { (response) in
@@ -111,16 +124,16 @@ struct DeliverableService {
         }
         else if roles.contains(Roles.Mentor.rawValue) {
             NetworkHandler.request(url: DeliverableRouter.getDeliverablesMentor, onSucess: { (response) in
-                   do {
-                       if let data = response.data {
-                           let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
-                               completion(deliverables, nil)
-                       }
+               do {
+                   if let data = response.data {
+                       let deliverables = try JSONDecoder().decode([DeliverableTeckers].self, from: data)
+                           completion(deliverables, nil)
                    }
-                   catch {
-                       completion(nil, error)
-                   }
-               }, onFailure: nil)
+               }
+               catch {
+                   completion(nil, error)
+               }
+           }, onFailure: nil)
         }
         
     }

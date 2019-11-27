@@ -12,10 +12,13 @@ import Alamofire
 enum BatchRouter: URLRequestConvertible {
     
     case getBatches( programId: String)
+    case getTeckersByBatch( batchId: String)
     
     var method: HTTPMethod {
         switch self {
             case .getBatches(_):
+                return .get
+            case .getTeckersByBatch(_):
                 return .get
         }
     }
@@ -24,6 +27,8 @@ enum BatchRouter: URLRequestConvertible {
         switch self {
             case .getBatches(let id):
                 return "/api/batch/program/\(id)"
+            case .getTeckersByBatch(let id):
+                return "/api/batch/\(id)/teckers"
         }
     }
     
