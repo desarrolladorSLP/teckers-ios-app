@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class SignedInViewController: UIViewController, GIDSignInUIDelegate {
+class SignedInViewController: UIViewController {
+    
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     

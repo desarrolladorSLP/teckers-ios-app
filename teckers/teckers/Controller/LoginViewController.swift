@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var signInButton: GIDSignInButton! //Google Button
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -32,8 +32,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 }
             }
         }
-        GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signInSilently()
+ //       GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+
         signUI()
     }
     
