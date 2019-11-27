@@ -15,17 +15,21 @@ class MainTabBarController: UITabBarController {
         let roles = UserDefaults.standard.array(forKey: TokenKeys.roles.rawValue) ?? []
         for r in roles {
             let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
-            let navigation = UINavigationController()
+//            let navigation = UINavigationController()
             if let role = r as? String{
-                switch(role){
-                    case "ROLE_ADMINISTRATOR":
+                switch(Roles(rawValue: role)){
+                    case .Administrador:
                         if let programs = storyboard.instantiateViewController(withIdentifier: Views.ProgramBatchControllerID.rawValue) as? ProgramBatchController {
-                            navigation.viewControllers = [programs]
-                            navigation.setNavigationBarHidden(true, animated: true)
-                            self.viewControllers?[1] = navigation
+                            self.viewControllers?[1] = programs
                             return
                         }
-                    case "ROLE_TECKER":
+                    case .Mentor:
+                        if let chooseTecker = storyboard.instantiateViewController(withIdentifier: Views.DeliverableMentorID.rawValue) as? DeliverablesTeckersController {
+                            chooseTecker.getTeckers()
+                            self.viewControllers?[1] = chooseTecker
+                            return
+                        }
+                    case .Tecker:
                         if let deliverable = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesID.rawValue) as? DeliverablesController {
                             self.viewControllers?[1] = deliverable
                         }
