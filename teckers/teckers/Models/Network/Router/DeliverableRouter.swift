@@ -40,8 +40,6 @@ enum DeliverableRouter: URLRequestConvertible {
         switch self {
             case .getDeliverables:
                 return "/api/tecker"
-          //case .getDeliverables:
-            //return "/api/tecker/deliverables"
             case .getOneDeliverableWith(let id):
                 return "/api/deliverable/\(id)"
             case .getDeliverablesId(let teckerId):

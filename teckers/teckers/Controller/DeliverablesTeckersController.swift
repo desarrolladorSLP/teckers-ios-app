@@ -11,43 +11,15 @@ import UIKit
 class DeliverablesTeckersController: UIViewController {
 
     @IBOutlet weak var collectionViewDeriverables: UICollectionView!
-    private let roles = UserInformation.shared.roles ?? []
-    var teckers: [DeliverableTeckers] = [] {
-        didSet{
-            self.collectionViewDeriverables.reloadData()
-        }
-    }
+    private let roles = UserDefaults.standard.array(forKey: TokenKeys.Roles.rawValue) as? [String]
     var deliverables: [Deliverable] = []
+    var teckers: [DeliverableTeckers] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nibCell = UINib(nibName: DeriverablesTeckersCell.nameCell, bundle: nil)
         collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
-        
-        if roles.contains(Roles.Tecker.rawValue) {
-            DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
-                self?.deliverables = deliverableArray ?? []
-                self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
-            })
-        }
-        else {
-            DeliverableService.getDeliverableTeckers(roles: roles, completion: { [weak self] deliverableArray, error  in
-                if let teckersArray = deliverableArray {
-                    self?.teckers = teckersArray
-                    if self?.teckers.count == 1 {
-                        DeliverableService.getDeliverable(completion: { [weak self] (deliverableArray, error) in
-                            self?.deliverables = deliverableArray ?? []
-                            self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: self)
-                        })
-                    }
-                }
-                else if let Error = error {
-                    let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                    self?.present(alertAction.showOK(), animated: true, completion: nil)
-                }
-            })
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,11 +37,7 @@ extension DeliverablesTeckersController: UICollectionViewDelegate {
 
 extension DeliverablesTeckersController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (self.teckers.count > 1) {
-            return teckers.count
-        }
-        
-        return 0
+        return teckers.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

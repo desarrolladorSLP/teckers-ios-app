@@ -9,8 +9,10 @@
 import Foundation
 
 enum Views: String {
-    case SignedInViewController = "SignedInViewControllerID"
     case HomeControllerID
     case principalNavigationController
     case LoginControllerID
+    case DeliverablesID
+    case DeliverablesParentMentor
+    case DeliverablesTecker
 }

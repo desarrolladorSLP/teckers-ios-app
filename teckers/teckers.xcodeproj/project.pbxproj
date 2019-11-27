@@ -14,7 +14,6 @@
 		1D2B2378233E91F4004C70CC /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2B2377233E91F4004C70CC /* Cell.swift */; };
 		1D2EDD95235799B400831E16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D2EDD94235799B400831E16 /* GoogleService-Info.plist */; };
 		1D35371A23452C3C0021CBEC /* MessagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35371923452C3B0021CBEC /* MessagesRouter.swift */; };
-		1D37B42C238716F2005DA29F /* DeliverableParentMentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */; };
 		1D37B42E23871882005DA29F /* DeriverablesTeckersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D37B42D23871882005DA29F /* DeriverablesTeckersCell.swift */; };
 		1D37B4302387188B005DA29F /* DeriverablesTeckersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D37B42F2387188B005DA29F /* DeriverablesTeckersCell.xib */; };
 		1D5495D42367BF5C0038FACB /* DeliverablesTeckersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */; };
@@ -27,6 +26,7 @@
 		1DB3DEB722FC6F8B00AE9CA7 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */; };
 		1DB4518A2315B8F200AD3684 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB451892315B8F200AD3684 /* Month.swift */; };
 		1DB7A11623354A0800D42389 /* HeaderAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */; };
+		1DCD04432387236F00AB494E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD04422387236F00AB494E /* MainTabBarController.swift */; };
 		1DED601C23025FBA00B5E13A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED601B23025FBA00B5E13A /* Alert.swift */; };
 		1DED60222303651100B5E13A /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED60212303651100B5E13A /* AuthenticationInfo.swift */; };
 		1DFB58322314A7E000AC1A99 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB58312314A7E000AC1A99 /* SessionController.swift */; };
@@ -105,7 +105,6 @@
 		1D2EDD94235799B400831E16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D2EDD9A23580E2500831E16 /* DeriverablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeriverablesController.swift; sourceTree = "<group>"; };
 		1D35371923452C3B0021CBEC /* MessagesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesRouter.swift; sourceTree = "<group>"; };
-		1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverableParentMentor.swift; sourceTree = "<group>"; };
 		1D37B42D23871882005DA29F /* DeriverablesTeckersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeriverablesTeckersCell.swift; sourceTree = "<group>"; };
 		1D37B42F2387188B005DA29F /* DeriverablesTeckersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeriverablesTeckersCell.xib; sourceTree = "<group>"; };
 		1D5495D32367BF5C0038FACB /* DeliverablesTeckersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverablesTeckersController.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		1DB3DEB622FC6F8B00AE9CA7 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		1DB451892315B8F200AD3684 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		1DB7A11523354A0800D42389 /* HeaderAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAuthentication.swift; sourceTree = "<group>"; };
+		1DCD04422387236F00AB494E /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1DED601B23025FBA00B5E13A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1DED60212303651100B5E13A /* AuthenticationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		1DFB58312314A7E000AC1A99 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 				4D1AC5E923563716009E836D /* statusDeliverables.swift */,
 				4D1AC5E823563716009E836D /* textDeliverableDireccion.swift */,
 				4D1AC5E5235636D1009E836D /* Deliverable.swift */,
-				1D37B42B238716F2005DA29F /* DeliverableParentMentor.swift */,
 			);
 			path = Deliverable;
 			sourceTree = "<group>";
@@ -289,6 +288,7 @@
 				1DFC4765231D7C2D00CDCF8E /* SessionCell.swift */,
 				1DFB58312314A7E000AC1A99 /* SessionController.swift */,
 				4DEAE17E22E8C89900137300 /* SignedInViewController.swift */,
+				1DCD04422387236F00AB494E /* MainTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -643,7 +643,6 @@
 			files = (
 				4D1AC5F623563795009E836D /* DeliverablesController.swift in Sources */,
 				4D9552B1232B581D0008E86E /* MainNavigationItem.swift in Sources */,
-				1D37B42C238716F2005DA29F /* DeliverableParentMentor.swift in Sources */,
 				4D1899BB2320283A00E25D8F /* SearchBarFilter.swift in Sources */,
 				4D9C1D3B2385BD5400AB7EF4 /* PostDeliverableController.swift in Sources */,
 				4D1AC5EB23563716009E836D /* textDeliverableDireccion.swift in Sources */,
@@ -651,6 +650,7 @@
 				4D1AC5EA23563716009E836D /* imageDeliverables.swift in Sources */,
 				4D4DF16A233D208000DD4341 /* Views.swift in Sources */,
 				4D857F8F2350E81D004D2EBB /* NetworkAnswers.swift in Sources */,
+				1DCD04432387236F00AB494E /* MainTabBarController.swift in Sources */,
 				4D8A9A142304A459003483EC /* InteractionScreenDelegate.swift in Sources */,
 				1DFC4766231D7C2D00CDCF8E /* SessionCell.swift in Sources */,
 				4D1AC5EC23563716009E836D /* statusDeliverables.swift in Sources */,
