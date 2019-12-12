@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1DL-Vl-NuP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1DL-Vl-NuP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -417,7 +417,6 @@
                         <segue destination="qhx-WE-nDU" kind="relationship" relationship="viewControllers" id="oHf-k3-8FW"/>
                         <segue destination="Xge-Ee-Xuh" kind="relationship" relationship="viewControllers" id="Jnw-qa-0PP"/>
                         <segue destination="9aC-rO-frU" kind="relationship" relationship="viewControllers" id="DlV-k4-W0f"/>
-                        <segue destination="uqG-oV-Fbb" kind="show" identifier="toDeliverablesParentMentor" id="OGT-mu-SJr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7W3-4o-s4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,11 +428,11 @@
             <objects>
                 <viewController storyboardIdentifier="DeliverablesParentMentor" id="uqG-oV-Fbb" customClass="DeliverablesTeckersController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMW-Te-2dF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mdK-82-eJC">
-                                <rect key="frame" x="15" y="44" width="345" height="623"/>
+                                <rect key="frame" x="15" y="0.0" width="345" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rJq-XR-wlW">
                                     <size key="itemSize" width="50" height="50"/>
@@ -475,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dur-ea-Xrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="2987"/>
+            <point key="canvasLocation" x="668" y="2958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0ni-ke-wXr">
@@ -491,7 +490,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrc-80-MXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320" y="2230"/>
+            <point key="canvasLocation" x="668" y="2194"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="krU-Ok-5Br">
@@ -531,18 +530,18 @@
             <objects>
                 <viewController id="qhx-WE-nDU" customClass="DeliverablesController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZd-dz-lN5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-fh-ihJ">
-                                <rect key="frame" x="185" y="0.0" width="5" height="667"/>
+                                <rect key="frame" x="185" y="0.0" width="5" height="647"/>
                                 <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="vOF-lj-k57"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wYL-zd-Knz">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <sections/>
                             </tableView>
@@ -575,11 +574,11 @@
             <objects>
                 <viewController id="4yP-8d-rqm" customClass="DetailsDeliverableController" customModule="teckers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1L-sk-AvP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-lp-b7e">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Vuh-sa-FOd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -710,6 +709,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dVt-tp-yuX"/>
-        <segue reference="OGT-mu-SJr"/>
     </inferredMetricsTieBreakers>
 </document>
