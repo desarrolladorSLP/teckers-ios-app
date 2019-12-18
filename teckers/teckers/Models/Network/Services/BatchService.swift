@@ -22,4 +22,16 @@ struct BatchService {
             }
         }, onFailure: failure)
     }
+    static func getTeckers(by batch: String, onSuccess success: @escaping ([BatchTeckers]) -> Void, onFailure failure: ((Error) -> Void)? ) {
+        NetworkHandler.request(url: BatchRouter.getTeckersByBatch(batchId: batch), onSucess: {(response) in
+            do {
+                if let data = response.data{
+                    let batches = try JSONDecoder().decode([BatchTeckers].self, from: data)
+                    success(batches)
+                }
+            } catch {
+                failure?(error)
+            }
+        }, onFailure: failure)
+    }
 }
