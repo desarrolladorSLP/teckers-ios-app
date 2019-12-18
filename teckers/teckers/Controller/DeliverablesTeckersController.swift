@@ -13,7 +13,11 @@ class DeliverablesTeckersController: UIViewController {
     @IBOutlet weak var collectionViewDeriverables: UICollectionView!
     private let roles = UserDefaults.standard.array(forKey: TokenKeys.Roles.rawValue) as? [String]
     var deliverables: [Deliverable] = []
-    var teckers: [DeliverableTeckers] = []
+    var teckers: [Tecker] = [] {
+        didSet{
+            collectionViewDeriverables.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +27,8 @@ class DeliverablesTeckersController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.toDeliverables.rawValue {
-            let teckersDeriverables = segue.destination as! DeliverablesController
-            teckersDeriverables.setup(with: deliverables)
+        if let destination = segue.destination as? DeliverablesController {
+            destination.setup(with: deliverables)
         }
     }
 }
@@ -41,29 +44,23 @@ extension DeliverablesTeckersController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeriverablesTeckersCell.nameCell, for: indexPath) as! DeriverablesTeckersCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeriverablesTeckersCell.nameCell, for: indexPath)
         
-        DeriverablesTeckersCell.downloadImage(urlString: teckers[indexPath.row].imageUrl, completion: { data, error in
-            if let Error = error {
-                let alertAction = Alert(title: "Error", massage: Error.localizedDescription)
-                self.present(alertAction.showOK(), animated: true, completion: nil)
-            }
-            else if let Data = data {
-                cell.commitInit(data: Data, name: self.teckers[indexPath.row].name)
-            }
-        })
-        
-        return cell
+        guard let cellTecker = cell as? DeriverablesTeckersCell else { return cell }
+        cellTecker.tecker = self.teckers[indexPath.row]
+        return cellTecker
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collectionViewDeriverables {
             let idTecker = teckers[indexPath.row].teckerId
-            
+//            self.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: indexPath.row)
             DeliverableService.getDeliverableId(id: idTecker, success: { [weak self] response in
                 self?.deliverables = response
                 self?.performSegue(withIdentifier: Segues.toDeliverables.rawValue, sender: indexPath.row)
-            })
+            }){ error in
+                print(error.localizedDescription)
+            }
         }
     }
 }
