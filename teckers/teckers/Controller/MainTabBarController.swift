@@ -13,13 +13,13 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
+//        let mainStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
         let roles = UserDefaults.standard.array(forKey: TokenKeys.Roles.rawValue) ?? []
-        let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
+        let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.Deliverables.rawValue, bundle: Bundle.main)
         if let role = roles[0] as? String{
             switch(Roles(rawValue: role)){
                 case .Administrador:
-                    if let programs = storyboard.instantiateViewController(withIdentifier: Views.ProgramBatchControllerID.rawValue) as? UIViewController {
+                    if let programs = storyboard.instantiateViewController(withIdentifier: Views.ProgramBatchControllerID.rawValue) as? ProgramBatchController {
                         self.viewControllers?[1] = programs
                         return
                     }
@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
                         DeliverableService.getDeliverableParent(completion: { [weak self] (deliverableArray, error) in
                             viewParent.teckers = deliverableArray ?? []
                             if viewParent.teckers.count == 1 {
-                                if let viewTecker = mainStoryboard.instantiateViewController(withIdentifier: Views.DeliverablesTecker.rawValue) as? DeliverablesController {
+                                if let viewTecker = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesTecker.rawValue) as? DeliverablesController {
                                     self?.viewControllers?[1] = viewTecker
                                 }
                             }
@@ -37,24 +37,43 @@ class MainTabBarController: UITabBarController {
                         })
                     }
                 case .Mentor:
-                    if let viewMentor = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesParentMentor.rawValue) as? DeliverablesTeckersController {
-                        DeliverableService.getDeliverableMentor(completion: { [weak self] (deliverableArray, error) in
-                            viewMentor.teckers = deliverableArray ?? []
-                            if viewMentor.teckers.count == 1 {
-                                if let viewTecker = mainStoryboard.instantiateViewController(withIdentifier: Views.DeliverablesTecker.rawValue) as? DeliverablesController {
-                                    self?.viewControllers?[1] = viewTecker
-                                }
-                            }
-                            self?.viewControllers?[1] = viewMentor
-                            return
-                        })
-                    }
+                    showTeckers(isParent: false, storyboard: storyboard)
+//                    if let viewMentor = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesParentMentor.rawValue) as? DeliverablesTeckersController {
+//                        DeliverableService.getDeliverableMentor(completion: { [weak self] (deliverableArray, error) in
+//                            viewMentor.teckers = deliverableArray ?? []
+//                            if viewMentor.teckers.count == 1 {
+//                                if let viewTecker = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesTecker.rawValue) as? DeliverablesController {
+//                                    self?.viewControllers?[1] = viewTecker
+//                                }
+//                            }
+//                            self?.viewControllers?[1] = viewMentor
+//                            return
+//                        })
+//                    }
                 case .Tecker:
                     if let deliverable = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesID.rawValue) as? DeliverablesController {
                         self.viewControllers?[1] = deliverable
                     }
                 default:
                     break
+            }
+        }
+    }
+    func showTeckers( isParent: Bool, storyboard: UIStoryboard){
+        if let showTeckers = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesParentMentor.rawValue) as? DeliverablesTeckersController {
+            if (isParent){
+                
+            }
+            else {
+                DeliverableService.getDeliverableMentor(completion: { [weak self] (deliverableArray, error) in
+                    showTeckers.teckers = deliverableArray ?? []
+                    if showTeckers.teckers.count == 1 {
+                        if let viewTecker = storyboard.instantiateViewController(withIdentifier: Views.DeliverablesTecker.rawValue) as? DeliverablesController {
+                            self?.viewControllers?[1] = viewTecker
+                        }
+                    }
+                    self?.viewControllers?[1] = showTeckers
+                })
             }
         }
     }
