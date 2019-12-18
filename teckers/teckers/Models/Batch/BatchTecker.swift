@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct BatchTeckers: Codable {
+struct BatchTeckers: Tecker, Codable {
     let teckerId: String
     let name: String
-    let pictureUrl: String
+    let imageURL: String?
     
     enum CodingKeys: String, CodingKey {
-        case teckerId, name, pictureUrl
+        case teckerId, name, imageURL = "pictureUrl"
     }
 }

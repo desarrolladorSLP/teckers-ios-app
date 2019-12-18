@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct DeliverableTeckers: Codable {
+struct DeliverableTeckers: Tecker, Codable {
     let teckerId: String
     let name: String
-    let imageUrl: String
+    let imageURL: String?
     
     enum CodingKeys: String, CodingKey {
-        case teckerId, name, imageUrl
+        case teckerId, name, imageURL = "imageUrl"
     }
 }

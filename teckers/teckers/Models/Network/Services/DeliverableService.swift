@@ -65,7 +65,7 @@ struct DeliverableService {
         }, onFailure: nil)
     }
     
-    static func getDeliverableId(id: String, success : @escaping (_ messages:[Deliverable]) -> Void) {
+    static func getDeliverableId(id: String, success : @escaping (_ messages:[Deliverable]) -> Void, onFailure failure: ((Error)->Void)?) {
         NetworkHandler.request(url: DeliverableRouter.getDeliverablesId(teckerId: id), onSucess: { (response) in
             do{
                 if let data = response.data {
@@ -73,9 +73,9 @@ struct DeliverableService {
                     success(deliverables)
                 }
             } catch {
-                print(error.localizedDescription)
+                failure?(error)
             }
-        }, onFailure: nil)
+        }, onFailure: failure)
     }
 
     static func postDeliverable(for id: String, text: String, onSuccess success: @escaping () -> Void, onFailure failure: () -> Void) {
