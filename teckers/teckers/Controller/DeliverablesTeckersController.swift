@@ -15,7 +15,9 @@ class DeliverablesTeckersController: UIViewController {
     var deliverables: [Deliverable] = []
     var teckers: [Tecker] = [] {
         didSet{
-            collectionViewDeriverables.reloadData()
+            if collectionViewDeriverables != nil{
+                collectionViewDeriverables.reloadData()
+            }
         }
     }
     
@@ -24,6 +26,9 @@ class DeliverablesTeckersController: UIViewController {
 
         let nibCell = UINib(nibName: DeriverablesTeckersCell.nameCell, bundle: nil)
         collectionViewDeriverables.register(nibCell, forCellWithReuseIdentifier: DeriverablesTeckersCell.nameCell)
+        if (!teckers.isEmpty){
+            collectionViewDeriverables.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
