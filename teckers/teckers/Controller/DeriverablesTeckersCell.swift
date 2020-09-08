@@ -13,14 +13,26 @@ class DeriverablesTeckersCell: UICollectionViewCell {
     @IBOutlet weak var imageDeriverables: UIImageView!
     @IBOutlet weak var titleDeriverables: UILabel!
     static let nameCell = "DeriverablesTeckersCell"
+    var tecker: Tecker? {
+        didSet{
+            self.downloadImage(urlString: tecker?.imageURL ?? "") {[weak self] (data, error) in
+                if let data = data{
+                    self?.commitInit(with: data, name: self?.tecker?.name ?? "Tecker")
+                }
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.imageDeriverables.image = #imageLiteral(resourceName: "default-user")
+        self.titleDeriverables.text = "Tecker"
     }
     
-    static func downloadImage(urlString: String, completion: @escaping (Data?,Error?) -> Void) {
-        guard let url = URL(string: urlString) else { return }
+    func downloadImage(urlString: String, completion: @escaping (Data?,Error?) -> Void) {
+        let urlStr = "https://cdn2.vectorstock.com/i/1000x1000/26/06/young-executive-woman-profile-icon-vector-9692606.jpg"
+        guard let url = URL(string: urlStr) else { return }
         
         NetworkHandler.requestImage(url: url, completionHandler: { data, error in
             if let Error = error {
@@ -32,7 +44,7 @@ class DeriverablesTeckersCell: UICollectionViewCell {
         })
     }
     
-    func commitInit(data: Data, name: String) {
+    func commitInit(with data: Data, name: String) {
         DispatchQueue.main.async {
             let mainRect = CGRect(x: 0, y: 0, width: self.imageDeriverables.frame.width, height: self.imageDeriverables.frame.height)
             

@@ -51,9 +51,7 @@ enum AuthRouter: URLRequestConvertible {
                 urlRequest.httpMethod = method.rawValue
                 urlRequest.setValue(Header.Basic.rawValue + String(base64LoginString), forHTTPHeaderField: authorizationHeader)
                 urlRequest.setValue(Header.Accept.rawValue, forHTTPHeaderField: acceptHeader)
-            } catch {
-                return error as! URLRequest
-            }
+            } 
         }
         
         return try URLEncoding.default.encode(urlRequest, with: parameters)
