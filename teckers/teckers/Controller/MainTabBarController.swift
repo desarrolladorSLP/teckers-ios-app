@@ -15,8 +15,9 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 //        let mainStoryboard = UIStoryboard(name: Storyboards.logedStoryboard.rawValue, bundle: Bundle.main)
         let roles = UserDefaults.standard.array(forKey: TokenKeys.Roles.rawValue) ?? []
+        
         let storyboard: UIStoryboard = UIStoryboard(name: Storyboards.Deliverables.rawValue, bundle: Bundle.main)
-        if let role = roles[0] as? String{
+        if roles.count > 0, let role = roles[0] as? String{
             switch(Roles(rawValue: role)){
                 case .Administrador:
                     if let programs = storyboard.instantiateViewController(withIdentifier: Views.ProgramBatchControllerID.rawValue) as? ProgramBatchController {
