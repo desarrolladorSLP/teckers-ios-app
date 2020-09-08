@@ -11,4 +11,5 @@ import Foundation
 enum Storyboards: String {
     case baseStoryboard = "Main"
     case logedStoryboard = "Principal"
+    case Deliverables
 }
